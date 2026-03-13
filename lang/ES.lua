@@ -1,0 +1,220 @@
+CE_MAIN = "Main"
+CE_SEC = "Sec"
+CE_STATE = "State"
+
+CE_LANG_ES = {
+    conditions = {
+      hp = TEXT("RUNE_EXCHANGE_TYPE_HP"),
+      mana = TEXT("SYS_MANA"),
+      focus = TEXT("SYS_CONCENTRATION"),
+      psi = "PSI",
+      energy = TEXT("SYS_VIGOR"),
+      rage = TEXT("SYS_FURY"),
+      bowSpeed = TEXT("SC_SKILLTIPS_RANGEDPS"),
+      mainHandSpeed = "Vel. Mano Principal",
+      offHandSpeed = "Vel. Mano Secundaria",
+      castingSpeed = TEXT("SC_SKILLTIPS_CAST"),
+      hasEffect = "Tiene Efecto",
+      hasNoEffect = "Sin Efecto",
+      hasSelfEffect = "Efecto Propio",
+      hasNoSelfEffect = "Sin Efecto Propio",
+      effectHasStack = "ID + Tiene Stacks",
+      effectNoStack = "ID + No Tiene Stacks",
+      effectEndTime = "Fin del Efecto + Tiempo",
+      isNotCombat = "No Está en Combate",
+      isNotMoving = "No Está en Movimiento",
+      pressShift = "Tecla Shift",
+      pressCtrl = "Tecla Ctrl",
+      pressAlt = "Tecla Alt",
+      hasShield = "Tiene Escudo",
+      hasTwoHand = "Tiene Arma de Dos Manos",
+      castingSuccessful = "Terminó de castear",
+      waitTime = "Esperar Tiempo",
+      targetHP = "HP del Objetivo",
+      targetOnMe = "Objetivo en Mí",
+      targetIsBoss = "Boss",
+      isCasting = "Está Casteando",
+      isCastingName = "Nombre del Casteo",
+      targetName = "Nombre del Objetivo",
+      cEngAOE = "C.Eng. AOE",
+      cEngConsumable = "C.Eng. Consumible",
+      cEngFastBuff = "C.Eng. Buff Rápido",
+      cEngPerfectSlide = "|cffFF5733Rebanada Perfecta|r",
+      cEngAutoSpellAoE = "|cffFF5733Hechizo AoE Automático|r",
+      cEngAutoShoot = "|cffFF5733Auto Disparo|r",
+      targetIsNotABoss = "No Boss",
+      beforeBuffEnd = "Antes que acabe",
+      isMoving = "En Movimiento",
+      Category1 = "Jugador",
+      Category2 = "Control",
+      Category3 = "Objetivo",
+      Category4 = "Heal/Support (Beta)",
+      Current = "Actual",
+      Name = "Nombre",
+      targetIsPlayer = "Es Jugador",
+      targetIsNotPlayer = "No Es Jugador",
+      playerWithLowestHealth = "|cff00FF00Menor HP|r",
+      targetMe = "|cff00FF00Target me|r",
+      targetByName = "|cff00FF00Nombre en el grupo|r",
+      ForceEnemyTarget = "|cff00FF00Forzar objetivo enemigo|r",
+      returnToFriendTarget = "|cff00FF00Último player|r",
+      targetTank = "|cff00FF00Target Tanque|r",
+    },
+    SelfEffect = "Propio",
+    OrMore = "O +",
+    Save = TEXT("MACRO_SAVE_CHANGE"),
+    Seconds = "Segs.",
+    And = "Y",
+    Or = "O",
+    Time = TEXT("RANKING_STR_TIME"),
+
+    Main = {
+      Aoe = "|cffffffffUsar áreas automaticamente",
+      Consumables = "|cffffffffUsar consumibles de forma automática",
+      FastBuffs = "|cffffffffSiempre usar buffos rápidos",
+      Macro = "|cffffffffCopiar macro",
+      Title = "|cffffffffJugando\n" .. _G.CE_MAIN .. " / " .. _G.CE_SEC .. "\n" .. _G.CE_STATE,
+      ShowDurability = "Mostrar durabilidad",
+      Share = "Compartir configuración",
+      AutoTarget = "Auto-target",
+      Mode = "Modo",
+      Unsupport = "No soportado",
+      Ready = "Preparado",
+      Stats = "Mostrar estadísticas del objetivo",
+    },
+
+    Sys = {
+      SystemMsg = "Macro copiada",
+      ChatMsg = "Macro copiada al portapapeles. |cffffff00/run CombatEngine()",
+      Playing = "Jugando",
+      ChatMsg2 = "Macro copiada al portapapeles. |cffffff00/run CombatEngine(%d)",
+    },
+
+    Tooltip = {
+      AoeSkills = "Habilidades de área",
+      ButtonShow = "|cff0099ffClic izquierdo:|r Abrir/Cerrar",
+      ButtonToggle = "|cff0099ffClic derecho:|r Activar/Desactivar",
+      ButtonCustom = "|cffFFFFFFUtiliza tu propia rotación con base en |cffFF5733Lua|r",
+      ButtonEdit = "|cffFFFF00Doble clic para entrar al modo edición",
+      Consumables = "Consumibles",
+      ClassSupport = "|cff00FFFFMostrar clases soportadas",
+      SupportedClasses = "Clases Soportadas",
+      Contact = "|cff00BFF2Si quieres añadir cualquier combinación de clases envía tu rotación a|r |cffFFFF00Neoraxer|r",
+      CleanSlot = "|cff00FFFFCombat Engine: |rClic derecho para limpiar la casilla",
+      NoSkill = "No posees esta habilidad",
+      NoItem = "No posees este item en tu mochila",
+      OpenBuffs = "Abrir buffs",
+      CloseBuffs = "Cerrar buffs",
+      FastBuffs = "Buffos rápidos",
+      Default = TEXT("DEFAULT"),
+      Custom = "Personalizado",
+      DefaultInfo = "|cffFFFFFFUtiliza las rotaciones |cffB9F63CLua|r |cffFFFFFFpor defecto.|r ",
+      PhysicalBoost = "Aumento Físico",
+      MagicBoost = "Aumento Mágico",
+      HealerBoost = "Aumento Curación",
+      TankBoost = "Aumento Tanque",
+      Info = TEXT("PET_TAB_INFORMATION"),
+      Enable = "Activo",
+      Disable = "Inactivo",
+      Up = "Subir",
+      Down = "Bajar",
+      Import = "Precaución: Esta acción borrará todas las rotaciones personalizadas y sustituirá con las macros por defecto.",
+    },
+
+    DeleteTrash = {
+      Runes = "Tirar runas de nivel bajo.",
+      RunesInfo = "Inferior a nivel IX\nSolo runas comunes\nRunas PVE",
+      Production = "Tirar runas de producción.",
+      Guild = "Tirar runas y piedras del gremio.",
+      Low = "Tirar flechas, proyectiles y pociones básicas.",
+    },
+
+    --Jugador
+    Tip1 = "Asigna un rango de HP para lanzar la habilidad. |cff22EE22La habilidad se usa cuando el HP del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip2 = "Asigna un rango de puntos de maná para lanzar la habilidad. |cff22EE22La habilidad se usa cuando el maná del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip3 = "Asigna un rango de puntos de foco para lanzar la habilidad. |cff22EE22La habilidad se usa cuando el foco del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip4 = "Asigna un rango de puntos de PSI para lanzar la habilidad. |cff22EE22La habilidad se usa cuando los PSI del jugador se encuentran entre el valor mínimo y el valor máximo establecido.|r",
+    Tip5 = "Asigna un rango de puntos de energía para lanzar la habilidad. |cff22EE22La habilidad se usa cuando la energía del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip6 = "Asigna un rango de puntos de ira para lanzar la habilidad. |cff22EE22La habilidad se usa cuando la ira del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+
+    --Velocidad del jugador
+    Tip7 = "Asigna un rango para la velocidad del arma de largo alcance para lanzar la habilidad. |cff22EE22La habilidad se usa cuando la velocidad del arma de largo alcance del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip8 = "Asigna un rango para la velocidad de ataque del arma de la mano principal. |cff22EE22La habilidad se usa cuando la velocidad de ataque del arma principal del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip9 = "Asigna un rango para la velocidad de ataque del arma de la mano secundaria. |cff22EE22La habilidad se usa cuando la velocidad de ataque del arma de la mano secundaria del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip10 = "Asigna un rango para la velocidad de invocación. |cff22EE22La habilidad se usa cuando la velocidad de invocación del jugador se encuentra entre el valor mínimo y el valor máximo establecido.|r",    
+
+    --Efectos del jugador
+    Tip11 = "Establece bajo qué efecto(s) debe estar el jugador. \n|cff22EE22La habilidad se usará cuando el jugador esté bajo el efecto del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [Tener ID 111111 + ID 222222 + ID 333333] o tener [ID 444444].|r",
+    Tip12 = "Establece bajo qué efecto(s) NO debe estar el jugador. \n|cff22EE22La habilidad se usará cuando el jugador NO esté bajo el efecto del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de no tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [NO Tener ID 111111 + NO ID 222222 + NO ID 333333] o NO tener [ID 444444].|r",
+    Tip13 = "Establece bajo qué efecto(s) propios (lanzados por sí mismo) debe estar el jugador. \n|cff22EE22La habilidad se usará cuando el jugador esté bajo el efecto propio del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [Tener ID 111111 + ID 222222 + ID 333333] o tener [ID 444444].|r",
+    Tip14 = "Establece bajo qué efecto(s) propios (lanzados por sí mismo) NO debe estar el jugador. \n|cff22EE22La habilidad se usará cuando el jugador NO esté bajo el efecto PROPIO del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de no tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [NO Tener ID 111111 + NO ID 222222 + NO ID 333333] o NO tener [ID 444444].|r",
+    --Stacks del jugador
+    Tip15 = "Establece la cantidad de stacks que un buff/debuff del jugador debe tener para usar la habilidad. \n\n|cffDDDDDDCampos:\n\n- ID del buff/debuff. \n\n- Número de stacks que debe tener el buff/debuff. \n\n- Casilla de verificación o + (Si se marca indica que se requiere la cantidad establecida o más). \n\n- Casilla efecto propio (Define si el buff/debuff debe haber sido lanzado por el mismo jugador).|r",
+    Tip16 = "Establece la cantidad de stacks que un buff/debuff del jugador NO debe tener para usar la habilidad. \n\n|cffDDDDDDCampos:\n\n- ID del buff/debuff. \n\n- Número de stacks que NO debe tener el buff/debuff. \n\n- Casilla de verificación o + (Si se marca indica que se requiere no tener la cantidad establecida o más que esta cantidad). \n\n- Casilla efecto propio (Define si el buff/debuff debe haber sido lanzado por el mismo jugador).|r",
+    --Jugador tiempos
+    Tip17 = "Establece un tiempo transcurrido tras acabar un efecto. \n|cff22EE22La habilidad será usada al terminar el efecto de un buff/debuff del jugador, indicado con un ID y tiempo requerido en segundos.|r",
+    Tip46 = "Establece un tiempo transcurrido antes de que acabe un efecto. \n|cff22EE22La habilidad será usada ANTES de que termine el efecto de un buff/debuff del jugador,  indicado con un ID y tiempo requerido en segundos.|r",
+
+    Tip18 = "La habilidad solo se usará cuando el jugador NO se encuentre en combate.",
+    Tip48 = "Solo lanzará la habilidad cuando el jugador esté en movimiento",
+    Tip19 = "Solo lanzará la habilidad cuando el jugador NO esté en movimiento",
+    Tip20 = "Solo lanzará la habilidad cuando el jugador tenga presionada la tecla SHIFT",
+    Tip21 = "Solo lanzará la habilidad cuando el jugador tenga presionada la tecla CTRL",
+    Tip22 = "Solo lanzará la habilidad cuando el jugador tenga presionada la tecla ALT",
+    Tip23 = "Solo lanzará la habilidad si el jugador tiene equipado un escudo",
+    Tip24 = "Solo lanzará la habilidad si el jugador tiene equipada un arma a dos manos",
+    Tip25 = "Solo lanzará la habilidad si el jugador ha terminado de castear la habilidad anterior",
+    Tip26 = "Esperar antes de usar la habilidad.\n|cff22EE22La habilidad solo se usará una vez haya transcurrido el tiempo indicado.|r\n\n|cffCCCCCCÚtil para comprobar habilidades con efecto no instantáneo.|r",
+
+    --Target
+    Tip27 = "Asigna un rango de HP para lanzar la habilidad. |cff22EE22La habilidad se usa cuando el HP del objetivo se encuentra entre el valor mínimo y el valor máximo establecido.|r",
+    Tip28 = "La habilidad solo se lanzará si eres el blanco del objetivo",
+    Tip29 = "La habilidad solo se lanzará si el objetivo es un jefe",
+    Tip30 = "La habilidad solo se lanzará si el objetivo está castenado alguna habilidad",
+    Tip31 = "La habilidad solo se lanzará si el objetivo está castenado alguna habilidad y el nombre de la habilidad coincide con el texto ingresado.",
+
+    --Target Effect
+    Tip32 = "Establece bajo qué efecto(s) debe estar el objetivo. \n|cff22EE22La habilidad se usará cuando el objetivo esté bajo el efecto del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [Tener ID 111111 + ID 222222 + ID 333333] o tener [ID 444444].|r",
+    Tip33 = "Establece bajo qué efecto(s) NO debe estar el objetivo. \n|cff22EE22La habilidad se usará cuando el objetivo NO esté bajo el efecto del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de no tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [NO Tener ID 111111 + NO ID 222222 + NO ID 333333] o NO tener [ID 444444].|r",
+    Tip34 = "Establece bajo qué efecto(s) propios (lanzados por el jugador) debe estar el objetivo. \n|cff22EE22La habilidad se usará cuando el objetivo esté bajo el efecto propio del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [Tener ID 111111 + ID 222222 + ID 333333] o tener [ID 444444].|r",
+    Tip35 = "Establece bajo qué efecto(s) propios (lanzados por el jugador) NO debe estar el objetivo. \n|cff22EE22La habilidad se usará cuando el objetivo NO esté bajo el efecto PROPIO del ID del buff/debuff especificado, pudiendo requerir cumplir la condición de no tener hasta 3 IDs distintos o solamente 1.|r\n\n|cffCCCCCCEjemplo:\n [NO Tener ID 111111 + NO ID 222222 + NO ID 333333] o NO tener [ID 444444].|r",
+
+    --Target Stack
+    Tip36 = "Establece la cantidad de stacks que un buff/debuff del objetivo debe tener para usar la habilidad. \n\n|cffDDDDDDCampos:\n\n- ID del buff/debuff. \n\n- Número de stacks que debe tener el buff/debuff. \n\n- Casilla de verificación o + (Si se marca indica que se requiere la cantidad establecida o más). \n\n- Casilla efecto propio (Define si el buff/debuff debe haber sido lanzado por el mismo jugador).|r",
+    Tip37 = "Establece la cantidad de stacks que un buff/debuff del objetivo NO debe tener para usar la habilidad. \n\n|cffDDDDDDCampos:\n\n- ID del buff/debuff. \n\n- Número de stacks que NO debe tener el buff/debuff. \n\n- Casilla de verificación o + (Si se marca indica que se requiere no tener la cantidad establecida o más que esta cantidad). \n\n- Casilla efecto propio (Define si el buff/debuff debe haber sido lanzado por el mismo jugador).|r",
+    
+    --Target Time
+    Tip38 = "Establece un tiempo transcurrido tras acabar un efecto. \n|cff22EE22La habilidad será usada al terminar el efecto de un buff/debuff del objetivo, indicado con un ID y tiempo requerido en segundos.|r",
+    Tip47 = "Establece un tiempo transcurrido antes de que acabe un efecto. \n|cff22EE22La habilidad será usada ANTES de que termine el efecto de un buff/debuff del objetivo, indicado con un ID y tiempo requerido en segundos.|r",
+
+    --Motor
+    Tip39 = "Solo se usará la habilidad si el botón de ÁREAS de |cffFFFF00Combat Engine|r está activado",
+    Tip40 = "Solo se usará la habilidad si el botón de CONSUMIBLES de |cffFFFF00Combat Engine|r está activado",
+    Tip41 = "Solo se usará la habilidad si el botón de Buffs Rápidos de |cffFFFF00Combat Engine|r está activado",
+
+    --Control
+    Tip42 = "Solo utilizable con la habilidad " .. TEXT("Sys1491777_name") .. ".\n|cff22EE22Activar esta casilla solo usará la habilidad " .. TEXT("Sys1491777_name") .. " de forma automática, ignorando todas las condiciones.",
+    Tip43 = "Lanza hechizos de forma automática. \n|cff22EE22Si esta casilla está activada, los hechizos de área que deben ser activados con un clic en el suelo se lanzarán automáticamente en la posición del cursor.",
+    Tip44 = "Solo utilizable con la habilidad " .. TEXT("Sys1490917_name") .. ".\n|cff22EE22Activar esta casilla solo usará la habilidad " .. TEXT("Sys1490917_name") .. " o la habilidad " .. TEXT("Sys1491206_name")  .. " de forma automática, ignorando todas las condiciones.",
+    Tip45 = "La habilidad solo se lanzará si el objetivo NO es un jefe",
+    Tip49 = "Solo se usará la habilidad si el objetivo tiene el mismo nombre que el texto ingresado",
+    Tip50 = "Solo se usará la habilidad si el objetivo es un jugador",
+    Tip51 = "Solo se usará la habilidad si el objetivo NO es un jugador",
+    Tip52 = "Solo se usará la habilidad sobre el jugador con el menor porcentaje de HP\n |cffFF00FFHabilidad Curativa: Si ningún jugador tiene menos de 100% de HP, la habilidad se ignorará.",
+    Tip53 = "Esta casilla te targetea a ti mismo, convirtiéndote en tu propio objetivo",
+    Tip54 = "Targetea al jugador con el nombre ingresado y lanza la habilidad sobre él",
+    Tip55 = "Targetea al objetivo |cffFF0000enemigo|r más cercano y lanza la habilidad sobre él",
+    Tip56 = "Regresa al último miembro del |cff00FFFFgrupo|r que haya sido targeteado",
+    Tip57 = "Busca al jugador con mayor aggro de la |cff00FFFFparty|r y lo targetea, luego usa la habilidad sobre él",
+}
+
+COMBATENGINE_DELETE_TEXTRUNE_ES = "Tirar runas de nivel bajo.";
+COMBATENGINE_DELETE_TEXTRUNE_EN = "Discard low level runes.";
+COMBATENGINE_DELETE_TEXTRUNE_INFO_ES = "Inferior a nivel IX\nSolo runas comunes\nRunas PVE";
+COMBATENGINE_DELETE_TEXTRUNE_INFO_EN = "Below level IX\nOnly common runes\nPvE Runes";
+COMBATENGINE_DELETE_TEXTPROD_ES = "Tirar runas de producción.";
+COMBATENGINE_DELETE_TEXTPROD_EN = "Discard production runes.";
+COMBATENGINE_DELETE_TEXTGUILD_ES = "Tirar runas y piedras del gremio.";
+COMBATENGINE_DELETE_TEXTGUILD_EN = "Discard runes and guild stones.";
+COMBATENGINE_DELETE_TEXTLOW_ES = "Tirar flechas, proyectiles y pociones básicas.";
+COMBATENGINE_DELETE_TEXTLOW_EN = "Discard arrows, projectiles and basic potions.";

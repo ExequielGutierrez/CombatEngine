@@ -1,0 +1,32 @@
+## Interface: 5
+## Version: 55
+## Title: Combat Engine
+## Author: Neoraxer
+
+lang/ES.lua
+lang/EN.lua
+lang/PL.lua
+lang/CN.lua
+lang/DE.lua
+lang/RU.lua
+lang/lang.lua
+
+CombatEngine_loadClass.lua
+CombatEngine.lua
+functions/deleteTrash/CE_Delete_Trash.lua
+functions/infoClass/CE_Info_class.lua
+functions/quickBar/CE_Quick_Bar.lua
+functions/buffs/CE_Buffs.lua
+functions/targetStats/TargetStats.lua
+CombatEngine.xml
+functions/quickBar/CE_quick_access_bar.xml
+functions/customEngine/CustomFight_Engine.lua
+functions/customEngine/CustomFight.lua
+functions/patch/patch.lua
+functions/customEngine/CustomFight.xml
+functions/durability/CE_durability.lua
+functions/durability/CE_durability.xml
+functions/count/CE_count.lua
+functions/count/CE_count.xml
+functions/share/share.lua
+functions/import/Import.lua

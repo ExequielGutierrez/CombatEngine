@@ -1,0 +1,380 @@
+
+Combat Engine por Neoraxer
+
+Macro:
+/run CombatEngine();
+
+v.73
+Improve durability position
+
+v.72
+Fix Wait Time condition
+Refactoring Mainframe Code
+
+v.71
+Updated PL Language
+
+v.70
+The Conditions tab was redesigned
+Experimental conditions for support and heal were added
+Fixed the saving of the icon position
+Fixed an issue where it was not possible to create custom rotations for classes without ISS
+
+Improved compatibility with new classes without a secondary class
+
+v.69
+Added conditions: "Is Player" and "Is Not Player"
+
+v.68
+Added info tooltips to conditions checkboxes, added some AI translations
+
+v.67
+Delete trash and autotarget improvements
+
+v.66
+-Added macro to CustomPresets
+/run CombatEngine(1)
+/run CombatEngine(2)
+/run CombatEngine(3)
+/run CombatEngine(4)
+/run CombatEngine(5)
+-Performance improvements
+
+v.65
+Fixed an issue where it was not possible to use title skills.
+
+Added support for more custom rotations.
+
+Fixed an issue where the checkboxes to disable skills were not being saved.
+
+Added a class image background to the custom rotation based on the current combination.
+
+v.64
+Display stats improvements
+
+v.63
+Fixed missing checkboxes
+Updated tooltips
+
+v.62
+Added target Stats Info to Tooltip
+
+v.61
+Delete trash delay
+
+v.60
+Added "Target name" condition
+Added "In movement" condition
+Added language support
+Added Polish (PL) translation
+
+v.59
+Enabled Mage to load the default preset to custom.
+Improved all rotation for Mages
+
+v.58
+Fixed import stuck
+
+v.57
+Enabled Warlock to load the default preset to custom.
+Improved all rotation for Warlocks.
+Increased the max custom skills to 50
+
+v.56
+Fixed an issue where items were still usable while disabled
+Added a function to load the default rotation into the custom rotation (currently only for Rogues)
+Updated all Rogue combinations
+Visual and sound improvements to the custom rotation
+
+v.55
+The old rotations have been patched to work correctly.
+
+v.54
+-Added a method to share the skills' configuration.
+-Fixed the issue where skills would be deleted when they were disabled.
+-Fixed the issue where consumables were used even when disabled.
+
+v.53
+-Hard improved for save method
+
+v.52
+-Improved durability update
+-Small fixes because a some dependencies
+-Improved Saving method
+
+v.51
+-Added option to show durability of equipment
+
+v.50
+-Added option to enable/disable autoTarget
+
+v.49 
+-Added condition Before buff end (id , time)
+-Fixed Autoshoot condition
+-Fixed Macro stuck
+
+v.48
+--Added condition Target is Boss
+
+v.47 
+-Added boss buffs exception to Mirrors World.
+-Added Warrior library potion to buffs.
+-Improved scout/mage rotation.
+-Created new tab for tools.
+-Fixed read stack functions.
+-Created custom presets feature.
+-Removed duplicated functions.
+
+v.46
+-Fixed auto delete on locked bag
+
+v45
+-Added Mage-Scout
+-Added Mage-Warlock
+-Added Mage-Champion
+-Improved read buffs player
+
+v44
+-Added Warlock-bard
+-Added Warlock-Warden
+-Added Bard-Champion
+-Added Bard-Warlock
+-Added Mage-Druid
+-Added Scout-Warlock
+-Added Scout-Champion
+-The healing party buffs have been disabled for the DPS and are now only used when you are solo
+-Improved the visual format of the supported classes list
+
+v43 debuff self stack
+
+v42 
+-Improved buffs and debuffs functions and multiple rotations
+-Fixed Autoshoot scout
+-Fixed selfDebuff rogue/warrior
+-Improved the discard frequency of objects.
+
+v41 Added option to discard basic potions, basic arrows, basic projectiles
+
+v40 Fixed button offset
+
+v39
+-Options have been added to clean up the loot (delete trash)
+
+v38
+-Added Skill Mague/warden 494049 castspeed >160
+-Remove skill 493547 Druid/Warlock
+-Added xtra Bar buff helper
+
+v37
+-Added Mage/Warden
+
+v36
+Matched to patch 11.1.2.3001:
+-Added skill mague/warrior 491565 to fast buff.
+-Removed skill mague/warrior 492630 now is passive.
+-Removed skill mague/warrior 490212 (ray).
+-Removed skill mague/priest 492633 now is passive
+-Removed skill warden/champion 493347, deleted
+-Updated contidion 1490846 warden/champion
+-Stretch CD Skills to 0.1 warden/champion
+-Removed skill warden/mage 493347, deleted
+-Removed skill warden/scout 493347, deleted
+-Warlock/Warrrior psi cost 498646 elevated to 2
+
+v35
+Get class name from system
+Added Warrior/Rogue
+Added Warrior/Priest
+
+v34
+Added Scout/Knight
+Get color class from system
+
+v33
+Add SelfEffect to rogue and warrior
+
+v31
+Improves warrior rotation
+
+
+v30
+multiple changes due to new patch 05-06-2024
+QuickBar Tooltip add / remove text on chat
+
+v27
+Fix CD_ISS funtion
+Optimized Rotation for R/WL
+
+
+v26
+-ADD KNIGHT/WARDEN
+-ADD MAGE/WARRIOR
+-ADD MAGE/KNIGHT
+
+
+v25
+- Perfect slide optimization
+
+v24
+- Warlock rotation optimized for more damage.
+- Warlocks: added The Hex quick buff.
+- Quick bar hidden on first load.
+- Dynamic quick bar for different classes.
+
+v23
+Created quick access bar R/W
+Created function Perfect Slide R/W
+Created function CE_GET_COST_ENERGY -> get base cost
+Optimized Rotation for Warlocks
+
+v22
+Multiple rotations optimized by the update
+clean ISS Exangue Rogue
+
+v21
+Optimized druid/warrior rotation
+Multiple rotations optimized
+New function added, On-OFF fast buffs <= 60 sec
+v20
+ADD BARD/MAGE
+ADD BARD/DRUID
+
+v19
+Fix Scout/druid => match with Update 08-04-2024
+ADD BARD/WARRIOR
+Switch sprites on/off options menu
+
+
+v18
+FIX CLASS FOR PATCH
+-Update Warlock/Champion
+-Update Scout/Druid
+-ADD BARD/WARDEN
+-ADD BARD/SCOUT
+-ADD BARD/ROGUE
+
+v17
+ADD PRIEST/WARRIOR
+OPTIMIZATED ROTATION KNIGHT/WARLOCK
+Complete auto-language ES/EN
+ADD all class description
+Created elemental damage info cards
+
+v16
+--ADD all imagen class info
+--ADD descrption for more combinations
+--OPIMIZATED ROTATION WARRRIOR/BARD FOR UPDATE
+--OPIMIZATED ROTATION WARRRIOR/WARLOCK FOR UPDATE
+--CREATE FUNCTION CE_WEAPON_TYPE()
+
+v15
+--Create function CE_READ_BUFF_FAST(ID) => return true or false
+--Create function CE_GET_FAST_POS(ID) => return page, pos (skill)
+--Fix warlock Ruthless Judgment function
+--Create Info class cards system
+--Fix function  CE_AFE(ID, TIME) => after buff ended, return true or false
+--ADD WARRIOR/WARDEN
+--ADD WARRIOR/SCOUT
+--ADD WARRIOR/BARD
+
+
+
+v14
+ADD DRUID/WARLOCK
+ADD DRUID/WARRIOR
+optimizated rotation Scout/Druid
+Optimizated rotation WARDEN/CHAMPION
+Auto-CLEAN AOE BUFF whith AoE off
+Optimizated rotation WARRIOR/WARLOCK
+Create function CE_GET_INDEX_BUFF(ID) => return Index
+
+
+v13
+ADD SCOUT/ROGUE
+OPTIMIZATED ROTATION SCOUT/DRUID
+
+v12
+ADD WARDEN/CHAMPION
+ADD WARDEN/SCOUT
+ADD WARDEN/MAGE
+ADD function CE_READ_PET(ID)
+ADD Auto-Use Item from bag store
+
+v11
+ADD SCOUT/WARRIOR
+Fix Function UseItem()
+create function CE_TARGET_IS_BOSS()
+
+
+V.10
+ADD WARLOCK/WARRIOR
+ADD WARLOCK/CHAMPION
+ADD WARLOCK/MAGE
+ADD WARLOCK/SCOUT
+ADD SCOUT/WARDEN
+
+
+v.9
+-Create function CE_HEALING_ITEM()
+and add for all rotations
+-Warrior/warlock condition move add for 
+"weakening weave curse, id 497959"
+
+
+--v.8 
+--ADD MAGE/ROGUE
+--ADD WARRIOR/WARLOCK
+--ADD WARRIOR/MAGE
+--ADD MAGE/PRIEST
+
+--14-03-2024
+--v.7 
+--Creada Interfaz de usuario
+--Creado metodo para guardar ajustes y posición del botón en UI
+--Se ha creado un metodo de carga de clase al entrar al juego, o al cambiar de clase, agilizando la rotación de las skills
+--ADD SCOUT/MAGE
+--ADD SCOUT/DRUID
+--ADD SCOUT/BARD
+--ADD SCOUT/PRIEST
+--ADD ROGUE/BARD
+--ADD ROGUE/DRUID
+--ADD ROGUR/KNIGHT
+--funcion creada C_Engine.Autoshot(Autodisparo) CE_OnLoad(), CE_OnLoad_Event(), CE_IS_SUPPORTED(), CE_IS_UNSUPPORTED(), 
+--CE_LOAD_CLASS(), CE_TARGET_ON_ME(), CE_SAVE_BUTTON_POS(), CE_SET_TEXT_CLASS(), CE_COPY_MACRO()
+
+
+
+-v.6 08-03-24
+ADD WARLOCK/ROGUE
+ADD function CE_isMoving()
+ADD function CE_AFE() -> Combat Engine After Buff Endend
+
+
+--V.5 07-03-24: 
+ADD function CE_isShield
+ADD KNIGHT/WARLOCK lua and function
+
+
+V.4 06-03-2024
+-Fix boss Rouge/Scout
+-ADD ROUGE/WARDEN
+-ADD ROUGE/MAGE
+
+
+
+--Combat ENGINE por Neoraxer. V 3.0 05-03-2024
+--ADD ROUGE/PRIEST
+--ADD ROUGE/CHAMPION
+--ADD ROUGE/SCOUT
+--ADD ROUGE/WARRIOR
+--ADD ROUGE/WARLOCK
+
+--Notas de la versión 3:
+--Reestructuración completa del código, Fix bugs, combinaciones separadas en archivos individuales
+--clases separadas por carpetas
+--optimización del código y funciones propias
+--no requiere minguna dependencia o addon para funcionar.
+--testear no Aoe y Exangue en "Saco de arena", Aoe on en "dianas"
+
+
+

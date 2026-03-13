@@ -1,0 +1,1243 @@
+<Ui xmlns="https://chroniclesofarcadia.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://chroniclesofarcadia.com/ https://chroniclesofarcadia.com/UI.xsd">
+	<Texture name="COMBAT_ENGINE_DEFAULTBUTTON_Template" file="Interface\addons\CombatEngine\texture\Custom\Default_PL.tga" virtual="true">
+	</Texture>
+	<Texture name="COMBAT_ENGINE_CUSTOMBUTTON_Template" file="Interface\addons\CombatEngine\texture\Custom\Custom_PL.tga" virtual="true">
+	</Texture>
+	<Frame name="CE_Frame2" hidden="true" parent="UIParent" frameStrata="MEDIUM" movable="true" enableMouse="false" alpha="0.95" frameLevel="0">
+		<Size x="600" y="450"/>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="UIParent" x="0" y="-20"/>
+			</Anchors>
+		<Layers>
+			<Layer>
+				<!--ARRIBA -->
+				<Texture name="FIL_1_COL_1" file="Interface\Addons\CombatEngine\texture\TGA\fila-1-columna-1.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="CE_Frame2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_1_COL_2" file="Interface\Addons\CombatEngine\texture\TGA\fila-1-columna-2.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_1_COL_3" file="Interface\Addons\CombatEngine\texture\TGA\fila-1-columna-3.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_1_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_1_COL_4" file="Interface\Addons\CombatEngine\texture\TGA\fila-1-columna-4.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_1_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>		
+					<!--MEDIO-->
+				<Texture name="FIL_2_COL_1" file="Interface\Addons\CombatEngine\texture\TGA\fila-2-columna-1.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_2_COL_2" file="Interface\Addons\CombatEngine\texture\TGA\fila-2-columna-2.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_2_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_2_COL_3" file="Interface\Addons\CombatEngine\texture\TGA\fila-2-columna-3.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_2_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="FIL_2_COL_4" file="Interface\Addons\CombatEngine\texture\TGA\fila-2-columna-4.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_2_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+					<!--ABAJO-->
+				<Texture name="FIL_3_COL_1" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-1.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="FIL_2_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+					<!--highlight 1-->
+				<Texture name="FIL_3_COL_1_H" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-1_highlight.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="FIL_2_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="FIL_3_COL_2" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-2.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_3_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+					<!--highlight 2-->
+				<Texture name="FIL_3_COL_2_H" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-2_highlight.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_3_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="FIL_3_COL_3" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-3.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_3_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				
+				<Texture name="FIL_3_COL_4" file="Interface\Addons\CombatEngine\texture\TGA\fila-3-columna-4.tga">
+					<Size x="150" y="150"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="FIL_3_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnHide>CE_MainFrame_OnHide();</OnHide>
+			<OnLoad>CE_MainFrame_OnLoad(this);</OnLoad>
+			<OnEvent>CE_MainFrame_OnEvent(event,arg1);</OnEvent>
+		</Scripts>
+	</Frame>
+
+
+<!-- playing class -->
+<Frame name="CE_UI_PLAYING_CLASS" frameStrata="MEDIUM" parent="CE_Frame2">
+	<Size x="128" y="128"/>
+	<Anchors>
+		<!-- Anclar arriba al centro dentro de CE_Frame3 -->
+		<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="CE_Frame2" x="0" y="-44"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<FontString name="CE_STRING_PLAYIN_CLASS" hidden="false" inherits="GameFontNormal" justifyH="CENTER" justifyV="MIDDLE" text="">
+				<Size x="128" y="128"/>
+				<FontHeight>
+					<AbsValue val="14"/>
+				</FontHeight>
+			</FontString>
+		</Layer>
+	</Layers>
+</Frame>
+
+
+ <!-- Texto 1 -->
+<Frame name="CE_UI_TITLE" frameStrata="MEDIUM" parent="CE_Frame2" enableMouse="true">
+	<Size x="445" y="40"/>
+	<Anchors>
+		<Anchor point="TOP" relativePoint="TOP" relativeTo="CE_Frame2" x="0" y="30"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<FontString name="LINE_CE_1" hidden="false" inherits="GameFontNormal" justifyH="CENTER" text="|cff00FFFFCombat Engine">
+				<Size x="100" y="50"/>
+				<Anchors><Anchor point="TOP" relativePoint="TOP" relativeTo="CE_Frame2" y="31"/></Anchors>
+				<FontHeight>
+					<AbsValue val="16"/>
+				</FontHeight>
+			</FontString>
+		</Layer>
+	</Layers>
+	<Scripts>
+		<OnMouseDown>CE_FrameTitle_OnMouseDown();</OnMouseDown>
+		<OnMouseUp>CE_FrameTitle_OnMouseUp();</OnMouseUp>
+	</Scripts>
+</Frame>
+     
+	   <!-- Close -->
+	 
+	<Button name="CE_BUTTON_CLOSE" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" inherits="CE_Frame2" >
+		<Size x="45" y="45"/>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_Frame2">
+				<Offset><RelDimension x="-26" y="24" /></Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_GenericClose_OnEnter(this);</OnEnter>
+			<OnClick>CE_ButtonClose_OnClick();</OnClick>
+			<OnLeave>CE_GenericClose_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga" alphaMode="ADD"/>
+	</Button>
+	
+	<!-- Boton Principal-->
+	<Button name="CE_BUTTON" hidden="false" parent="UIParent" movable="true" enableMouse="true">
+		<Size x="24" y="24"/>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="MinimapViewFrame">
+				<Offset><RelDimension x="-80" y="90"/></Offset>
+			</Anchor>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_MainButton_OnEnter(this);</OnEnter>
+			<OnLoad>CE_MainButton_OnLoad(this);</OnLoad>
+			<OnClick>CE_MainButton_OnClick(this);</OnClick>
+			<OnMouseDown>CE_MainButton_OnMouseDown(this);</OnMouseDown>
+			<OnMouseUp>CE_MainButton_OnMouseUp(this);</OnMouseUp>
+			<OnLeave>CE_MainButton_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\button.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\button.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\button.tga" alphaMode="ADD"/>
+	</Button>
+
+	<!-- Boton AoE OFF-->
+	<CheckButton name="CE_BUTTON_AOE" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" >
+		<Size x="28" y="28"/>
+		<Anchors>
+			<Anchor point="LEFT" relativePoint="LEFT" relativeTo="CE_Frame2" x="70" y="-110"/>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="LINE_CE_AOE" hidden="false" inherits="QuestFont" justifyH="LEFT" text="|cff00FFFFAOE|r">
+					<Size x="200" y="32"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" x="12" y="0"/>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="14"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>
+				CE_AOE_OnEnter(this, this:IsChecked());
+			</OnEnter>
+			<OnClick>
+				CE_SetAoEState(this:IsChecked());
+				CE_AOE_OnEnter(this, this:IsChecked());
+			</OnClick>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga" alphaMode="BLEND"/>
+		<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+		<DisabledCheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+	</CheckButton>
+
+	
+	<!-- Boton Consumibles OFF -->
+	<CheckButton name="CE_BUTTON_CONSUMABLES" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" >
+		<Size x="28" y="28"/>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_AOE">
+				<Offset>
+					<RelDimension x="0" y="4" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="LINE_CE_CONSUMABLE" hidden="false" inherits="QuestFont" justifyH="LEFT" text="|cff00FFFFConsumables|r">
+					<Size x="200" y="32"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" x="12" y="0"/>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="14"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>CE_Consumables_OnEnter(this, this:IsChecked());</OnEnter>
+			<OnClick>
+				CE_SetConsumablesState(this:IsChecked());
+				CE_Consumables_OnEnter(this, this:IsChecked());
+			</OnClick>
+			<OnLeave>GameTooltip:Hide();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga" alphaMode="BLEND"/>
+		<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+		<DisabledCheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+	</CheckButton>
+
+
+	<!-- Boton FAST BUFFS -->
+	<CheckButton name="CE_BUTTON_FAST_BUFFS" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" >
+		<Size x="28" y="28"/>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_CONSUMABLES">
+				<Offset>
+					<RelDimension x="0" y="4" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="LINE_CE_FAST_BUFFS" hidden="false" inherits="QuestFont" justifyH="LEFT" text="|cff00FFFFFast Buffs|r">
+					<Size x="200" y="32"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" x="12" y="0"/>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="14"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnEnter>CE_FASTBUFFS_OnEnter(this, this:IsChecked());</OnEnter>
+			<OnClick>
+				CE_SetFastBuffsState(this:IsChecked());
+				CE_FASTBUFFS_OnEnter(this, this:IsChecked());
+			</OnClick>
+			<OnLeave>GameTooltip:Hide();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga" alphaMode="BLEND"/>
+		<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+		<DisabledCheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+	</CheckButton>
+	
+	<!--AutoTarget -->
+	<CheckButton name="CE_AUTOTARGET" parent="CE_Frame2" movable="false" enableMouse="true" dependencies="true">
+		<Size x="28" y="28"/>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_FAST_BUFFS" x="0" y="4"/>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="LINE_CE_AUTOTARGET" hidden="false" inherits="QuestFont" justifyH="LEFT" text="|cff00FFFFAuto Target|r">
+					<Size x="200" y="32"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" x="12" y="0"/>
+					</Anchors>
+					<FontHeight>
+						<AbsValue val="14"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>CE_AutoTarget_OnLoad(this);</OnLoad>
+			<OnShow>CE_AutoTarget_OnShow(this);</OnShow>
+			<OnClick>CE_AutoTarget_OnClick(this);</OnClick>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+		<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+		<DisabledCheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON.tga"/>
+	</CheckButton> 
+
+	<!-- Adorno -->  
+	<Frame name="CE_ART_IMAGE" frameStrata="MEDIUM" parent="CE_Frame2">
+		<Size x="200" y="200"/>
+		<Anchors>
+			<Anchor point="RIGHT" relativePoint="RIGHT" relativeTo="CE_Frame2" x="-100" y="-70"/>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<Texture name="CE_ART_ADORNO" file="Interface\Addons\CombatEngine\texture\NEW_ICO.tga">
+					<Size x="200" y="200"/>
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_ART_IMAGE"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+	<Button name="CE_ART" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true">
+		<Size x="100" y="100"/>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_ART_IMAGE" x="0" y="0"/>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_Art_OnEnter(this);</OnEnter>
+			<OnClick>CE_Art_OnClick();</OnClick>
+			<OnLeave>CE_Art_OnLeave();</OnLeave>
+		</Scripts>
+	</Button>
+
+ <!-- HIDE BUTTON MACRO -->	 
+	<Button name="CE_BUTTON_HIDE_MACRO" parent="CE_Frame2" movable="false" enableMouse="true" hidden="false" inherits="CE_Frame2">
+		<Size x="150" y="32"/>
+		<Anchors>
+			<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="CE_Frame2" x="-140" y="-95"/>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_ButtonMacro_OnEnter_LUA();</OnEnter>
+			<OnClick>CE_ButtonMacro_OnClick_LUA();</OnClick>
+			<OnMouseDown>CE_ButtonMacro_OnMouseDown_LUA();</OnMouseDown>
+			<OnMouseUp>CE_ButtonMacro_OnMouseUp_LUA();</OnMouseUp>
+			<OnLeave>CE_ButtonMacro_OnLeave_LUA();</OnLeave>
+		</Scripts>
+	</Button>
+	 
+  <!-- Texto MACRO -->
+  <Frame name="CE_UI_STRING_MACRO" frameStrata="MEDIUM" parent="CE_Frame2">
+	<Size x="150" y="32"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_BUTTON_HIDE_MACRO" x="0" y="1"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<FontString name="LINE_CE_MACRO" hidden="false" inherits="QuestFont" justifyH="CENTER" justifyV="MIDDLE" text="|cffffffffCopy macro to clipboard!">
+				<Size x="150" y="32"/>
+				<FontHeight>
+					<AbsValue val="13"/>
+				</FontHeight>
+			</FontString>
+		</Layer>
+	</Layers>
+  </Frame>
+ 
+  <!-- Texto Mode -->
+	<Frame name="CE_UI_STRING_MODE" frameStrata="MEDIUM" parent="CE_Frame2" dependencies="true">
+		<Size x="150" y="32"/>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" y="20"/>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<FontString name="$parentText" hidden="false" inherits="QuestFont" justifyH="CENTER" justifyV="MIDDLE" text="|cffffff00MODE" weight="BOLD" outline="NORMAL">
+					<Size x="150" y="32"/>
+					<FontHeight>
+						<AbsValue val="18"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				this.Text:SetText("|cffFFFF00" .. _G.CE_LANG.Main.Mode .. "|r");
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+<!-- Boton Info -->
+
+	<Button name="CE_BUTTON_INFO" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" >
+		<Size x="60" y="60"/>
+		<Anchors>
+			<Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" relativeTo="CE_Frame2" x="-55" y="-55"/>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_ButtonInfo_OnEnter(this);</OnEnter>
+			<OnClick>CE_ButtonInfo_OnClick();</OnClick>
+			<OnLoad>CE_ButtonInfo_OnLoad();</OnLoad>
+			<OnLeave>CE_ButtonInfo_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\background.tga" />
+		<PushedTexture file="Interface\addons\CombatEngine\texture\background.tga" />
+		<DisabledTexture file="Interface\addons\CombatEngine\texture\background.tga" />
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\background.tga" alphaMode="ADD"/>
+		<NormalText name="$parentText" inherits="QuestFont" justifyH="CENTER" justifyV="MIDDLE"/>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\INF.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\INF.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\INF.tga" alphaMode="ADD"/>
+	</Button>
+
+<!-- Boton Tools -->
+
+	<Button name="CE_BUTTON_TOOLS" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" >
+		<Size x="30" y="30"/>
+		<Anchors>
+			<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="CE_Frame2" x="-82" y="-101"/>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_ButtonTools_OnEnter_LUA(this);</OnEnter>
+			<OnClick>CE_ButtonTools_OnClick_LUA();</OnClick>
+			<OnLeave>CE_ButtonTools_OnLeave_LUA();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Tools\Expand_normal.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\Tools\Expand_normal.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\Tools\Expand_Highlight.tga"/>
+	</Button>
+
+<!-- Boton Default -->
+
+	<Button name="CE_BUTTON_DEFAULT" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" id="1">
+		<Size x="93" y="18"/>
+		<Anchors>
+			<Anchor point="RIGHT" relativePoint="CENTER" relativeTo="CE_Frame2" x="-9" y="37"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>CE_ButtonDefault_OnLoad(this);</OnLoad>
+			<OnShow>CE_ButtonDefault_OnShow();</OnShow>
+			<OnEnter>CE_ButtonDefault_OnEnter(this);</OnEnter>
+			<OnClick>CE_ButtonDefault_OnClick(this);</OnClick>
+			<OnLeave>CE_ButtonDefault_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture inherits="COMBAT_ENGINE_DEFAULTBUTTON_Template"/>
+		<PushedTexture inherits="COMBAT_ENGINE_DEFAULTBUTTON_Template"/>
+		<HighlightTexture inherits="COMBAT_ENGINE_DEFAULTBUTTON_Template" alphaMode="ADD"/>
+	</Button>
+
+<!-- Boton Custom -->
+
+	<Button name="CE_BUTTON_CUSTOM" hidden="false" parent="CE_Frame2" movable="false" enableMouse="true" id="2">
+		<Size x="93" y="17"/>
+		<Anchors>
+			<Anchor point="LEFT" relativePoint="CENTER" relativeTo="CE_Frame2" x="9" y="37"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>CE_ButtonCustom_OnLoad(this);</OnLoad>
+			<OnEnter>CE_ButtonCustom_OnEnter(this);</OnEnter>
+			<OnClick>CE_ButtonCustom_OnClick(this);</OnClick>
+			<OnDoubleClick>CE_ButtonCustom_OnDoubleClick();</OnDoubleClick>
+			<OnLeave>CE_ButtonCustom_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture inherits="COMBAT_ENGINE_CUSTOMBUTTON_Template"/>
+		<PushedTexture inherits="COMBAT_ENGINE_CUSTOMBUTTON_Template"/>
+		<HighlightTexture inherits="COMBAT_ENGINE_CUSTOMBUTTON_Template" alphaMode="ADD"/>
+	</Button>
+
+ <!-- FRAME INFO CLASS-->
+	<Frame name="CE_FRAME_INFO_CLASS" hidden="true" parent="CE_Frame2" frameStrata="HIGH" movable="true" enableMouse="true">
+		<Size x="300" y="400"/>
+		<Anchors>
+			<Anchor point="RIGHT" relativePoint="LEFT" relativeTo="CE_Frame2" x="15" y="0"/>
+		</Anchors>
+		<Layers>
+			<Layer>
+				<Texture name="INFO_FIL_1_COL_1" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-1-columna-1.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="CE_FRAME_INFO_CLASS"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_1_COL_2" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-1-columna-2.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="INFO_FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_1_COL_3" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-1-columna-3.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="INFO_FIL_1_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_2_COL_1" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-2-columna-1.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_2_COL_2" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-2-columna-2.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_1_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_2_COL_3" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-2-columna-3.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_1_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_3_COL_1" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-3-columna-1.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_2_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_3_COL_2" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-3-columna-2.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_2_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_3_COL_3" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-3-columna-3.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_2_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_4_COL_1" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-4-columna-1.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_3_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_4_COL_2" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-4-columna-2.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_3_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="INFO_FIL_4_COL_3" file="Interface\Addons\CombatEngine\texture\INFO\INFO_fila-4-columna-3.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="INFO_FIL_3_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnMouseDown>
+				CE_FRAME_INFO_CLASS:StartMoving("TOPLEFT");
+			</OnMouseDown>
+			<OnMouseUp>
+				CE_FRAME_INFO_CLASS:StopMovingOrSizing();
+			</OnMouseUp>
+		</Scripts>
+	</Frame>
+	
+ <!-- FRAME UTILITIES-->
+	<Frame name="CE_FRAME_UTILITIES" hidden="true" parent="CE_Frame2" frameStrata="HIGH" movable="true" enableMouse="true">
+		<Size x="300" y="203"/>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="CE_Frame2" x="-20" y="8"/>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parent_Title" hidden="false" inherits="GameFontNormal" justifyH="CENTER" text="">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="35"/>
+					</Anchors>
+					<Size x="150" y="50"/>
+					<FontHeight>
+						<AbsValue val="16"/>
+					</FontHeight>
+				</FontString>
+			</Layer>
+			<Layer>	
+				<Texture name="UTILITIES_FIL_1_COL_1" file="Interface\Addons\CombatEngine\texture\Tools\fila-1-columna-1.tga">
+					<Size x="100" y="120"/>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="UTILITIES_FIL_1_COL_2" file="Interface\Addons\CombatEngine\texture\Tools\fila-1-columna-2.tga">
+					<Size x="100" y="100"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="UTILITIES_FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>	
+				<Texture name="UTILITIES_FIL_1_COL_3" file="Interface\Addons\CombatEngine\texture\Tools\fila-1-columna-3.tga">
+					<Size x="100" y="120"/>
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="UTILITIES_FIL_1_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>
+				<Texture name="UTILITIES_FIL_2_COL_1" file="Interface\Addons\CombatEngine\texture\Tools\fila-2-columna-1.tga">
+					<Size x="100" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="UTILITIES_FIL_1_COL_1"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>			
+				<Texture name="UTILITIES_FIL_2_COL_2" file="Interface\Addons\CombatEngine\texture\Tools\fila-2-columna-2.tga">
+					<Size x="100" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="UTILITIES_FIL_1_COL_2"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>	
+				<Texture name="UTILITIES_FIL_2_COL_3" file="Interface\Addons\CombatEngine\texture\Tools\fila-2-columna-3.tga">
+					<Size x="100" y="150"/>
+					<Anchors>
+						<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="UTILITIES_FIL_1_COL_3"/>
+					</Anchors>
+					<TexCoords left="0" right="1" top="0" bottom="1"/>
+				</Texture>	
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="CE_Anim01">
+				<Size x="45" y="45"/>
+				<Anchors>
+					<Anchor point="BOTTOM" x="0" y="8"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="CE_Anim01_Texture" file="Interface\Addons\CombatEngine\texture\animation\01\01.tga">
+							<Size x="45" y="45"/>
+							<Anchors>
+								<Anchor point="TOPLEFT"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnUpdate>
+						AnimationTest( this, elapsed );
+					</OnUpdate>
+				</Scripts>
+			</Frame>
+			<Button name="$parent_Close" movable="false" enableMouse="true" inherits="CE_FRAME_INFO_CLASS">
+				<Size x="45" y="45"/>
+				<Anchors>
+					<Anchor point="TOPRIGHT" x="6" y="6"/>
+				</Anchors>
+				<Scripts>
+					<OnEnter>CE_GenericClose_OnEnter(this);</OnEnter>
+					<OnClick>CE_GenericClose_OnClick(this);</OnClick>
+					<OnLeave>CE_GenericClose_OnLeave();</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+				<PushedTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+				<HighlightTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga" alphaMode="ADD"/>
+			</Button>
+			<CheckButton name="CE_BUTTON_CLEAN_RUNES" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="42" y="67"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_CLEAN_RUNES_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="...">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonCleanRunes_OnLoad(this);
+					</OnLoad>
+					<OnShow>
+						CE_ButtonCleanRunes_OnShow(this);
+					</OnShow>
+					<OnEvent>
+						CE_ButtonCleanRunes_OnEvent(this, event);
+					</OnEvent>
+					<OnClick>
+						CE_ButtonCleanRunes_OnClick(this);
+					</OnClick>
+					<OnEnter>
+						CE_ButtonCleanRunes_OnEnter(this);
+					</OnEnter>
+					<OnLeave>
+						CE_ButtonCleanRunes_OnLeave();
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+			<CheckButton name="CE_BUTTON_CLEAN_PROD" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_CLEAN_RUNES" x="0" y="2"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_CLEAN_PROD_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="...">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonCleanProd_OnLoad(this);
+					</OnLoad>
+					<OnShow>
+						CE_ButtonCleanProd_OnShow(this);
+					</OnShow>
+					<OnClick>
+						CE_ButtonCleanProd_OnClick(this);
+					</OnClick>
+					<OnEnter>
+						CE_ButtonCleanProd_OnEnter(this);
+					</OnEnter>
+					<OnLeave>
+						CE_ButtonCleanProd_OnLeave();
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+			<CheckButton name="CE_BUTTON_CLEAN_GUILD" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_CLEAN_PROD" x="0" y="2"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_CLEAN_GUILD_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="...">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonCleanGuild_OnLoad(this);
+					</OnLoad>
+					<OnShow>
+						CE_ButtonCleanGuild_OnShow(this);
+					</OnShow>
+					<OnClick>
+						CE_ButtonCleanGuild_OnClick(this);
+					</OnClick>
+					<OnEnter>
+						CE_ButtonCleanGuild_OnEnter(this);
+					</OnEnter>
+					<OnLeave>
+						CE_ButtonCleanGuild_OnLeave();
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+			<CheckButton name="CE_BUTTON_CLEAN_LOW" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_CLEAN_GUILD" x="0" y="2"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_CLEAN_LOW_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="...">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonCleanLow_OnLoad(this);
+					</OnLoad>
+					<OnShow>
+						CE_ButtonCleanLow_OnShow(this);
+					</OnShow>
+					<OnClick>
+						CE_ButtonCleanLow_OnClick(this);
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+			<CheckButton name="CE_BUTTON_SHOW_DURA" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_CLEAN_LOW" x="0" y="2"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_SHOW_DURA_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="...">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonShowDura_OnLoad(this);
+					</OnLoad>
+					<OnShow>
+						CE_ButtonShowDura_OnShow(this);
+					</OnShow>
+					<OnClick>
+						CE_ButtonShowDura_OnClick(this);
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+			<CheckButton name="CE_BUTTON_SHOW_STATS" movable="false" enableMouse="true">
+				<Size x="18" y="18"/>
+				<Anchors>
+					<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="CE_BUTTON_SHOW_DURA" x="0" y="2"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+						<FontString name="CE_BUTTON_SHOW_STATS_TEXT" hidden="false" inherits="QuestFont" justifyH="LEFT" text="">
+							<Size x="512" y="32"/>
+							<Anchors>
+								<Anchor point="LEFT" relativePoint="RIGHT" x="2" y="0"/>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="12"/>
+							</FontHeight>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnLoad>
+						CE_ButtonShowStats_OnLoad(this);
+					</OnLoad>
+					<OnEvent>
+						CE_ButtonShowStats_OnEvent(this, event);
+					</OnEvent>
+					<OnShow>
+						CE_ButtonShowStats_OnShow(this);
+					</OnShow>
+					<OnClick>
+						CE_ButtonShowStats_OnClick(this);
+					</OnClick>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Turn_OFF.tga"/>
+				<CheckedTexture file="Interface\addons\CombatEngine\texture\Turn_ON_DELETE.tga"/>
+			</CheckButton>
+		</Frames>
+		<Scripts>
+			<OnLoad>CE_FrameUtilities_OnLoad(this);</OnLoad>
+			<OnMouseDown>
+				this:StartMoving("TOPLEFT");
+			</OnMouseDown>
+			<OnMouseUp>
+				this:StopMovingOrSizing();
+			</OnMouseUp>
+			<OnEvent>
+				CombatEngine_ShowSats_OnEvent( this, event );
+			</OnEvent>
+		</Scripts>
+	</Frame>
+
+  <!-- TITTLE INFO-->
+  <Frame name="CE_TITTLE_INFO" frameStrata="MEDIUM" parent="CE_FRAME_INFO_CLASS">
+	<Size x="200" y="32"/>
+	<Anchors>
+		<Anchor point="TOP" relativePoint="TOP" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="44"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<FontString name="LINE_CE_INFO_TITTLE" hidden="false" inherits="QuestFont" justifyH="CENTER" justifyV="MIDDLE" text="">
+				<Size x="200" y="32"/>
+				<FontHeight>
+					<AbsValue val="16"/>
+				</FontHeight>
+			</FontString>
+		</Layer>
+	</Layers>
+  </Frame>
+
+	<!-- CLOSE INFO -->
+	<Button name="CE_BUTTON_CLOSE_INFO" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="true" inherits="CE_FRAME_INFO_CLASS" >
+		<Size x="45" y="45"/>
+		<Anchors>
+			<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="INFO_FIL_1_COL_3" x="8" y="-5"/>
+		</Anchors>
+		<Scripts>
+			<OnEnter>CE_ButtonCloseInfo_OnEnter(this);</OnEnter>
+			<OnClick>CE_ButtonCloseInfo_OnClick(this);</OnClick>
+			<OnLeave>CE_ButtonCloseInfo_OnLeave();</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+		<PushedTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\EXIT_P.tga" alphaMode="ADD"/>
+	</Button>
+
+  <!-- IMAGEN INFO -->
+  <Button name="CE_ART_INFO" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>	  
+		</OnEnter>
+		<OnLoad>
+			CE_ART_INFO:LockPushed()
+		</OnLoad>
+		<OnLeave>
+		</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\Rogue_Warlock.tga"/>
+  </Button>
+
+  <!-- IMAGEN INFO THIEF-->
+  <Button name="CE_ART_INFO_ROGUE" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\ROGUE.tga"/>
+  </Button>
+  
+  
+  <!-- IMAGEN INFO SCOUT-->
+  <Button name="CE_ART_INFO_SCOUT" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\RANGER.tga"/>
+  </Button>
+
+  <!-- IMAGEN INFO UNDEFINED-->
+  <Button name="CE_ART_INFO_UNDEFINED" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.2">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\UNDEFINED.tga"/>
+  </Button>
+
+
+  <!-- IMAGEN INFO MAGE-->
+  <Button name="CE_ART_INFO_MAGE" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\MAGE.tga"/>
+  </Button>
+  
+  <!-- IMAGEN INFO DRUID-->
+  <Button name="CE_ART_INFO_DRUID" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.80">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\DRUID.tga"/>
+  </Button>  
+  <!-- IMAGEN INFO WARRIOR-->
+  <Frame name="CE_ART_INFO_WARRIOR" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<Texture name="CE_ART_ADORNO" file="Interface\addons\CombatEngine\texture\WARRIOR.tga">
+				<Size x="240" y="240"/>
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_ART_INFO_WARRIOR"/>
+				</Anchors>
+				<TexCoords left="0" right="1" top="0" bottom="1"/>
+			</Texture>
+		</Layer>
+	</Layers>
+  </Frame>
+  
+  <!-- IMAGEN INFO KNIGHT-->
+  <Button name="CE_ART_INFO_KNIGHT" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\KNIGHT.tga"/>
+  </Button>  
+  
+  <!-- IMAGEN INFO AUGUR-->
+  <Button name="CE_ART_INFO_AUGUR" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\AUGUR.tga"/>
+  </Button>  
+  
+  <!-- IMAGEN INFO BARD-->
+  <Button name="CE_ART_INFO_BARD" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\BARD.tga"/>
+  </Button>  
+  
+  <!-- IMAGEN INFO WARLOCK-->
+  <Button name="CE_ART_INFO_WARLOCK" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\WARLOCK.tga"/>
+  </Button>  
+  
+  <!-- IMAGEN INFO WARDEN-->
+  <Button name="CE_ART_INFO_WARDEN" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\WARDEN.tga"/>
+  </Button>  
+  
+  <!-- IMAGEN INFO CHAMPION-->
+  <Button name="CE_ART_INFO_PSYRON" hidden="false" frameStrata="BACKGROUND" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="0.75">
+	<Size x="240" y="240"/>
+	<Anchors>
+		<Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="0"/>
+	</Anchors>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\PSYRON.tga"/>
+  </Button>  
+
+ <!-- TEXTO INFO -->
+<Frame name="CE_TEXT_FRAME_INFO" frameStrata="MEDIUM" parent="CE_FRAME_INFO_CLASS">
+	<Size x="210" y="245"/>
+	<Anchors>
+		<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="CE_FRAME_INFO_CLASS" x="0" y="-50"/>
+	</Anchors>
+	<Layers>
+		<Layer>
+			<FontString name="LINE_CE_INFO_BODY" hidden="false" inherits="QuestFont" justifyH="CENTER" justifyV="BOTTOM" text="">
+				<Size x="210" y="245"/>
+				<FontHeight>
+					<AbsValue val="14"/>
+				</FontHeight>
+			</FontString>
+		</Layer>
+	</Layers>
+</Frame>
+  
+  
+  
+  <!-- DARK DAMAGE-->
+  <Button name="CE_ART_DARK" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-24" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Oscuridad");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\DARK.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\DARK.tga" alphaMode="ADD"/>
+  </Button>  
+  
+  <!-- POISON DAMAGE-->
+  <Button name="CE_ART_POISON" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-24" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Veneno");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\POISON.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\POISON.tga" alphaMode="ADD"/>
+  </Button>  
+  
+  
+  <!-- FIRE DAMAGE-->
+  <Button name="CE_ART_FIRE" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-24" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Fuego");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\FIRE.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\FIRE.tga" alphaMode="ADD"/>
+  </Button>  
+  
+  
+  <!-- WIND DAMAGE-->
+  <Button name="CE_ART_WIND" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-84" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Viento");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\WIND.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\WIND.tga" alphaMode="ADD"/>
+  </Button>
+  <!-- EARTH DAMAGE-->
+  <Button name="CE_ART_EARTH" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-24" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Tierra");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\EARTH.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\EARTH.tga" alphaMode="ADD"/>
+  </Button> 
+  <!-- WATER DAMAGE-->
+  <Button name="CE_ART_WATER" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-84" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Agua");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\WATER.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\WATER.tga" alphaMode="ADD"/>
+  </Button>
+  <!-- LIGHT DAMAGE-->
+  <Button name="CE_ART_LIGHT" hidden="false" frameStrata="LOW" parent="CE_FRAME_INFO_CLASS" movable="false" enableMouse="false" alpha="1">
+	<Size x="50" y="50"/>
+	<Anchors>
+		<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_INFO_CLASS" x="-24" y="65"/>
+	</Anchors>
+	<Scripts>
+		<OnEnter>CE_Elemental_OnEnter(this, "Luz");</OnEnter>
+		<OnLeave>CE_Elemental_OnLeave();</OnLeave>
+	</Scripts>
+	<NormalTexture file="Interface\addons\CombatEngine\texture\LIGHT.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\LIGHT.tga" alphaMode="ADD"/>
+  </Button> 
+</Ui>
