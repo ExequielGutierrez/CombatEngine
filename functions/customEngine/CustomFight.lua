@@ -9,7 +9,7 @@ COMBAT_ENG_SERIAL = nil;
 COMBAT_ENG_SERIAL_RAW = nil;
 COMBAT_ENG_MAXSKILLS = 50;
 COMBAT_ENG_MAX_DISPLAY_SKILLS = 10;
-CE_TOTAL_CONDITIONS = 57;
+CE_TOTAL_CONDITIONS = 68;
 --Rotation
 CE_PRESET_ACTIVE = 1;
 CE_PRESET_MAX_PRESETS = 5;
@@ -75,6 +75,17 @@ COMBAT_ENG_DEFAULTSKILL = {
 			[55] = { status = false, enable = false },
 			[56] = { status = false, enable = false },
 			[57] = { status = false, enable = false },
+			[58] = { status = false, enable = false },
+			[59] = { status = false, enable = false },
+			[60] = { status = false, enable = false },
+			[61] = { status = false, enable = false },
+			[62] = { status = false, enable = false },
+			[63] = { status = false, enable = false },
+			[64] = { status = false, enable = false },
+			[65] = { status = false, enable = false },
+			[66] = { status = false, enable = false },
+			[67] = { status = false, enable = false },
+			[68] = { status = false, enable = false },
 		}
 	}
 }
@@ -826,10 +837,11 @@ function CombatEngine_Conditions_OnMouseWheel(delta)
 		{ start = 0,    finish = 639 },
 		{ start = 640,  finish = 1370 },
 		{ start = 1371, finish = 1790 },
-		{ start = 1800, finish = 9999 },
+		{ start = 1800, finish = 2140 },
+		{ start = 2141, finish = 999999 },
 	}
 	
-	for i = 1, 4 do
+	for i = 1, 5 do
 		local button = _G["COMBATENGINE_EDIT_LUA_CONDITIONS_Section_" .. i];
 		if scroll >= ranges[i].start and scroll <= ranges[i].finish then
 			COMBAT_ENGINE_SELECTED_CATEGORY = i;

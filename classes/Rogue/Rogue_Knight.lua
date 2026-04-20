@@ -184,7 +184,8 @@ function CE_ROGUE_KNIGHT_IMPORT()
 		-- 14 Ataque a la herida 1492414
 		[14] ={
 			[5]={ max="100", min="35", status=true },
-			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true } 
+			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true },
+			[59]={ enable=true, status=true }
 		  },
 		-- 15 Guarda valeroso 492629
 		[15] = {

@@ -174,7 +174,8 @@ function CE_ROGUE_SCOUT_IMPORT()
 	-- 13 Ataque a la herida 490313
 		[14] = {
 			[5]={ max="100", min="35", status=true },
-			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true } 
+			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
+			[59]={ enable=true, status=true }
 		  },
 	-- 14 Cuchillada alevosa 490306
 		[15] = {
@@ -209,7 +210,8 @@ function CE_ROGUE_SCOUT_IMPORT()
 	-- 21 Ataque a la herida 490313
 		[22] = {
 			[5]={ max="100", min="35", status=true },
-			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true } 
+			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
+			[59]={ enable=true, status=true }
 		  },
 	-- 22 Punto ciego 490311
 		[23] = {

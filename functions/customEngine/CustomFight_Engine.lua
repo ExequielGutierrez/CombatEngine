@@ -65,6 +65,17 @@ COMBAT_ENGINE_PLAYER_CONDICTIONS = {
 	[55] = { name = CE_LANG.conditions.ForceEnemyTarget, icon = "interface\\icons/dwarf_skill/skill_har_pri70-1" },
 	[56] = { name = CE_LANG.conditions.returnToFriendTarget, icon = "interface\\icons/skill_war_new50-5" },
 	[57] = { name = CE_LANG.conditions.targetTank, icon = "interface\\icons/skill_kni27-2" },
+	[58] = { name = CE_LANG.conditions.weaponSword, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_1h_sword" },
+	[59] = { name = CE_LANG.conditions.weaponDagger, icon = "interface\\Icons\\navigation_person_weapon" },
+	[60] = { name = CE_LANG.conditions.weaponWand, icon = "interface\\icons\\wp_wand04_010_001" },
+	[61] = { name = CE_LANG.conditions.weaponAxe1H, icon = "interface\\Icons\\weapon\\wp_axe29_m064_mall064_001" },
+	[62] = { name = CE_LANG.conditions.weaponHammer1H, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_1h_hammer_magic" },
+	[63] = { name = CE_LANG.conditions.weaponSword2H, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_2h_sword" },
+	[64] = { name = CE_LANG.conditions.weaponStaff, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_staff" },
+	[65] = { name = CE_LANG.conditions.weaponAxe2H, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_2h_axe" },
+	[66] = { name = CE_LANG.conditions.weaponHammer2H, icon = "interface\\Icons\\weapon\\wp_2h_hammer16_000_002" },
+	[67] = { name = CE_LANG.conditions.weaponSpear, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_spear"	 },
+	[68] = { name = CE_LANG.conditions.weaponKatana, icon = "interface/icons/arcadia/dc/weapon/corrupted/core_katana" },
 }
 
 function CE_CUSTOM_CONDITIONPLAYER_OnLoad( this )
@@ -121,8 +132,9 @@ local function ce_conditions(i, preset)
 	local useBlock9 = CE_COND36( skill ) and CE_COND37( skill ) and CE_COND38( skill ) and CE_COND39( skill ) and CE_COND40( skill );
 	local useBlock10 = CE_COND41( skill ) and CE_COND42( skill ) and CE_COND44( skill ) and CE_COND45(skill);
 	local useBlock11 = CE_COND46(skill) and CE_COND47(skill) and CE_COND48(skill) and CE_COND49(skill) and CE_COND50(skill);
+	local useBlock12 = CE_COND58(skill) and CE_COND59(skill) and CE_COND60(skill) and CE_COND61(skill) and CE_COND62(skill) and CE_COND63(skill) and CE_COND64(skill) and CE_COND65(skill) and CE_COND66(skill) and CE_COND67(skill) and CE_COND68(skill);
 
-	local use = useBlock1 and useBlock2 and useBlock3 and useBlock4 and useBlock5 and useBlock6 and useBlock7 and useBlock8 and useBlock9 and useBlock10 and useBlock11
+	local use = useBlock1 and useBlock2 and useBlock3 and useBlock4 and useBlock5 and useBlock6 and useBlock7 and useBlock8 and useBlock9 and useBlock10 and useBlock11 and useBlock12
 	return use;
 end
 
@@ -1392,6 +1404,29 @@ function CE_COND52(skill)
 	end
 
 end
+
+local function CE_WEAPON_COND(skill, idx, weaponKey)
+	if not skill.conditions or not skill.conditions[idx] then
+		return true
+	end
+	if skill.conditions[idx].status == false then
+		return true
+	end
+	return CE_WEAPON_TYPE(weaponKey)
+end
+
+function CE_COND58(skill) return CE_WEAPON_COND(skill, 58, "Sword") end
+function CE_COND59(skill) return CE_WEAPON_COND(skill, 59, "Dagger") end
+function CE_COND60(skill) return CE_WEAPON_COND(skill, 60, "Wand") end
+function CE_COND61(skill) return CE_WEAPON_COND(skill, 61, "axe") end
+function CE_COND62(skill) return CE_WEAPON_COND(skill, 62, "Hammer-1H") end
+function CE_COND63(skill) return CE_WEAPON_COND(skill, 63, "Sword-2H") end
+function CE_COND64(skill) return CE_WEAPON_COND(skill, 64, "Staff") end
+function CE_COND65(skill) return CE_WEAPON_COND(skill, 65, "Axe-2H") end
+function CE_COND66(skill) return CE_WEAPON_COND(skill, 66, "Hammer-2H") end
+function CE_COND67(skill) return CE_WEAPON_COND(skill, 67, "Spear") end
+function CE_COND68(skill) return CE_WEAPON_COND(skill, 68, "Katana") end
+
 -- Target Me
 -- Target by name
 function CE_COND54(skill)
@@ -1491,7 +1526,7 @@ function CE_CUSTOM_SAVESKILL()
 		elseif i == 17 or i == 38 or i == 46 or i == 47 then
 			skillCondition.id = parent["Condition" .. i].Fx1:GetText();
 			skillCondition.time = parent["Condition" .. i].Time:GetText();
-		elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 then
+		elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 or (i >= 58 and i <= 68) then
 			skillCondition.enable = parent["Condition" .. i].CheckBox:IsChecked();
 		elseif i == 26 then
 			skillCondition.time = parent["Condition" .. i].Time:GetText();
@@ -1524,7 +1559,7 @@ function CE_CUSTOM_LOADSKILL( id )
 			elseif i == 17 or i == 38 or i == 46 or i == 47 then
 				parent["Condition" .. i].Fx1:SetText(skillCondition.id)
 				parent["Condition" .. i].Time:SetText(skillCondition.time)
-			elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 then
+			elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 or (i >= 58 and i <= 68) then
 				parent["Condition" .. i].CheckBox:SetChecked(skillCondition.enable)
 			elseif i == 26 then
 				parent["Condition" .. i].Time:SetText(skillCondition.time)
@@ -1562,7 +1597,7 @@ function CE_CUSTOM_CLEANSKILL_Conditions( id )
 			elseif i == 17 or i == 38 or i == 46 or i == 47 then
 				parent["Condition" .. i].Fx1:SetText( "" );
 				parent["Condition" .. i].Time:SetText( "" );
-			elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 then
+			elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 or (i >= 58 and i <= 68) then
 				parent["Condition" .. i].CheckBox:SetChecked( false );
 			elseif i == 26 then
 				parent["Condition" .. i].Time:SetText( "" );
@@ -1596,7 +1631,7 @@ function CE_CUSTOM_CLEANSKILL_Conditions( id )
 				elseif i == 17 or i == 38 or i == 46 or i == 47 then
 					skillCondition.id = 0;
 					skillCondition.time = 0;
-				elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 then
+				elseif i >= 18 and i <= 25 or i >= 28 and i <= 30 or i >= 39 and i <= 45 or i == 48 or i == 50 or i == 51 or i == 52 or i == 53 or i == 55 or i == 56 or i == 57 or (i >= 58 and i <= 68) then
 					skillCondition.enable = false
 				elseif i == 26 then
 					skillCondition.time = 0;

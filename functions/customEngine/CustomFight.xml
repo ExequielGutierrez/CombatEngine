@@ -327,7 +327,7 @@
 	</Scripts>
 </Button>
 
-<Button name="COMBATENGINE_Section_Template" dependencies="true" virtual="true">
+<Button name="COMBATENGINE_Section_Template" dependencies="true" virtual="true" scale="0.8">
 	<Size>
 		<AbsDimension x="156" y="40"/>
 	</Size>
@@ -356,6 +356,7 @@
 				[2] = _G.CE_LANG.conditions.Category3,
 				[3] = _G.CE_LANG.conditions.Category2,
 				[4] = _G.CE_LANG.conditions.Category4,
+				[5] = _G.CE_LANG.conditions.Category5,
 			}
 			this._Name:SetText( name[this:GetID()] );
 		</OnLoad>
@@ -376,10 +377,11 @@
 				[2] = 730,
 				[3] = 1520,
 				[4] = 1900,
+				[5] = 2350,
 			}
 			CombatEngine_ScrollFrame:SetHorizontalScroll( range[this:GetID()] );
 			COMBAT_ENGINE_SELECTED_CATEGORY = this:GetID();
-			for i = 1, 4 do
+			for i = 1, 5 do
 				local button = _G["COMBATENGINE_EDIT_LUA_CONDITIONS_Section_" .. i];
 				if i == this:GetID() then
 					button:LockHighlight();
@@ -1846,6 +1848,39 @@
 						<Frame name="$parentCondition57" inherits="CE_CONDITION_Control_template" id="57">
 							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition56" x="0" y="15" /></Anchors>
 						</Frame>
+						<Frame name="$parentCondition58" inherits="CE_CONDITION_Control_template" id="58">
+							<Anchors><Anchor point="TOPLEFT" x="2430" y="56"/></Anchors>
+						</Frame>
+						<Frame name="$parentCondition59" inherits="CE_CONDITION_Control_template" id="59">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition58" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition60" inherits="CE_CONDITION_Control_template" id="60">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition59" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition61" inherits="CE_CONDITION_Control_template" id="61">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition60" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition62" inherits="CE_CONDITION_Control_template" id="62">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition61" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition63" inherits="CE_CONDITION_Control_template" id="63">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition62" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition64" inherits="CE_CONDITION_Control_template" id="64">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition63" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition65" inherits="CE_CONDITION_Control_template" id="65">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition64" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition66" inherits="CE_CONDITION_Control_template" id="66">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition65" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition67" inherits="CE_CONDITION_Control_template" id="67">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition66" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition68" inherits="CE_CONDITION_Control_template" id="68">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition67" x="0" y="15" /></Anchors>
+						</Frame>
 					</Frames>
 					<Layers>
 						<Layer level="ARTWORK">
@@ -1869,7 +1904,13 @@
 							</FontString>
 							<FontString name="$parent_FontCagtegory4" hidden="false" inherits="GameFontNormal" justifyH="CENTER" weight="BOLD" outline="NORMAL" text="Target">
 								<Size><AbsDimension y="22"/></Size>
-								<Anchors><Anchor point="TOPLEFT" x="2000" y="15"/></Anchors>
+								<Anchors><Anchor point="TOPLEFT" x="1918" y="15"/></Anchors>
+								<FontHeight><AbsValue val="24"/></FontHeight>
+								<Color hex="FFFF00"/>
+							</FontString>
+							<FontString name="$parent_FontCagtegory5" hidden="false" inherits="GameFontNormal" justifyH="CENTER" weight="BOLD" outline="NORMAL" text="Weapons">
+								<Size><AbsDimension y="22"/></Size>
+								<Anchors><Anchor point="TOPLEFT" x="2369" y="15"/></Anchors>
 								<FontHeight><AbsValue val="24"/></FontHeight>
 								<Color hex="FFFF00"/>
 							</FontString>
@@ -1879,7 +1920,7 @@
 			</ScrollChild>
 			<Scripts>
 				<OnShow>
-					this:SetScrollRange( 1900, 0 );
+					this:SetScrollRange( 2800, 0 );
 				</OnShow>
 				<OnMouseDown>
 					this:GetParent():StartMoving();
@@ -1950,7 +1991,7 @@
 		</Button>
 		<Button name="$parent_Section_1" inherits="COMBATENGINE_Section_Template" id="1">
 			<Anchors>
-				<Anchor point="BOTTOMLEFT" x="58" y="-127"/>
+				<Anchor point="BOTTOMLEFT" x="66" y="-170"/>
 			</Anchors>
 		</Button>
 		<Button name="$parent_Section_2" inherits="COMBATENGINE_Section_Template" id="2">
@@ -1968,6 +2009,11 @@
 				<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_Section_3" x="20" y="0"/>
 			</Anchors>
 		</Button>
+		<Button name="$parent_Section_5" inherits="COMBATENGINE_Section_Template" id="5">
+			<Anchors>
+				<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_Section_4" x="20" y="0"/>
+			</Anchors>
+		</Button>
 	</Frames>
 	<Scripts>
 		<OnLoad>
@@ -1977,6 +2023,7 @@
 			CombatEngine_ScrollFrameChild_FontCagtegory2:SetText( _G.CE_LANG.conditions.Category2 );
 			CombatEngine_ScrollFrameChild_FontCagtegory3:SetText( _G.CE_LANG.conditions.Category3 );
 			CombatEngine_ScrollFrameChild_FontCagtegory4:SetText( _G.CE_LANG.conditions.Category4 );
+			CombatEngine_ScrollFrameChild_FontCagtegory5:SetText( _G.CE_LANG.conditions.Category5 );
 		</OnLoad>
 		<OnEvent>
 			CE_ConditionFrame_OnEvent(this, event);

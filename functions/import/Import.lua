@@ -12,6 +12,9 @@ function CE_ExecuteImport()
 
 	CE_SET_IMPORT_SKILL(serial, preset)
 	COMBATENGINE_EDIT_LUA_Slot_Skill_UpdateSlots()
+	if type(CE_ConfigSkill_Save) == "function" then
+		CE_ConfigSkill_Save()
+	end
 end
 
 function CE_SET_IMPORT_SKILL(serial, preset)
@@ -123,8 +126,15 @@ function CE_Import_MakeExport(Skills, iss, consumables, conditions)
 		export[i].IndexA = indexA
 		export[i].IndexB = indexB
 		export[i].icon = icon
-		export[i].conditions = {}
-		export[i].conditions = CE_deepCopy(conditions[i])
+		-- Partir de la plantilla completa (1..CE_TOTAL_CONDITIONS) y sobrescribir solo las claves del import.
+		-- Así las condiciones nuevas (p. ej. armas 58–68) quedan definidas y persisten igual que el resto.
+		local mergedCond = CE_deepCopy(COMBAT_ENG_DEFAULTSKILL[1].conditions)
+		if conditions and conditions[i] then
+			for k, v in pairs(conditions[i]) do
+				mergedCond[k] = CE_deepCopy(v)
+			end
+		end
+		export[i].conditions = mergedCond
 		export[i].type = type
 		export[i].id = id
 

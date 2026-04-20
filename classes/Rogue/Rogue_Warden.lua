@@ -181,7 +181,8 @@ function CE_ROGUE_WARDEN_IMPORT()
 		-- 18 Ataque a la herida 1490355
 		[19] = {
 			[5]={ max="100", min="35", status=true },
-			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true } 
+			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true },
+			[59]={ enable=true, status=true }
 		},
 		-- 19 Corte cargado 1490351
 		[20] = {},

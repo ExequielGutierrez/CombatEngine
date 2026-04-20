@@ -133,7 +133,7 @@ function CE_ROGUE_MAGE_IMPORT()
 		[12] = {},
 		[13] = { [5]={ max="100", min="15", status=true }, [35]={ id1="620313", id2="0", id3="0", id4="0", status=true }},
 		[14] = { [5]={ max="100", min="25", status=true }, [34]={ id1="620313", id2="0", id3="0", id4="0", status=true }, [35]={ id1="620314", id2="0", id3="0", id4="0", status=true }},
-		[15] = { [5]={ max="100", min="30", status=true }, [34]={ id1="620313", id2="620314", id3="0", id4="0", status=true } },
+		[15] = { [5]={ max="100", min="30", status=true }, [34]={ id1="620313", id2="620314", id3="0", id4="0", status=true }, [59]={ enable=true, status=true } },
 		[16] = { [39]={ enable=true, status=true }},
 		[17] = { [39]={ enable=true, status=true }, [45]={ enable=true, status=true }},
 		[18] = { [5]={ max="100", min="20", status=true }, [33]={ id1="508530", id2="0", id3="0", id4="0", status=true }},

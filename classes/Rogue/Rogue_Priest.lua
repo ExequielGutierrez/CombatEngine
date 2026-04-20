@@ -181,7 +181,8 @@ function CE_ROGUE_PRIEST_IMPORT()
 		--Ataque a la herida 1490385
 		[18] = {
 			[5]={ max="100", min="35", status=true },
-			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true } 
+			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
+			[59]={ enable=true, status=true }
 		  },
 		--Niebla perturbadora 493260
 		[19] = { [2]={ max="200", min="5", status=true }, [39]={ enable=true, status=true } },

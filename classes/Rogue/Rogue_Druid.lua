@@ -176,11 +176,12 @@ function CE_ROGUE_DRUID_IMPORT()
 		--ataque a la herida
 		[16] = {
 			[5]={ max="100", min="25", status=true },
-			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true } 
+			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true },
 		  },
 		[17] = {
 			[5]={ max="100", min="30", status=true },
-			[34]={ id1="620314", id2="0", id3="0", id4="620313", status=true } 
+			[34]={ id1="620314", id2="0", id3="0", id4="620313", status=true },
+			[59]={ enable=true, status=true }
 		  },
 		--punto ciego
 		[18] = { [5]={ max="100", min="13", status=true } },
