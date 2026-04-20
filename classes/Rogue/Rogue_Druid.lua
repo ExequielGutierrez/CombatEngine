@@ -7,12 +7,8 @@ function CE_ROGUE_DRUID()
 	local energia = UnitMana("player");
 	local mana = UnitSkill("player");
 	
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
 	--Manos venenosas
 	local MAN_VEN_SKILL, MAN_VEN_ID_1, MAN_VEN_ID_2 = Match_CE(498025);
-	--Venganza histrica
-	local VEN_HIS_SKILL, VEN_HIS_ID_1, VEN_HIS_ID_2 = Match_CE(494046);
 	--Plegaria de conenctración
 	local PLEG_CON_SKILL, PLEG_CON_ID_1, PLEG_CON_ID_2 = Match_CE(493530);
 	--Bendición salvaje
@@ -50,18 +46,12 @@ function CE_ROGUE_DRUID()
 	
 	--BUFFOS--
 	
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2);
 	--Tormento venenoso
-	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
+	if (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
 		then CastSpellByName(CE_toName(490314));
 	--Manos venenosas
 	elseif MAN_VEN_SKILL and (CE_BuffIdPlayer(620320) == false) and CE_isMoving() == false  then
 		UseSkill(MAN_VEN_ID_1, MAN_VEN_ID_2);
-	--Venganza histérica
-	elseif VEN_HIS_SKILL and CE_BuffIdPlayer(504555) == false then
-		UseSkill(VEN_HIS_ID_1, VEN_HIS_ID_2);
 	--Plegaria de conenctración
 	elseif PLEG_CON_SKILL and CE_BuffIdPlayer(503799) == false and not UnitInParty( "player" ) then
 		UseSkill(PLEG_CON_ID_1, PLEG_CON_ID_2);
@@ -133,7 +123,7 @@ function CE_ROGUE_DRUID()
 end
 
 function CE_ROGUE_DRUID_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 498025, 494046, 493530, 493531, 499567, 494548, 1491731, 494961, 490345, 1490287, 1490378, 1493673, 1490374, 1490375, 1490373, 490356, 490144, 1490379};
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 498025, 493530, 493531, 499567, 494548, 1491731, 494961, 490345, 1490287, 1490378, 1493673, 1490374, 1490375, 1490373, 490356, 490144, 1490379};
 	local conditions = {
 		--poción de enano
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -145,77 +135,73 @@ function CE_ROGUE_DRUID_IMPORT()
 		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 		--tormento venenoso
 		[5] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true } },
-		--maniobra abandonada
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
 		--manos venenosas
-		[7] = {
+		[6] = {
 			[12]={ id1="620320", id2="0", id3="0", id4="0", status=true },
 			[19]={ enable=true, status=true } 
 		  },
-		--venganza histórica
-		[8] = { [12]={ id1="504555", id2="0", id3="0", id4="0", status=true } },
 		--plegaria de conenctración
-		[9] = { [12]={ id1="503799", id2="0", id3="0", id4="0", status=true } },
+		[7] = { [12]={ id1="503799", id2="0", id3="0", id4="0", status=true } },
 		--bendición salvaje
-		[10] = { [12]={ id1="503799", id2="0", id3="0", id4="0", status=true } },
+		[8] = { [12]={ id1="503799", id2="0", id3="0", id4="0", status=true } },
 		--tiempo de matar
-		[11] = {
+		[9] = {
 			[5]={ max="100", min="15", status=true },
 			[35]={ id1="623101", id2="0", id3="0", id4="0", status=true },
 			[41]={ enable=true, status=true } 
 		  },
 		--injuria
-		[12] ={ [41]={ enable=true, status=true } },
+		[10] ={ [41]={ enable=true, status=true } },
 		--perfect slide
-		[13] = { [42]={ enable=true, status=true } },
+		[11] = { [42]={ enable=true, status=true } },
 		--mortaja venenosa
-		[14] = {
+		[12] = {
 			[2]={ max="200", min="1", status=true },
 			[39]={ enable=true, status=true },
 			[43]={ enable=true, status=true } 
 		  },
 		--tempestad del alma
-		[15] ={
+		[13] ={
 			[5]={ max="100", min="13", status=true },
 			[39]={ enable=true, status=true },
 			[45]={ enable=true, status=true } 
 		  },
 		--latido de la tierra
-		[16] = { [2]={ max="200", min="2", status=true }, [39]={ enable=true, status=true } },
+		[14] = { [2]={ max="200", min="2", status=true }, [39]={ enable=true, status=true } },
 		--cuchillada alevosa
-		[17] = {
+		[15] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--ataque a la herida
-		[18] = {
+		[16] = {
 			[5]={ max="100", min="25", status=true },
 			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true } 
 		  },
-		[19] = {
+		[17] = {
 			[5]={ max="100", min="30", status=true },
 			[34]={ id1="620314", id2="0", id3="0", id4="620313", status=true } 
 		  },
 		--punto ciego
-		[20] = { [5]={ max="100", min="13", status=true } },
+		[18] = { [5]={ max="100", min="13", status=true } },
 		--golpe bajo
-		[21] = {
+		[19] = {
 			[5]={ max="100", min="25", status=true },
 			[34]={ id1="620313", id2="0", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--cicatriz de la garra ISS
-		[22] = {
+		[20] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--marca de garra ISS
-		[23] = {
+		[21] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--arrojar
-		[24] = {},
+		[22] = {},
 
 	};
 
