@@ -33,10 +33,6 @@ function CE_ROGUE_CHAMPION()
 	--Embestida brutal
 	local EMB_BRU_SKILL, EMB_BRU_ID_1, EMB_BRU_ID_2 = Match_CE(1490400);
 	local EMB_BRU_CD = CE_CD(EMB_BRU_SKILL, EMB_BRU_ID_1, EMB_BRU_ID_2);
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
-	--Sombra desarticulada
-	local SOM_DES_SKILL, SOM_DES_ID_1, SOM_DES_ID_2 = Match_CE(499816);
 	--Mecanismo de poder
 	local MEC_POD_SKILL, MEC_POD_ID_1, MEC_POD_ID_2 = Match_CE(498828);
 	local MEC_POD_CD = CE_CD(MEC_POD_SKILL, MEC_POD_ID_1, MEC_POD_ID_2);
@@ -47,14 +43,8 @@ function CE_ROGUE_CHAMPION()
 	local GOL_BAJ_CD = CE_CD(GOL_BAJ_SKILL, GOL_BAJ_ID_1, GOL_BAJ_ID_2);
 	
 	--BUFFOS--
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2);
-	--Sombra desarticulada
-	elseif SOM_DES_SKILL and (CE_BuffIdPlayer(623470) == false) then
-		UseSkill(SOM_DES_ID_1, SOM_DES_ID_2);
 	--Mecanismo de poder
-	elseif MEC_POD_SKILL and (CE_BuffIdPlayer(1503291) == false) and C_EngineSettings.FastBuffs then
+	if MEC_POD_SKILL and (CE_BuffIdPlayer(1503291) == false) and C_EngineSettings.FastBuffs then
 		UseSkill(MAN_VEN_ID_1, MAN_VEN_ID_2);
 	--Tormento venenoso
 	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
@@ -121,7 +111,7 @@ function CE_ROGUE_CHAMPION()
 end
 
 function CE_ROGUE_CHAMPION_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 498025, 499816, 1490328, 498837, 498828, 490356, 498833, 498834, 1490395, 1490392, 1490401, 490144, 1490327, 1490393, 1490400 };
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 498025, 1490328, 498837, 498828, 490356, 498833, 498834, 1490395, 1490392, 1490401, 490144, 1490327, 1490393, 1490400 };
 	local conditions = {
 		--poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -133,67 +123,63 @@ function CE_ROGUE_CHAMPION_IMPORT()
 		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 		--tormento venenoso 490314
 		[5] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true }},
-		--maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true }},
 		--manos venenosas 498025
-		[7] = { [12]={ id1="1503291", id2="0", id3="0", id4="0", status=true }},
-		--sombra desarticulada 499816
-		[8] = { [12]={ id1="623470", id2="0", id3="0", id4="0", status=true }},
+		[6] = { [12]={ id1="1503291", id2="0", id3="0", id4="0", status=true }},
 		-- Ataque a la herida 1490328
-		[9] = {
+		[7] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="0", id3="0", id4="620314", status=true }
 		},
 		-- Mecanismo de entrenamiento 498837
-		[10] = {},
+		[8] = {},
 		-- Mecanismo de poder (498828)
-		[11] = { [6]={ max="100", min="10", status=true }},
+		[9] = { [6]={ max="100", min="10", status=true }},
 		-- Cicatriz de la garra ISS 490356
-		[12] = {
+		[10] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true }
 		},
 		-- Bomba silenciosa 498833
-		[13] = {
+		[11] = {
 			[6]={ max="100", min="30", status=true },
 			[33]={ id1="621610", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true },
 			[43]={ enable=true, status=true } 
 		},
 		-- Bomba de pulso rúnico 498834
-		[14] = {
+		[12] = {
 			[6]={ max="100", min="20", status=true },
 			[32]={ id1="621610", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true },
 			[43]={ enable=true, status=true } 
 		},
 		-- Golpe bajo 1490395
-		[15] = {
+		[13] = {
 			[5]={ max="100", min="30", status=true },
 			[34]={ id1="620313", id2="", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true }
 		},
 		-- Cuchillada alevosa 1490392
-		[16] = {
+		[14] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="6203134", id3="0", id4="0", status=true }
 		},
 		-- Canalización de energía 1490401
-		[17] = {
+		[15] = {
 			[6]={ max="100", min="25", status=true },
 			[32]={ id1="621166", id2="0", id3="0", id4="0", status=true }
 		},
 		-- Marca de garra ISS 490144
-		[18] = {
+		[16] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true }
 		},
 		-- Electrocusión 1490327
-		[19] = { [5]={ max="100", min="35", status=true }},
+		[17] = { [5]={ max="100", min="35", status=true }},
 		-- Arrojar 1490393
-		[20] = {},
+		[18] = {},
 		-- Embestida brutal 1490400
-		[21] = { [6]={ max="100", min="20", status=true }}
+		[19] = { [6]={ max="100", min="20", status=true }}
 	};
 	local iss = {
 		[490314] = true,
