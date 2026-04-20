@@ -1268,38 +1268,31 @@ function CE_isShield()
 		return false
 	end
 end
---Leer arma a una mano
+--Leer arma a una mano (weapontype: 0=Unarmed, 1=Sword, 2=Dagger, 3=Wand, 4=Axe, 5=1-H Hammer, 6=2-H Sword, 7=Staff, 8=2-H Axe, 9=2-H Hammer, 10=Spear, 11=Bow, 12=Crossbow, 13=Gun, 14=Arrow, 15=Bullet, 16=Projectiles, 17=Lumbering, 18=Herbalism, 19=Mining, 20=Fishing, 21=Instrument, 22=Katana, 23=Fishing Bait)
 function CE_WEAPON_TYPE(weapon)
 	local link = GetInventoryItemLink("player", 15)
 	local a,b,c = ParseHyperlink(link)
 	local id_hex = string.sub(b, 1, 6)
 	local id_decimal = tonumber(id_hex, 16)
 	local type_weapon = GetObjectInfo(id_decimal, "weapontype")
-	if weapon == "axe" then
-		if type_weapon == 4 then
-			return true
-		else
-			return false
-		end
-	elseif weapon == "Sword-2H" then
-		if type_weapon == 6 then
-			return true
-		else
-			return false
-		end
-	elseif weapon == "Katana" then
-		if type_weapon == 22 then
-			return true
-		else
-			return false
-		end
-	elseif weapon == "Daga" then
-		if type_weapon == 2 then
-			return true
-		else
-			return false
-		end
+	local types = {
+		["Sword"] = 1,
+		["Dagger"] = 2,
+		["Wand"] = 3,
+		["axe"] = 4,
+		["Hammer-1H"] = 5,
+		["Sword-2H"] = 6,
+		["Staff"] = 7,
+		["Axe-2H"] = 8,
+		["Hammer-2H"] = 9,
+		["Spear"] = 10,
+		["Katana"] = 22,
+	}
+	local want = types[weapon]
+	if want == nil then
+		return false
 	end
+	return type_weapon == want
 end
 --Get weapon
 function CE_GET_WEAPON_TYPE()
