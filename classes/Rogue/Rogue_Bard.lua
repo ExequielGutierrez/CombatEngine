@@ -6,8 +6,6 @@ function CE_ROGUE_BARD()
 	local energia = UnitMana("player");
 	local foco = UnitSkill("player");
 	
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
 	--Manos vigorizadas
 	local MAN_VIG_SKILL, MAN_VIG_ID_1, MAN_VIG_ID_2 = Match_CE(490347);
 	--Presión del aire
@@ -36,11 +34,8 @@ function CE_ROGUE_BARD()
 	local IRA_ATR_CD = CE_CD(IRA_ATR_SKILL, IRA_ATR_ID_1, IRA_ATR_ID_2);	
 	
 	--BUFFOS--
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2);
 	--Tormento venenoso
-	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
+	if (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
         then CastSpellByName(CE_toName(490314));
 	--Manos vigorizadas
 	elseif MAN_VIG_SKILL and (CE_BuffIdPlayer(500737) == false) and CE_isMoving() == false  then
@@ -93,7 +88,7 @@ function CE_ROGUE_BARD()
 end
 
 function CE_ROGUE_BARD_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060,  490314, 490355, 490347,  1491476, 490356, 1491479, 1491231, 1491234, 490345, 490144, 1491480 }
+	local Skills = { 1244064, 200173, 1244062, 1244060,  490314, 490347,  1491476, 490356, 1491479, 1491231, 1491234, 490345, 490144, 1491480 }
 	local conditions = {
 		-- 1 poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -108,35 +103,33 @@ function CE_ROGUE_BARD_IMPORT()
 			[5]={ max="500", min="5", status=true },
 			[12]={ id1="500093", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 6 maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
-		-- 7 manos vigorizadas 490347
-		[7] = {
+		-- 6 manos vigorizadas 490347
+		[6] = {
 			[12]={ id1="500737", id2="0", id3="0", id4="0", status=true },
 			[19]={ enable=true, status=true } 
 		},
-		-- 8 lanzamiento combinado 1491476
-		[8] = {},
-		-- 9 Cicatriz de la garra ISS 490356
-		[9] = {
+		-- 7 lanzamiento combinado 1491476
+		[7] = {},
+		-- 8 Cicatriz de la garra ISS 490356
+		[8] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 10 Tiro 1491479
-		[10] = {},
-		-- 11 Canción de la tormenta 1491231
-		[11] ={ [5]={ max="100", min="20", status=true } },
-		-- 12 Presión del aire 1491234
-		[12] = { [3]={ max="200", min="40", status=true } },
-		-- 13 Tempestad del alma 490345
-		[13] = { [5]={ max="100", min="20", status=true } },
-		-- 14 Marca de garra ISS 490144
-		[14] = {
+		-- 9 Tiro 1491479
+		[9] = {},
+		-- 10 Canción de la tormenta 1491231
+		[10] ={ [5]={ max="100", min="20", status=true } },
+		-- 11 Presión del aire 1491234
+		[11] = { [3]={ max="200", min="40", status=true } },
+		-- 12 Tempestad del alma 490345
+		[12] = { [5]={ max="100", min="20", status=true } },
+		-- 13 Marca de garra ISS 490144
+		[13] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 15 Golpe bajo 1491480
-		[15] = { [5]={ max="100", min="30", status=true } },
+		-- 14 Golpe bajo 1491480
+		[14] = { [5]={ max="100", min="30", status=true } },
 	}
 	local iss = {
 		[490314] = true,
