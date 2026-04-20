@@ -28,11 +28,7 @@ function CE_ROGUE_PRIEST()
 	--Arrojar
 	local ARR_SKILL, ARR_ID_1, ARR_ID_2 = Match_CE(1490390);
 	local ARR_CD = CE_CD(ARR_SKILL, ARR_ID_1, ARR_ID_2);
-	
-	--Sin miedo
-	local SIN_MIE_SKILL, SIN_MIE_ID_1, SIN_MIE_ID_2 = Match_CE(491540);
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
+
 	--Manos venenosas
 	local MAN_VEN_SKILL, MAN_VEN_ID_1, MAN_VEN_ID_2 = Match_CE(498025);
 	--Ataque amplificado
@@ -41,8 +37,6 @@ function CE_ROGUE_PRIEST()
 	local GRA_VIT_SKILL, GRA_VIT_ID_1, GRA_VIT_ID_2 = Match_CE(490290);
 	--Agua bendita
 	local AGU_BEN_SKILL, AGU_BEN_ID_1, AGU_BEN_ID_2 = Match_CE(490298);
-	--Metodos siniestros
-	local MET_SIN_SKILL, MET_SIN_ID_1, MET_SIN_ID_2 = Match_CE(493020);
 	--Despertar del monje
 	local DES_MON_SKILL, DES_MON_ID_1, DES_MON_ID_2 = Match_CE(491536);
 	local DES_MON_CD = CE_CD(DES_MON_SKILL, DES_MON_ID_1, DES_MON_ID_2);
@@ -54,15 +48,9 @@ function CE_ROGUE_PRIEST()
 	--Tormento venenoso
 	if (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314)) then
 		CastSpellByName(CE_toName(490314));
-	--Maniobra abandonada
-	elseif MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2);
 	--Manos venenosas
 	elseif MAN_VEN_SKILL and (CE_BuffIdPlayer(500715) == false) and CE_isMoving() == false then
 		UseSkill(MAN_VEN_ID_1, MAN_VEN_ID_2);
-	--Sin Miedo
-	elseif SIN_MIE_SKILL and (CE_BuffIdPlayer(501933) == false) then
-		UseSkill(SIN_MIE_ID_1, SIN_MIE_ID_2);
 	--Ataque amplificado
 	elseif ATA_AMP_SKILL and (CE_BuffIdPlayer(500940) == false) and not UnitInParty("player") then
 		UseSkill(ATA_AMP_ID_1, ATA_AMP_ID_2);
@@ -136,7 +124,7 @@ function CE_ROGUE_PRIEST()
 end
 
 function CE_ROGUE_PRIEST_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 498025, 491540, 490491, 490290, 490298, 493020, 491536, 492921, 1491731, 490345, 1493673, 1490385, 493260, 1490384, 490356, 490144, 1490389, 492627, 1490390 }
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 498025, 490491, 490290, 490298, 491536, 492921, 1491731, 490345, 1493673, 1490385, 493260, 1490384, 490356, 490144, 1490389, 492627, 1490390 }
 	local conditions = {
 		--poción de enano
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -148,69 +136,63 @@ function CE_ROGUE_PRIEST_IMPORT()
 		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 		--tormento venenoso
 		[5] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true } },
-		--maniobra abandonada
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
 		--manos venenosas
-		[7] = {
+		[6] = {
 			[12]={ id1="500715", id2="0", id3="0", id4="0", status=true },
 			[19]={ enable=true, status=true } 
 		  },
-		--Sin Miedo 491540
-		[8] = { [12]={ id1="501933", id2="0", id3="0", id4="0", status=true } },
 		--Ataque amplificado 490491
-		[9] = { [12]={ id1="500940", id2="0", id3="0", id4="0", status=true } },
+		[7] = { [12]={ id1="500940", id2="0", id3="0", id4="0", status=true } },
 		--Gracia vital 490290
-		[10] = { [12]={ id1="500517", id2="0", id3="0", id4="0", status=true } },
+		[8] = { [12]={ id1="500517", id2="0", id3="0", id4="0", status=true } },
 		--Agua bendita 490298
-		[11] = { [12]={ id1="500536", id2="0", id3="0", id4="0", status=true } },
-		--Metodos siniestros 493020
-		[12] = { [12]={ id1="503265", id2="0", id3="0", id4="0", status=true } },
+		[9] = { [12]={ id1="500536", id2="0", id3="0", id4="0", status=true } },
 		--Despertar del monje 491536
-		[13] = { [2]={ max="200", min="15", status=true }, [41]={ enable=true, status=true } },
+		[10] = { [2]={ max="200", min="15", status=true }, [41]={ enable=true, status=true } },
 		--Paciencia y salvación 492921
-		[14] = { [12]={ id1="1500595", id2="0", id3="0", id4="0", status=true } },
+		[11] = { [12]={ id1="1500595", id2="0", id3="0", id4="0", status=true } },
 		--Perfect Slide	1491731
-		[15] =  { [42]={ enable=true, status=true } },
+		[12] =  { [42]={ enable=true, status=true } },
 		--Tempestad del alma 490345
-		[16] =  { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
+		[13] =  { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
 		--Shadow slash 1493673
-		[17] = {
+		[14] = {
 			[5]={ max="100", min="24", status=true },
 			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--Ataque a la herida 1490385
-		[18] = {
+		[15] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
 			[59]={ enable=true, status=true }
 		  },
 		--Niebla perturbadora 493260
-		[19] = { [2]={ max="200", min="5", status=true }, [39]={ enable=true, status=true } },
+		[16] = { [2]={ max="200", min="5", status=true }, [39]={ enable=true, status=true } },
 		--Golpe bajo 1490384
-		[20] = {
+		[17] = {
 			[5]={ max="100", min="30", status=true },
 			[34]={ id1="620313", id2="", id3="0", id4="0", status=true },
 			[35]={ id1="500704", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--Cicatriz de la garra ISS 490356
-		[21] = {
+		[18] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--Marca de garra ISS 490144
-		[22] = {
+		[19] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--Cuchillada alevosa 1490389
-		[23] = {
+		[20] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
 		  },
 		--Patada 492627
-		[24] = { [2]={ max="100", min="2", status=true } },
+		[21] = { [2]={ max="100", min="2", status=true } },
 		--Arrojar 1490390
-		[25] = {},
+		[22] = {},
 	}
 	local iss = {
 		[490314] = true,
