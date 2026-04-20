@@ -1,8 +1,12 @@
-COMBATENGINE_VERSION = 55
+COMBATENGINE_VERSION_NAME = "V3.0.1"
+COMBATENGINE_AUTHOR = "NEORAXER"
+COMBATENGINE_AUTHOR_EMAIL = "Neoraxer@live.com"
+
 --CombatEngine by Neoraxer
 COMBATENGINE_CASTING = false;
 COMBATENGINE_LOADED = false;
 CE_FIRST_LOAD = false;
+COMBATENGINE_GLOBAL_CD = 0.25;
 --Tabla global
 if(_G and not _G.C_Engine) then
 	_G.C_Engine = {
