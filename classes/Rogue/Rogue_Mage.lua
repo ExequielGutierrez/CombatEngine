@@ -31,21 +31,13 @@ function CE_ROGUE_MAGE()
 	local FIL_VIV_CD = CE_CD(FIL_VIV_SKILL, FIL_VIV_ID_1, FIL_VIV_ID_2);
 	--Arrojar
 	local ARR_SKILL, ARR_ID_1, ARR_ID_2 = Match_CE(490309);
-	local ARR_CD = CE_CD(ARR_SKILL, ARR_ID_1, ARR_ID_2);	
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
-	--Daga del caos
-	local DAG_CAOS_SKILL, DAG_CAOS_ID_1, DAG_CAOS_ID_2 = Match_CE(491178);
+	local ARR_CD = CE_CD(ARR_SKILL, ARR_ID_1, ARR_ID_2);
 	--Shadow slash
 	local SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2 = Match_CE(1493673);
 	local SHADOW_SLASH_CD = CE_CD(SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2);
 	
 	--BUFFOS--
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2); --Maniobra abandonada
-	elseif DAG_CAOS_SKILL and (CE_BuffIdPlayer(501274) == false) then
-		UseSkill(DAG_CAOS_ID_1, DAG_CAOS_ID_2); --Daga del caos
-	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
+	if (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314))
 		then CastSpellByName(CE_toName(490314)); --Tormento venenoso
 	end
 	
@@ -113,33 +105,31 @@ function CE_ROGUE_MAGE()
 end
 
 function CE_ROGUE_MAGE_IMPORT()	
-	local Skills = { 490355, 491178, 490314, 1244064, 200173, 1244062, 1244060, 491182, 1491731, 1490431, 497205, 491186, 1490430, 1490431, 1490432, 491183, 490345, 490144, 490356, 491180, 490309};
+	local Skills = { 490314, 1244064, 200173, 1244062, 1244060, 491182, 1491731, 1490431, 497205, 491186, 1490430, 1490431, 1490432, 491183, 490345, 490144, 490356, 491180, 490309};
 	local conditions = {
-		[1] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true }},
-		[2] = { [12]={ id1="501274", id2="0", id3="0", id4="0", status=true }},
-		[3] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true }},
+		[1] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true }},
 		--poción de enano
-		[4] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
+		[2] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
 		--estimulante fuerte
-		[5] = { [12]={ id1="1500237", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[3] = { [12]={ id1="1500237", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 		--agilidad elfica
-		[6] = { [12]={ id1="501321", id2="0", id3="0", id4="0", status=true }, [17]={ id="501321", status=true, time="0" }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[4] = { [12]={ id1="501321", id2="0", id3="0", id4="0", status=true }, [17]={ id="501321", status=true, time="0" }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 		--filete de costilla
-		[7] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
-		[8] = { [5]={ max="100", min="15", status=true }},
-		[9] = { [42]={ enable=true, status=true }},
-		[10] = { [5]={ max="100", min="30", status=true }, [11]={ id1="500960", id2="0", id3="0", id4="0", status=true }, [34]={ id1="620313", id2="0", id3="0", id4="0", status=true }},
-		[11] = { [39]={ enable=true, status=true }},
-		[12] = {},
-		[13] = { [5]={ max="100", min="15", status=true }, [35]={ id1="620313", id2="0", id3="0", id4="0", status=true }},
-		[14] = { [5]={ max="100", min="25", status=true }, [34]={ id1="620313", id2="0", id3="0", id4="0", status=true }, [35]={ id1="620314", id2="0", id3="0", id4="0", status=true }},
-		[15] = { [5]={ max="100", min="30", status=true }, [34]={ id1="620313", id2="620314", id3="0", id4="0", status=true }, [59]={ enable=true, status=true } },
-		[16] = { [39]={ enable=true, status=true }},
-		[17] = { [39]={ enable=true, status=true }, [45]={ enable=true, status=true }},
-		[18] = { [5]={ max="100", min="20", status=true }, [33]={ id1="508530", id2="0", id3="0", id4="0", status=true }},
-		[19] = { [5]={ max="100", min="35", status=true }, [32]={ id1="508530", id2="0", id3="0", id4="0", status=true }},
-		[20] = { [39]={ enable=true, status=true }, [43]={ enable=true, status=true }},
-		[21] = {},
+		[5] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[6] = { [5]={ max="100", min="15", status=true }},
+		[7] = { [42]={ enable=true, status=true }},
+		[8] = { [5]={ max="100", min="30", status=true }, [11]={ id1="500960", id2="0", id3="0", id4="0", status=true }, [34]={ id1="620313", id2="0", id3="0", id4="0", status=true }},
+		[9] = { [39]={ enable=true, status=true }},
+		[10] = {},
+		[11] = { [5]={ max="100", min="15", status=true }, [35]={ id1="620313", id2="0", id3="0", id4="0", status=true }},
+		[12] = { [5]={ max="100", min="25", status=true }, [34]={ id1="620313", id2="0", id3="0", id4="0", status=true }, [35]={ id1="620314", id2="0", id3="0", id4="0", status=true }},
+		[13] = { [5]={ max="100", min="30", status=true }, [34]={ id1="620313", id2="620314", id3="0", id4="0", status=true }, [59]={ enable=true, status=true } },
+		[14] = { [39]={ enable=true, status=true }},
+		[15] = { [39]={ enable=true, status=true }, [45]={ enable=true, status=true }},
+		[16] = { [5]={ max="100", min="20", status=true }, [33]={ id1="508530", id2="0", id3="0", id4="0", status=true }},
+		[17] = { [5]={ max="100", min="35", status=true }, [32]={ id1="508530", id2="0", id3="0", id4="0", status=true }},
+		[18] = { [39]={ enable=true, status=true }, [43]={ enable=true, status=true }},
+		[19] = {},
 	};
 
 	local iss = {

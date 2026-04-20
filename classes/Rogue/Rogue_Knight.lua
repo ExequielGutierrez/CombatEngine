@@ -3,10 +3,6 @@
 --Neoraxer@live.com
 function CE_ROGUE_KNIGHT()
 	local energia = UnitMana("player")
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355)
-	--Armadura reforzada
-	local ARM_REF_SKILL, ARM_REF_ID_1, ARM_REF_ID_2 = Match_CE(490152)
 	--Luz abrasadora
 	local LUZ_ABR_SKILL, LUZ_ABR_ID_1, LUZ_ABR_ID_2 = Match_CE(493025)
 	--Disciplina de Katana
@@ -49,18 +45,12 @@ function CE_ROGUE_KNIGHT()
 	local ATA_HER_SKILL, ATA_HER_ID_1, ATA_HER_ID_2 = Match_CE(1492414);
 	local ATA_HER_CD = CE_CD(ATA_HER_SKILL, ATA_HER_ID_1, ATA_HER_ID_2);
 	--BUFFOS--
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false)
-		then UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2)
 	--Tormento venenoso
-	elseif CE_BuffIdPlayer(500093) == false and IsSpellUsable(490314)
+	if CE_BuffIdPlayer(500093) == false and IsSpellUsable(490314)
         then CastSpellByName(CE_toName(490314))
 	--Luz abrazadora
 	elseif LUZ_ABR_SKILL and CE_BuffIdPlayer(503268) == false and _G.C_EngineSettings.AOE
 		then UseSkill(LUZ_ABR_ID_1, LUZ_ABR_ID_2)
-	--Armadura reforzada
-	elseif ARM_REF_SKILL and (CE_BuffIdPlayer(500141) == false) then
-		UseSkill(ARM_REF_ID_1, ARM_REF_ID_2)
 	--Diciplina de Katana
 	elseif DIS_KAT_SKILL and DIS_KAT_CD <= 0.25 and CE_BuffIdPlayer(1503831) == false and CE_TARGET_IS_BOSS() then
 		UseSkill(DIS_KAT_ID_1, DIS_KAT_ID_2)
@@ -138,7 +128,7 @@ function CE_ROGUE_KNIGHT()
 	end
 end
 function CE_ROGUE_KNIGHT_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 493025, 490152, 1492417, 491552, 492924, 1491731, 1493673, 1492414, 492629, 490185, 490074, 490185, 491553, 490306, 490323, 490345, 490309, 490148 }
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 493025, 1492417, 491552, 492924, 1491731, 1493673, 1492414, 492629, 490185, 490074, 490185, 491553, 490306, 490323, 490345, 490309, 490148 }
 	local conditions = {
 		-- 1 poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -153,76 +143,72 @@ function CE_ROGUE_KNIGHT_IMPORT()
 			[5]={ max="500", min="5", status=true },
 			[12]={ id1="500093", id2="0", id3="0", id4="0", status=true }
 		},
-		-- 6 maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
-		-- 7 Luz abrazadora 493025
-		[7] = {
+		-- 6 Luz abrazadora 493025
+		[6] = {
 			[2]={ max="100", min="8", status=true },
 			[12]={ id1="503268", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 8 Armadura reforzada 490152
-		[8] = { [12]={ id1="500141", id2="0", id3="0", id4="0", status=true } },
-		-- 9 Diciplina de Katana 1492417
-		[9] = {
+		-- 7 Diciplina de Katana 1492417
+		[7] = {
 			[12]={ id1="1503831", id2="0", id3="0", id4="0", status=true },
 			[41]={ enable=true, status=true } 
 		  },
-		-- 10 Protección del león 491552
-		[10] = {
+		-- 8 Protección del león 491552
+		[8] = {
 			[12]={ id1="1503806", id2="0", id3="0", id4="0", status=true },
 			[41]={ enable=true, status=true } 
 		  },
-		-- 11 Poder del león 492924
-		[11] ={ [41]={ enable=true, status=true } },
-		-- 12 Perfect Slide	1491731
-		[12] = { [42]={ enable=true, status=true } },
-		-- 13 Shadow slash 1493673
-		[13] = {
+		-- 9 Poder del león 492924
+		[9] ={ [41]={ enable=true, status=true } },
+		-- 10 Perfect Slide	1491731
+		[10] = { [42]={ enable=true, status=true } },
+		-- 11 Shadow slash 1493673
+		[11] = {
 			[5]={ max="100", min="24", status=true },
 			[11]={ id1="1503811", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 14 Ataque a la herida 1492414
-		[14] ={
+		-- 12 Ataque a la herida 1492414
+		[12] ={
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true },
 			[59]={ enable=true, status=true }
 		  },
-		-- 15 Guarda valeroso 492629
-		[15] = {
+		-- 13 Guarda valeroso 492629
+		[13] = {
 			[12]={ id1="502898", id2="0", id3="0", id4="0", status=true },
 			[41]={ enable=true, status=true } 
 		  },
-		-- 16 Golpe de castigo 490185
-		[16] = { [39]={ enable=true, status=true } },
-		-- 17 Castigo 490074
-		[17] = {
+		-- 14 Golpe de castigo 490185
+		[14] = { [39]={ enable=true, status=true } },
+		-- 15 Castigo 490074
+		[15] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="500169", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 18 Golpe de castigo 490185
-		[18] = { [39]={ enable=true, status=true } },
-		-- 19 Desarme 491553
+		-- 16 Golpe de castigo 490185
+		[16] = { [39]={ enable=true, status=true } },
+		-- 17 Desarme 491553
+		[17] = {
+			[5]={ max="100", min="20", status=true },
+			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
+		  },
+		-- 18 Cuchillada alevosa 490306
+		[18] = {
+			[5]={ max="100", min="20", status=true },
+			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
+		  },
+		-- 19 Golpe bajo 490323
 		[19] = {
-			[5]={ max="100", min="20", status=true },
-			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
-		  },
-		-- 20 Cuchillada alevosa 490306
-		[20] = {
-			[5]={ max="100", min="20", status=true },
-			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
-		  },
-		-- 21 Golpe bajo 490323
-		[21] = {
 			[5]={ max="100", min="30", status=true },
 			[34]={ id1="620313", id2="", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 22 Tempestad del alma 490345
-		[22] =  { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
-		-- 23 Arrojar 490309
-		[23] = {},
-		-- 24 Golpe divino 490148
-		[24] = {}
+		-- 20 Tempestad del alma 490345
+		[20] =  { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
+		-- 21 Arrojar 490309
+		[21] = {},
+		-- 22 Golpe divino 490148
+		[22] = {}
 	}
 	local iss = {
 		[490314] = true,
