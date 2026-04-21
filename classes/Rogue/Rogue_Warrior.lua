@@ -15,10 +15,6 @@ function CE_ROGUE_WARRIOR()
 	--Manos venenosas
 	local MAN_VEN_SKILL, MAN_VEN_ID_1, MAN_VEN_ID_2 = Match_CE(490329);
 	local is_Moving = CE_isMoving()
-	--Reclamar energía
-	local REC_ENE_SKILL, REC_ENE_ID_1, REC_ENE_ID_2 = Match_CE(493257);
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
 	--Toque de la muerte
 	local TOQ_MUE_SKILL, TOQ_MUE_ID_1, TOQ_MUE_ID_2 = Match_CE(491339);
 	local TOQ_CD = CE_CD(TOQ_MUE_SKILL, TOQ_MUE_ID_1, TOQ_MUE_ID_2);
@@ -73,15 +69,9 @@ function CE_ROGUE_WARRIOR()
 	--Manos venenosas
 	elseif MAN_VEN_SKILL and (CE_BuffIdPlayer(500715) == false) and (is_Moving == false) then
 		UseSkill(MAN_VEN_ID_1, MAN_VEN_ID_2);
-	--Reclamar energía
-	elseif REC_ENE_SKILL and (energia >= 30) and (CE_BuffIdPlayer(1500601) == false) then
-		UseSkill(REC_ENE_ID_1, REC_ENE_ID_2);
 	--Herida grave
 	elseif HER_GRA_SKILL and (HER_GRAV_CD<0.45) and (energia >= 35) and (CE_SELF_DEBUFF(620313) == true or CE_SELF_DEBUFF(620314) == true) then
 		UseSkill(HER_GRA_ID_1, HER_GRA_ID_2);
-	--Maniobra abandonada
-	elseif MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1,MAN_ABA_ID_2);
 	--Tormento venenoso
 	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314)) then
 		CastSpellByName(CE_toName(490314));
@@ -125,7 +115,8 @@ function CE_ROGUE_WARRIOR()
 end
 
 function CE_ROGUE_WARRIOR_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 490329, 490492, 493257, 1490921, 493017, 490356, 499477, 492625, 490345, 490144, 1490920, 1490919, 499481, 491339, 490053, 490309 }
+	--Skills          [1]        [2]      [3]      [4]      [5]    [6]     [7]     [8]     [9]     [10]    [11]     [12]   [13]    [14]     [15]      [16]     [17]    [18]    [19]    [20]
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490329, 490492, 1490921, 493017, 490356, 499477, 492625, 490345, 490144, 1490920, 1490919, 499481, 491339, 490053, 490309 }
 	local conditions = {
 		-- 1 poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -140,83 +131,76 @@ function CE_ROGUE_WARRIOR_IMPORT()
 			[5]={ max="500", min="5", status=true },
 			[12]={ id1="500093", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 6 maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
-		-- 7 manos venenosas 490329
-		[7] = {
+		-- 6 manos venenosas 490329
+		[6] = {
 			[12]={ id1="500715", id2="0", id3="0", id4="0", status=true },
 			[19]={ enable=true, status=true } 
 		},
-		-- 8 Furioso 490492
-		[8] = { [6]={ max="30", min="0", status=true } },
-		-- 9 Reclamar energía 493257
-		[9] = {
-			[5]={ max="500", min="30", status=true },
-			[12]={ id1="1500601", id2="0", id3="0", id4="0", status=true } 
-		},
-		-- 10 Herida grave 1490921
-		[10] = {
+		-- 7 Furioso 490492
+		[7] = { [6]={ max="30", min="0", status=true } },
+		-- 8 Herida grave 1490921
+		[8] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true } 
 		},
-		-- 11 Putrefacción 493017
-		[11] = {
+		-- 9 Putrefacción 493017
+		[9] = {
 			[5]={ max="500", min="30", status=true },
 			[11]={ id1="500715", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 12 Cicatriz de la garra ISS 490356
-		[12] ={
+		-- 10 Cicatriz de la garra ISS 490356
+		[10] ={
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 13 Explosión venenosas 499477
-		[13] = {
+		-- 11 Explosión venenosas 499477
+		[11] = {
 			[6]={ max="100", min="15", status=true },
 			[11]={ id1="502894", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true } 
 		},
-		-- 14 Infección ponzoñosa 492625
-		[14] = {
+		-- 12 Infección ponzoñosa 492625
+		[12] = {
 			[6]={ max="100", min="20", status=true },
 			[12]={ id1="502894", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true } 
 		},
-		-- 15 Tempestad del alma 490345 ISS
-		[15] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
-		-- 16 Marca de garra ISS 490144
-		[16] = {
+		-- 13 Tempestad del alma 490345 ISS
+		[13] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
+		-- 14 Marca de garra ISS 490144
+		[14] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 17 Golpe bajo 1490920
-		[17] ={
+		-- 15 Golpe bajo 1490920
+		[15] ={
 			[5]={ max="100", min="25", status=true },
 			[34]={ id1="620313", id2="0", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 18 Cuchillada alevosa 1490919
-		[18] = {
+		-- 16 Cuchillada alevosa 1490919
+		[16] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 19 Torbellino 499481
-		[19] = {
+		-- 17 Torbellino 499481
+		[17] = {
 			[6]={ max="100", min="15", status=true },
 			[11]={ id1="622992", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true } 
 		},
-		-- 20 Toque de la muerte 491339
-		[20] = {
+		-- 18 Toque de la muerte 491339
+		[18] = {
 			[6]={ max="100", min="20", status=true },
 			[12]={ id1="506222", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 21 Tajo 490053
-		[21] ={
+		-- 19 Tajo 490053
+		[19] ={
 			[6]={ max="100", min="25", status=true },
 			[35]={ id1="500081", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 22 Arrojar 490309
-		[22] = {},
+		-- 20 Arrojar 490309
+		[20] = {},
 	}
 	local iss = {
 		[490314] = true,
