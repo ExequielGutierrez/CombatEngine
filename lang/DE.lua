@@ -61,6 +61,9 @@ CE_LANG_DE = {
 		weaponHammer2H = "Hammer 2H",
 		weaponSpear = "Speer",
 		weaponKatana = "Katana",
+		weaponBow = "Bogen",
+		weaponCrossbow = "Armbrust",
+		weaponGun = "Schusswaffe",
 		Current = "Aktuell",
 		Name = "Name",
 		targetIsPlayer = "Ist Spieler",
@@ -231,4 +234,7 @@ CE_LANG_DE = {
 	Tip66 = "Only use the skill if your main-hand weapon is a two-handed hammer.",
 	Tip67 = "Only use the skill if your main-hand weapon is a spear.",
 	Tip68 = "Only use the skill if your main-hand weapon is a katana.",
+	Tip69 = "Only use the skill if you have a bow equipped in the ranged weapon slot (slot 10).",
+	Tip70 = "Only use the skill if you have a crossbow equipped in the ranged weapon slot (slot 10).",
+	Tip71 = "Only use the skill if you have a gun equipped in the ranged weapon slot (slot 10).",
 }

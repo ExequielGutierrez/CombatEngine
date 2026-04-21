@@ -61,6 +61,9 @@ CE_LANG_ES = {
       weaponHammer2H = "Martillo 2H",
       weaponSpear = "Lanza",
       weaponKatana = "Katana",
+      weaponBow = "Arco",
+      weaponCrossbow = "Ballesta",
+      weaponGun = "Pistola",
       Current = "Actual",
       Name = "Nombre",
       targetIsPlayer = "Es Jugador",
@@ -229,6 +232,9 @@ CE_LANG_ES = {
     Tip66 = "Solo se usará la habilidad si el arma de la mano principal es un martillo a dos manos.",
     Tip67 = "Solo se usará la habilidad si el arma de la mano principal es una lanza.",
     Tip68 = "Solo se usará la habilidad si el arma de la mano principal es una katana.",
+    Tip69 = "Solo se usará la habilidad si llevas un arco equipado en el arma a distancia (slot 10).",
+    Tip70 = "Solo se usará la habilidad si llevas una ballesta equipada en el arma a distancia (slot 10).",
+    Tip71 = "Solo se usará la habilidad si llevas un arma de fuego equipada en el arma a distancia (slot 10).",
 }
 
 COMBATENGINE_DELETE_TEXTRUNE_ES = "Tirar runas de nivel bajo.";

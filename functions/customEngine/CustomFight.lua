@@ -9,7 +9,7 @@ COMBAT_ENG_SERIAL = nil;
 COMBAT_ENG_SERIAL_RAW = nil;
 COMBAT_ENG_MAXSKILLS = 50;
 COMBAT_ENG_MAX_DISPLAY_SKILLS = 10;
-CE_TOTAL_CONDITIONS = 68;
+CE_TOTAL_CONDITIONS = 71;
 --Rotation
 CE_PRESET_ACTIVE = 1;
 CE_PRESET_MAX_PRESETS = 5;
@@ -86,6 +86,9 @@ COMBAT_ENG_DEFAULTSKILL = {
 			[66] = { status = false, enable = false },
 			[67] = { status = false, enable = false },
 			[68] = { status = false, enable = false },
+			[69] = { status = false, enable = false },
+			[70] = { status = false, enable = false },
+			[71] = { status = false, enable = false },
 		}
 	}
 }

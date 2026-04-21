@@ -1268,13 +1268,8 @@ function CE_isShield()
 		return false
 	end
 end
---Leer arma a una mano (weapontype: 0=Unarmed, 1=Sword, 2=Dagger, 3=Wand, 4=Axe, 5=1-H Hammer, 6=2-H Sword, 7=Staff, 8=2-H Axe, 9=2-H Hammer, 10=Spear, 11=Bow, 12=Crossbow, 13=Gun, 14=Arrow, 15=Bullet, 16=Projectiles, 17=Lumbering, 18=Herbalism, 19=Mining, 20=Fishing, 21=Instrument, 22=Katana, 23=Fishing Bait)
+--Leer arma: mano principal 15; arco/ballesta/pistola en slot 10 (a distancia). weapontype: … 11=Bow, 12=Crossbow, 13=Gun …
 function CE_WEAPON_TYPE(weapon)
-	local link = GetInventoryItemLink("player", 15)
-	local a,b,c = ParseHyperlink(link)
-	local id_hex = string.sub(b, 1, 6)
-	local id_decimal = tonumber(id_hex, 16)
-	local type_weapon = GetObjectInfo(id_decimal, "weapontype")
 	local types = {
 		["Sword"] = 1,
 		["Dagger"] = 2,
@@ -1287,11 +1282,32 @@ function CE_WEAPON_TYPE(weapon)
 		["Hammer-2H"] = 9,
 		["Spear"] = 10,
 		["Katana"] = 22,
+		["Bow"] = 11,
+		["Crossbow"] = 12,
+		["Gun"] = 13,
 	}
 	local want = types[weapon]
 	if want == nil then
 		return false
 	end
+	local slot = 15
+	if weapon == "Bow" or weapon == "Crossbow" or weapon == "Gun" then
+		slot = 10
+	end
+	local link = GetInventoryItemLink("player", slot)
+	if not link or link == "" then
+		return false
+	end
+	local a, b, c = ParseHyperlink(link)
+	if not b then
+		return false
+	end
+	local id_hex = string.sub(b, 1, 6)
+	local id_decimal = tonumber(id_hex, 16)
+	if not id_decimal then
+		return false
+	end
+	local type_weapon = GetObjectInfo(id_decimal, "weapontype")
 	return type_weapon == want
 end
 --Get weapon

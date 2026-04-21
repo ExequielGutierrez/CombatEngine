@@ -61,6 +61,9 @@ CE_LANG_PL = {
       weaponHammer2H = "Młot 2H",
       weaponSpear = "Włócznia",
       weaponKatana = "Katana",
+      weaponBow = "Łuk",
+      weaponCrossbow = "Kusza",
+      weaponGun = "Broń palna",
       Current = "Obecnie",
       Name = "Nazwa",
       targetIsPlayer = "To Gracz",
@@ -231,5 +234,8 @@ CE_LANG_PL = {
     Tip66 = "Umiejętność tylko przy dwuręcznym młocie w głównej ręce.",
     Tip67 = "Umiejętność tylko przy włóczni w głównej ręce.",
     Tip68 = "Umiejętność tylko przy katanie w głównej ręce.",
+    Tip69 = "Umiejętność tylko przy łuku w slocie broni dystansowej (slot 10).",
+    Tip70 = "Umiejętność tylko przy kuszy w slocie broni dystansowej (slot 10).",
+    Tip71 = "Umiejętność tylko przy broni palnej w slocie broni dystansowej (slot 10).",
 }
 

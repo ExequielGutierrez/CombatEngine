@@ -29,31 +29,16 @@ function CE_ROGUE_SCOUT()
 	--Tiro
 	local TIRO_SKILL, TIRO_ID_1, TIRO_ID_2 = Match_CE(491531);
 	local TIRO_CD = CE_CD(TIRO_SKILL, TIRO_ID_1, TIRO_ID_2);
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
-	--Sustituto
-	local SUS_SKILL, SUS_ID_1, SUS_ID_2 = Match_CE(492626);
 	--Manos vigorizadas
 	local MAN_VIG_SKILL, MAN_VIG_ID_1, MAN_VIG_ID_2 = Match_CE(490347);
-	--Maestro de combate
-	local MAE_COM_SKILL, MAE_COM_ID_1, MAE_COM_ID_2 = Match_CE(491525);
 	--Shadow slash
 	local SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2 = Match_CE(1493673);
 	local SHADOW_SLASH_CD = CE_CD(SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2);
 
 	--BUFFOS--
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2);
-	--Sustituto
-	elseif SUS_SKILL and (CE_BuffIdPlayer(502895) == false) and foco >= 30 then
-		UseSkill(SUS_ID_1, SUS_ID_2);
 	--Manos vigorizadas
-	elseif MAN_VIG_SKILL and (CE_BuffIdPlayer(500737) == false) then
+	if MAN_VIG_SKILL and (CE_BuffIdPlayer(500737) == false) then
 		UseSkill(MAN_VIG_ID_1, MAN_VIG_ID_2);
-	--Maestro de combate
-	elseif MAE_COM_SKILL and (CE_BuffIdPlayer(501921) == false) then
-		UseSkill(MAE_COM_ID_1, MAE_COM_ID_2);
 	--Tormento venenoso
 	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314)) then
 		CastSpellByName(CE_toName(490314));
@@ -99,7 +84,7 @@ function CE_ROGUE_SCOUT()
 	elseif SOR_RAP_SKILL and SOR_RAP_CD <= 0.45 and CE_BuffIdPlayer(501924) and energia >= 30 and _G.C_EngineSettings.AOE then
 		UseSkill(SOR_RAP_ID_1, SOR_RAP_ID_2);
 	--Golpe a las articulaciones
-	elseif GOL_ART_SKILL and GOL_ART_CD <= 0.45 and foco >= 15 then
+	elseif GOL_ART_SKILL and GOL_ART_CD <= 0.45 and foco >= 25 then
 		UseSkill(GOL_ART_ID_1, GOL_ART_ID_2);
 	--Cicatriz de la garra ISS
 	elseif (energia >= 35) and (CE_DebuffIdTarget(508530) == true) and (CE_ISS_CD(CE_toName(490356)) == true) and CE_TARGET_IS_BOSS() then
@@ -126,7 +111,7 @@ function CE_ROGUE_SCOUT()
 end
 
 function CE_ROGUE_SCOUT_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 492626, 490347, 491525, 491528, 1491731, 491534, 1493673, 490313, 490306, 490345, 491528, 491532, 1490979, 490356, 491534, 490313, 490311, 490144, 491531 }
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490347, 491528, 1491731, 491534, 1493673, 490313, 490306, 490345, 491528, 491532, 1490979, 490356, 491534, 490313, 490311, 490144, 491531 }
 	local conditions = {
 	-- 1 poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -138,93 +123,82 @@ function CE_ROGUE_SCOUT_IMPORT()
 		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
 	-- 5 tormento venenoso 490314
 		[5] = { [12]={ id1="500093", id2="0", id3="0", id4="0", status=true } },
-	-- 6 maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
-	-- 7 Sustituto 492626
+	-- 6 Manos vigorizadas 490347
+		[6] = {
+			[12]={ id1="500737", id2="0", id3="0", id4="0", status=true } 
+		  },
+	-- 7 Precisión 491528
 		[7] = {
-			[3]={ max="500", min="30", status=true },
-			[12]={ id1="502895", id2="0", id3="0", id4="0", status=true } 
-		  },
-	-- 8 Manos vigorizadas 490347
-		[8] = {
-			[12]={ id1="502895", id2="0", id3="0", id4="0", status=true } 
-		  },
-	-- 9 Maestro de combate 491525
-		[9] = {
-			[3]={ max="500", min="30", status=true },
-			[12]={ id1="501921", id2="0", id3="0", id4="0", status=true } 
-		  },
-	-- 10 Precisión 491528
-		[10] = {
 			[3]={ max="500", min="50", status=true },
 			[12]={ id1="501924", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 11 Perfect Slide 1491731
-		[11] = { [42]={ enable=true, status=true } },
-	-- 12 Golpe bajo con ira asesina 491534
-		[12] = {
+	-- 8 Perfect Slide 1491731
+		[8] = { [42]={ enable=true, status=true } },
+	-- 9 Golpe bajo con ira asesina 491534
+		[9] = {
 			[5]={ max="100", min="25", status=true },
 			[34]={ id1="620313", id2="500960", id3="0", id4="0", status=true } 
 		  },
 		--Shadow slash 1493673
-		[13] = {
+		[10] = {
 			[5]={ max="100", min="24", status=true },
 			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 13 Ataque a la herida 490313
-		[14] = {
+	-- 11 Ataque a la herida 490313
+		[11] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
 			[59]={ enable=true, status=true }
 		  },
-	-- 14 Cuchillada alevosa 490306
-		[15] = {
+	-- 12 Cuchillada alevosa 490306
+		[12] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 15 Tempestad del alma 490345
-		[16] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
-	-- 16 Precisión 491528
-		[17] = {
-			[5]={ max="500", min="50", status=true },
+	-- 13 Tempestad del alma 490345
+		[13] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
+	-- 14 Precisión 491528
+		[14] = {
+			[3]={ max="500", min="50", status=true },
 			[12]={ id1="501924", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 17 Sorteo rápido 491532
-		[18] = {
+	-- 15 Sorteo rápido 491532
+		[15] = {
 			[5]={ max="100", min="30", status=true },
-			[11]={ id1="501924", id2="0", id3="0", id4="0", status=true } 
+			[11]={ id1="501924", id2="0", id3="0", id4="0", status=true },
+			[71]={ enable=true, status=true } -- Requires Gun	
 		  },
-	-- 18 Golpe a las articulaciones 1490979
-		[19] = { [3]={ max="500", min="15", status=true } },
-	-- 19 Cicatriz de la garra ISS 490356
-		[20] = {
+	-- 16 Golpe a las articulaciones 1490979
+		[16] = { [3]={ max="500", min="25", status=true } },
+	-- 17 Cicatriz de la garra ISS 490356
+		[17] = {
 			[5]={ max="100", min="35", status=true },
 			[32]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 20 Golpe bajo 491534
-		[21] = {
+	-- 18 Golpe bajo 491534
+		[18] = {
 			[5]={ max="100", min="25", status=true },
 			[34]={ id1="620313", id2="0", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 21 Ataque a la herida 490313
-		[22] = {
+	-- 19 Ataque a la herida 490313
+		[19] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="500704", id3="0", id4="0", status=true },
 			[59]={ enable=true, status=true }
 		  },
-	-- 22 Punto ciego 490311
-		[23] = {
+	-- 20 Punto ciego 490311
+		[20] = {
 			[5]={ max="500", min="25", status=true },
 			[35]={ id1="620297", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 23 Marca de garra ISS 490144
-		[24] = {
+	-- 21 Marca de garra ISS 490144
+		[21] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="508530", id2="0", id3="0", id4="0", status=true } 
 		  },
-	-- 24 Tiro 491531
-		[25] = {},
+	-- 22 Tiro 491531
+		[22] = {},
 	}
 	local iss = {
 		[490314] = true,

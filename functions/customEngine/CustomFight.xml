@@ -1881,6 +1881,15 @@
 						<Frame name="$parentCondition68" inherits="CE_CONDITION_Control_template" id="68">
 							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition67" x="0" y="15" /></Anchors>
 						</Frame>
+						<Frame name="$parentCondition69" inherits="CE_CONDITION_Control_template" id="69">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition68" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition70" inherits="CE_CONDITION_Control_template" id="70">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition69" x="0" y="15" /></Anchors>
+						</Frame>
+						<Frame name="$parentCondition71" inherits="CE_CONDITION_Control_template" id="71">
+							<Anchors><Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parentCondition70" x="0" y="15" /></Anchors>
+						</Frame>
 					</Frames>
 					<Layers>
 						<Layer level="ARTWORK">
@@ -1920,7 +1929,7 @@
 			</ScrollChild>
 			<Scripts>
 				<OnShow>
-					this:SetScrollRange( 2800, 0 );
+					this:SetScrollRange( 2950, 0 );
 				</OnShow>
 				<OnMouseDown>
 					this:GetParent():StartMoving();
