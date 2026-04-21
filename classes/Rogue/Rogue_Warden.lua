@@ -33,29 +33,14 @@ function CE_ROGUE_WARDEN()
 	local COR_CAR_CD = CE_CD(COR_CAR_SKILL, COR_CAR_ID_1, COR_CAR_ID_2);
 	--Arrojar
 	local ARR_SKILL, ARR_ID_1, ARR_ID_2 = Match_CE(490309);
-	local ARR_CD = CE_CD(ARR_SKILL, ARR_ID_1, ARR_ID_2);	
-	--Maniobra abandonada
-	local MAN_ABA_SKILL, MAN_ABA_ID_1, MAN_ABA_ID_2 = Match_CE(490355);
-	--Escudo de zarzas
-	local ESC_ZAR_SKILL, ESC_ZAR_ID_1, ESC_ZAR_ID_2 = Match_CE(493642);
-	--Parche de herida
-	local PAR_HER_SKILL, PAR_HER_ID_1, PAR_HER_ID_2 = Match_CE(494921);
+	local ARR_CD = CE_CD(ARR_SKILL, ARR_ID_1, ARR_ID_2);
 	--Shadow slash
 	local SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2 = Match_CE(1493673);
 	local SHADOW_SLASH_CD = CE_CD(SHADOW_SLASH_SKILL, SHADOW_SLASH_ID_1, SHADOW_SLASH_ID_2);
 	
 	--BUFFOS--
-	--Maniobra abandonada
-	if MAN_ABA_SKILL and (CE_BuffIdPlayer(500744) == false) then
-		UseSkill(MAN_ABA_ID_1, MAN_ABA_ID_2); 
-	--Escudo de zarzas
-	elseif ESC_ZAR_SKILL and (CE_BuffIdPlayer(503958) == false) then
-		UseSkill(ESC_ZAR_ID_1, ESC_ZAR_ID_2); 
-	--Parche de herida
-	elseif PAR_HER_SKILL and (CE_BuffIdPlayer(505685) == false) then
-		UseSkill(PAR_HER_ID_1, PAR_HER_ID_2); 
 	--Tormento venenoso
-	elseif (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314)) and energia >= 5 then 
+	if (CE_BuffIdPlayer(500093) == false) and (IsSpellUsable(490314)) and energia >= 5 then 
 		CastSpellByName(CE_toName(490314)); 
 	end
 	
@@ -115,7 +100,8 @@ function CE_ROGUE_WARDEN()
 end
 
 function CE_ROGUE_WARDEN_IMPORT()
-	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490355, 490329, 493642, 494921, 494922, 1493673, 1491731, 494571, 494045, 494043, 490345, 1490353, 1490354, 1490355, 1490351, 490309 }
+	--Skills          [1]        [2]      [3]      [4]      [5]    [6]     [7]     [8]     [9]     [10]    [11]     [12]   [13]    [14]     [15]      [16]     [17]    [18]
+	local Skills = { 1244064, 200173, 1244062, 1244060, 490314, 490329, 494922, 1493673, 1491731, 494571, 494045, 494043, 490345, 1490353, 1490354, 1490355, 1490351, 490309 }
 	local conditions = {
 		-- 1 poción de enano 1244064
 		[1] = { [5]={ max="40", min="0", status=true }, [40]={ enable=true, status=true }},
@@ -130,64 +116,55 @@ function CE_ROGUE_WARDEN_IMPORT()
 			[5]={ max="500", min="5", status=true },
 			[12]={ id1="500093", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 6 maniobra abandonada 490355
-		[6] = { [12]={ id1="500744", id2="0", id3="0", id4="0", status=true } },
-		-- 7 manos venenosas 490329
-		[7] = {
+		-- 6 manos venenosas 490329
+		[6] = {
 			[12]={ id1="500715", id2="0", id3="0", id4="0", status=true },
 			[19]={ enable=true, status=true } 
 		},
-		-- 8 Escudo de zarzas 493642
-		[8] = { [12]={ id1="503958", id2="0", id3="0", id4="0", status=true } },
-		-- 9 Parche de herida 494921
-		[9] = {
-			[5]={ max="500", min="50", status=true },
-			[12]={ id1="505685", id2="0", id3="0", id4="0", status=true } 
-		},
-		-- 10 Cuchilla fantasma 494922
-		[10] = { [5]={ max="100", min="3", status=true }, [6]={ max="200", min="3", status=true } },
+		-- 7 Cuchilla fantasma 494922
+		[7] = { [5]={ max="100", min="3", status=true }, [6]={ max="200", min="3", status=true } },
 		--Shadow slash 1493673
-		[11] = {
+		[8] = {
 			[5]={ max="100", min="24", status=true },
 			[11]={ id1="1502730", id2="0", id3="0", id4="0", status=true } 
 		  },
-		-- 11 Perfect Slide	1491731
-		[12] = { [42]={ enable=true, status=true } },
-		-- 12 Poder del espiritu del bosque 494571
-		[13] = {
+		-- 9 Perfect Slide	1491731
+		[9] = { [42]={ enable=true, status=true } },
+		-- 10 Poder del espiritu del bosque 494571
+		[10] = {
 			[38]={ id="504910", self=false, status=true, time="15" },
 			[39]={ enable=true, status=true } 
 		},
-		-- 13 Espada sedienta de sangre 494045
-		[14] = {
+		-- 11 Espada sedienta de sangre 494045
+		[11] = {
 			[2]={ max="100", min="3", status=true },
 			[12]={ id1="504595", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 14 Sabueso de sangre 494043
-		[15] = { [32]={ id1="1502391", id2="0", id3="0", id4="0", status=true } },
-		-- 15 Tempestad del alma 490345
-		[16] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
-		-- 16 Cuchillada alevosa 1490353
-		[17] = {
+		-- 12 Sabueso de sangre 494043
+		[12] = { [32]={ id1="1502391", id2="0", id3="0", id4="0", status=true } },
+		-- 13 Tempestad del alma 490345
+		[13] = { [5]={ max="100", min="13", status=true }, [39]={ enable=true, status=true } },
+		-- 14 Cuchillada alevosa 1490353
+		[14] = {
 			[5]={ max="100", min="20", status=true },
 			[33]={ id1="620313", id2="0", id3="0", id4="0", status=true } 
 		},	
-		-- 17 Golpe bajo 1490354
-		[18] = {
+		-- 15 Golpe bajo 1490354
+		[15] = {
 			[5]={ max="100", min="25", status=true },
 			[34]={ id1="620313", id2="0", id3="0", id4="0", status=true },
 			[35]={ id1="620314", id2="0", id3="0", id4="0", status=true } 
 		},
-		-- 18 Ataque a la herida 1490355
-		[19] = {
+		-- 16 Ataque a la herida 1490355
+		[16] = {
 			[5]={ max="100", min="35", status=true },
 			[34]={ id1="620313", id2="620314", id3="0", id4="0", status=true },
 			[59]={ enable=true, status=true }
 		},
-		-- 19 Corte cargado 1490351
-		[20] = {},
-		-- 20 Arrojar 490309
-		[21] = {}
+		-- 17 Corte cargado 1490351
+		[17] = {},
+		-- 18 Arrojar 490309
+		[18] = {}
 	}
 	local iss = {
 		[490314] = true,
