@@ -693,6 +693,7 @@
 							SetHyperlinkCursor(true);
 						</OnEnter>
 						<OnLeave>
+							SetHyperlinkCursor(false);
 							this:GetParent().Text:SetHexColor("00FF00");
 							SetHyperlinkCursor(false);
 							GameTooltip:Hide();
@@ -706,6 +707,7 @@
 							this:GetParent():LockHighlight();
 						</OnMouseUp>
 						<OnEnter>
+							SetHyperlinkCursor(true);
 							GameTooltip:SetOwner( this );
 							GameTooltip:SetText( TEXT(CE_LANG.Tooltip.Import), 1, 0, 0 );
 							GameTooltip:Show();
@@ -724,6 +726,12 @@
 				</Layer>
 			</Layers>
 			<Scripts>
+				<OnEnter>
+					SetHyperlinkCursor(true);
+				</OnEnter>
+				<OnLeave>
+					SetHyperlinkCursor(false);
+				</OnLeave>
 				<OnClick>
 					PlaySoundByPath("interface\\addons\\CombatEngine\\sfx\\01.mp3");
 				</OnClick>
@@ -741,7 +749,7 @@
 			COMBATENGINE_EDIT_LUA_OnShow( this );
 			CombatEngine_CONFIG_OnShow( this );
 			local main, sec =  UnitClassToken("player");
-			if main ~= "THIEF" and main ~= "HARPSYN" and main ~= "MAGE" then
+			if main ~= "THIEF" and main ~= "HARPSYN" and main ~= "MAGE" and main ~= "RANGER" then
 				this.Import:Hide();
 			else
 				this.Import:Show();

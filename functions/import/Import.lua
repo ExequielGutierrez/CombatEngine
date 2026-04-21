@@ -48,6 +48,8 @@ function CE_SET_IMPORT_SKILL(serial, preset)
 		["MAGEKNIGHT"]     = type(CE_MAGE_KNIGHT_IMPORT)     == "function" and serial == "MAGEKNIGHT" and CE_MAGE_KNIGHT_IMPORT()        or {},
 		["MAGEDRUID"]      = type(CE_MAGE_DRUID_IMPORT)      == "function" and serial == "MAGEDRUID" and CE_MAGE_DRUID_IMPORT()          or {},
 		["MAGEHARPSYN"]    = type(CE_MAGE_WARLOCK_IMPORT)    == "function" and serial == "MAGEHARPSYN" and CE_MAGE_WARLOCK_IMPORT()      or {},
+		-- Scout (Ranger)
+		["RANGERBARD"]      = type(CE_RANGER_BARD_IMPORT)      == "function" and serial == "RANGERBARD" and CE_RANGER_BARD_IMPORT()      or {},
 	}
 	CE_IMPORT_SKILLS = {}
 	CE_IMPORT_SKILLS = GetSkills[serial]

@@ -4,6 +4,10 @@ Combat Engine por Neoraxer
 Macro:
 /run CombatEngine();
 
+v.74
+- Updated default Rogue presets.
+- Added weapon conditions.
+
 v.73
 Improve durability position
 

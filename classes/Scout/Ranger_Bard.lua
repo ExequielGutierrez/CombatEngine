@@ -1,21 +1,13 @@
 
---Lua SCOUT/BARD BY NEORAXER 11-03-2024
---V1.0 High quality for Combat Engine -> Autor: NEORAXER
+--Lua SCOUT/BARD BY NEORAXER 21-04-2026
+--V2.0.1 High quality for Combat Engine -> Autor: NEORAXER
 --Neoraxer@live.com
 
 function CE_SCOUT_BARD()
 
-
-
-    --DEFAULT_CHAT_FRAME:AddMessage("Usando EXPLO/BARDO")
-	--local hp = UnitHealth("player")
-    --local MaxHp = UnitMaxHealth("player")
-
-
 	local foco = UnitMana("player");
 
-
-    --Tiro de precisi�n
+    --Tiro de precisión
 	local TIR_PRE_SKILL, TIR_PRE_ID_1, TIR_PRE_ID_2 = Match_CE(490450);
 	local TIR_PRE_CD = CE_CD(TIR_PRE_SKILL, TIR_PRE_ID_1, TIR_PRE_ID_2);
     --Disparo vital
@@ -27,7 +19,7 @@ function CE_SCOUT_BARD()
     --Golpe a las articulaciones
 	local GOL_ART_SKILL, GOL_ART_ID_1, GOL_ART_ID_2 = Match_CE(490420);
 	local GOL_ART_CD = CE_CD(GOL_ART_SKILL, GOL_ART_ID_1, GOL_ART_ID_2);
-    --Flecha vamp�rica
+    --Flecha vampírica
     local FLE_VAM_SKILL, FLE_VAM_ID_1, FLE_VAM_ID_2 = Match_CE(491292);
 	local FLE_VAM_CD = CE_CD(FLE_VAM_SKILL, FLE_VAM_ID_1, FLE_VAM_ID_2);    
     --Flecha desgarradora
@@ -47,11 +39,11 @@ function CE_SCOUT_BARD()
 	local TIR_CD = CE_CD(TIR_SKILL, TIR_ID_1, TIR_ID_2);  
     --Flecha de escarcha
     local FLE_ESC_SKILL, FLE_ESC_ID_1, FLE_ESC_ID_2 = Match_CE(491163);
-    --Detecci�n
+    --Detección
     local DET_SKILL, DET_ID_1, DET_ID_2 = Match_CE(490463);
     --Campo de mira
     local CAM_MIR_SKILL, CAM_MIR_ID_1, CAM_MIR_ID_2 = Match_CE(490464);
-    --Concentraci�n
+    --Concentración
 	local CON_SKILL, CON_ID_1, CON_ID_2 = Match_CE(490460);
 	local CON_ARR_CD = CE_CD(CON_SKILL, CON_ID_1, CON_ID_2);
     --Ganaremos
@@ -64,7 +56,7 @@ function CE_SCOUT_BARD()
 
 	--COMIDAS--
 	if _G.C_EngineSettings.Consumables then
-		--Usar poci�n del enano
+		--Usar poción del enano
 		if foco <= 20 and CE_UseItem(1244064) then
 		--Usar costilla de primera
 		elseif (CE_BuffIdPlayer(1500235) == false) and CE_TARGET_IS_BOSS() and CE_UseItem(1244060) then
@@ -85,20 +77,20 @@ function CE_SCOUT_BARD()
     --Campo de mira
     elseif CAM_MIR_SKILL and (CE_BuffIdPlayer(500934) == false) and CE_TARGET_IS_BOSS() and foco >= 10
         then UseSkill(CAM_MIR_ID_1, CAM_MIR_ID_2);
-    --Concentraci�n
+    --Concentración
     elseif CON_SKILL and CON_ARR_CD <= 0.25 and (CE_BuffIdPlayer(500930) == false) and foco <= 40 
         then UseSkill(CON_ID_1, CON_ID_2);
     --Flecha sin Sangre
     elseif FLE_SIN_SKILL and FLE_SIN_CD <= 0.25 and (CE_BuffIdPlayer(1502174) == false)
         then UseSkill(FLE_SIN_ID_1, FLE_SIN_ID_2);        
-    --Detecci�n
+    --Detección
     elseif DET_SKILL and (CE_BuffIdPlayer(1502170) == false)
         then UseSkill(DET_ID_1, DET_ID_2);        
     --Ganaremos
     elseif GAN_SKILL and GAN_CD <= 0.25 and (CE_TARGET_IS_BOSS() or C_EngineSettings.FastBuffs)
         then UseSkill(GAN_ID_1, GAN_ID_2);       
 
-    --ROTACI�N--
+    --ROTACIÓN--
 
     --Tiro
     elseif TIR_SKILL and TIR_CD <= 0.25 and CE_AFE(1502167, 10)
@@ -134,8 +126,90 @@ function CE_SCOUT_BARD()
  
 end
 
+function CE_RANGER_BARD_IMPORT()
+	--                 [1]      [2]     [3]      [4]     [5]     [6]     [7]      [8]      [9]     [10]   [11]    [12]     [13]     [14]    [15]    [16]   [17]     [18]    [19]    [20]
+	local Skills = {1244064, 200173, 1244062, 1244060, 491163, 490464, 490460, 1491473, 490463, 1491220, 492589, 1491470, 490450, 490424, 490420, 491292, 490400, 1491472, 490441, 491128};
+	local conditions = {
+		-- 1 Poción de enano 1244064
+		[1] = { [3]={ max="20", min="0", status=true }, [40]={ enable=true, status=true }},
+		-- 2 Estimulante fuerte 200173
+		[2] ={ [12]={ id1="1500237", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		-- 3 Agilidad elfica 1244062
+		[3] = { [12]={ id1="501321", id2="0", id3="0", id4="0", status=true }, [17]={ id="501321", status=true, time="0" }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		-- 4 Filete de costilla 1244060
+		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+        -- 5 Flecha de escarcha 491163
+        [5] = { [12]={ id1="501530", id2="0", id3="0", id4="0", status=true } },
+        -- 6 Campo de mira 490464
+        [6] = { [12]={ id1="500934", id2="0", id3="0", id4="0", status=true },
+            [41]={ enable=true, status=true }
+        },
+        -- 7 Concentración 490460
+        [7] = { [12]={ id1="500930", id2="0", id3="0", id4="0", status=true },
+            [3]={ max="50", min="0", status=true },
+            [41]={ enable=true, status=true }
+        },
+        -- 8 Flecha sin Sangre 1491473
+        [8] = { [12]={ id1="1502174", id2="0", id3="0", id4="0", status=true } },
+        -- 9 Detección 490463
+        [9] = { [12]={ id1="1502170", id2="0", id3="0", id4="0", status=true },
+            [3]={ max="500", min="50", status=true },
+            [41]={ enable=true, status=true }
+         },
+        -- 10 Ganaremos 1491220
+        [10] = { [12]={ id1="1502169", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [3]={ max="500", min="30", status=true },
+            [41]={ enable=true, status=true }
+         },
+        -- 11 Autoshoot 492589
+        [11] = {[44]={ enable=true, status=true }},
+        -- 12 Tiro 1491470
+        [12] = {},
+        -- 13 Tiro de presicion 490450
+        [13] = { [11]={ id1="500939", id2="0", id3="0", id4="0", status=true } }, -- 11 player has effect
+        -- 14 Disparo combinado 490424
+        [14] = {},
+        -- 15 Golpe a las articulaciones 490420
+        [15] = {[3]={ max="500", min="20", status=true }}, -- 3 foco
+        -- 16 Flecha vampirica 491292
+        [16] = {[3]={ max="500", min="10", status=true },
+            [41]={ enable=true, status=true },
+            [33]={ id1="501690", id2="0", id3="0", id4="0", status=true}, --33 target not effect
+        },
+        -- 17 Flecha desgarradora 490400
+        [17] = { [45]={ enable=true, status=true }, -- 45 No Boss
+            [39]={ enable=true, status=true }, -- 39 AoE
+        },
+        -- 18 Disparo reflejado 1491472
+        [18] = { [45]={ enable=true, status=true }, -- 45 No Boss
+            [39]={ enable=true, status=true }, -- 39 AoE
+        },
+        -- 19 Disparo drena-mana 490441
+        [19] = {[29]={ enable=true, status=true}}, -- Is Boss
+        -- 20 Flecha de viento 491128
+        [20] = {},
+	};
 
 
+	local iss = {
+		[494609] = true,
+		[494970] = true,
+		[495725] = true,
+		[494968] = true,
+        [495560] = true,
+        [850145] = true,
+        [495714] = true,
+	}
+
+	local consumables = {
+		[1244064] = true,
+		[200173] = true,
+		[1244062] = true,
+		[1244060] = true,
+	}
+	
+	return CE_Import_MakeExport(Skills, iss, consumables, conditions)
+end
 
 
 
