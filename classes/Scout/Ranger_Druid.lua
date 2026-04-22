@@ -224,35 +224,33 @@ function CE_RANGER_DRUID_IMPORT()
 			[45]={ enable=true, status=true }, -- 45 No Boss
 			[39]={ enable=true, status=true }, -- 39 AoE
         },
-    -- 19 Golpe a las articulaciones 490420
-        [19] = {
+    -- 18 Golpe a las articulaciones 490420
+        [18] = {
             [3]={ max="500", min="15", status=true }, -- 3 foco
         },
-    -- 20 Flecha de viento BOSS 491128
-        [20] = {
+    -- 19 Flecha de viento BOSS 491128
+        [19] = {
             [29]={ enable=true, status=true }, -- 29 Is Boss
         },
-	-- 21 Flecha desgarradora Is BOSS 490400
+	-- 20 Flecha desgarradora Is BOSS 490400
+        [20] = {
+            [29]={ enable=true, status=true }, -- 29 Is Boss
+            [39]={ enable=true, status=true }, -- 39 AoE
+        },
+    -- 21 Disparo colateral Is BOSS 490457
         [21] = {
             [29]={ enable=true, status=true }, -- 29 Is Boss
             [39]={ enable=true, status=true }, -- 39 AoE
         },
-    -- 22 Disparo colateral Is BOSS 490457
+    -- 22 Flecha vampirica 499591
         [22] = {
-            [29]={ enable=true, status=true }, -- 29 Is Boss
-            [39]={ enable=true, status=true }, -- 39 AoE
-        },
-    -- 23 Flecha vampirica 499591
-        [23] = {
             [3]={ max="500", min="10", status=true }, -- 3 foco
             [33]={ id1="501690", id2="0", id3="0", id4="0", status=true}, --33 target not effect
         },
-    -- 24 Flecha de viento No BOSS 491128
-        [24] = {
-            [45]={ enable=true, status=true }, -- 45 No Boss
-        },
-    -- 25 Tiro 490423
-        [25] = {}, -- No conditions
+    -- 23 Flecha de viento No BOSS 491128
+        [23] = {}, -- No conditions
+    -- 24 Tiro 490423
+        [24] = {}, -- No conditions
 	}
 
 	local iss = {
