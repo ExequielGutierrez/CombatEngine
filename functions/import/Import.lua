@@ -56,6 +56,7 @@ function CE_SET_IMPORT_SKILL(serial, preset)
 		["RANGERMAGE"]     = type(CE_RANGER_MAGE_IMPORT)     == "function" and serial == "RANGERMAGE" and CE_RANGER_MAGE_IMPORT()        or {},
 		["RANGERAUGUR"]    = type(CE_RANGER_AUGUR_IMPORT)    == "function" and serial == "RANGERAUGUR" and CE_RANGER_AUGUR_IMPORT()      or {},
 		["RANGERTHIEF"]    = type(CE_RANGER_THIEF_IMPORT)    == "function" and serial == "RANGERTHIEF" and CE_RANGER_THIEF_IMPORT()      or {},
+		["RANGERWARDEN"]   = type(CE_RANGER_WARDEN_IMPORT)   == "function" and serial == "RANGERWARDEN" and CE_RANGER_WARDEN_IMPORT()    or {},
 	}
 	CE_IMPORT_SKILLS = {}
 	CE_IMPORT_SKILLS = GetSkills[serial]
