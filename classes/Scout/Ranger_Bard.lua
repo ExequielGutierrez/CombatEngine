@@ -245,8 +245,3 @@ function CE_RANGER_BARD_IMPORT()
 	
 	return CE_Import_MakeExport(Skills, iss, consumables, conditions)
 end
-
-
-
-
-
