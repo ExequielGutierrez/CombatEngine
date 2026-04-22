@@ -126,68 +126,104 @@ function CE_SCOUT_BARD()
  
 end
 
+-- Maketa para importar default presets
 function CE_RANGER_BARD_IMPORT()
 	--                 [1]      [2]     [3]      [4]     [5]     [6]     [7]      [8]      [9]     [10]   [11]    [12]     [13]     [14]    [15]    [16]   [17]     [18]    [19]    [20]
 	local Skills = {1244064, 200173, 1244062, 1244060, 491163, 490464, 490460, 1491473, 490463, 1491220, 492589, 1491470, 490450, 490424, 490420, 491292, 490400, 1491472, 490441, 491128};
 	local conditions = {
 		-- 1 Poción de enano 1244064
-		[1] = { [3]={ max="20", min="0", status=true }, [40]={ enable=true, status=true }},
+		[1] = {
+            [3]={ max="20", min="0", status=true }, -- 3 foco
+            [40]={ enable=true, status=true } -- 40 Consumables
+        },
 		-- 2 Estimulante fuerte 200173
-		[2] ={ [12]={ id1="1500237", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[2] ={
+            [12]={ id1="1500237", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [29]={ enable=true, status=true }, -- 29 Is Boss
+            [40]={ enable=true, status=true } -- 40 Consumables
+        },
 		-- 3 Agilidad elfica 1244062
-		[3] = { [12]={ id1="501321", id2="0", id3="0", id4="0", status=true }, [17]={ id="501321", status=true, time="0" }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[3] = {
+            [12]={ id1="501321", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [17]={ id="501321", status=true, time="0" }, -- 17 End time and Buff Player
+            [29]={ enable=true, status=true }, -- 29 Is Boss
+            [40]={ enable=true, status=true } -- 40 Consumables
+        },
 		-- 4 Filete de costilla 1244060
-		[4] = { [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, [29]={ enable=true, status=true }, [40]={ enable=true, status=true }},
+		[4] = {
+            [12]={ id1="1500235", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [29]={ enable=true, status=true }, -- 29 Is Boss
+            [40]={ enable=true, status=true } -- 40 Consumables
+        },
         -- 5 Flecha de escarcha 491163
-        [5] = { [12]={ id1="501530", id2="0", id3="0", id4="0", status=true } },
+        [5] = {
+            [12]={ id1="501530", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+        },
         -- 6 Campo de mira 490464
-        [6] = { [12]={ id1="500934", id2="0", id3="0", id4="0", status=true },
-            [41]={ enable=true, status=true }
+        [6] = {
+            [12]={ id1="500934", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [41]={ enable=true, status=true }, -- 41 Fast Buffs
         },
         -- 7 Concentración 490460
-        [7] = { [12]={ id1="500930", id2="0", id3="0", id4="0", status=true },
-            [3]={ max="50", min="0", status=true },
-            [41]={ enable=true, status=true }
+        [7] = {
+            [12]={ id1="500930", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [3]={ max="50", min="0", status=true }, -- 3 foco
+            [41]={ enable=true, status=true }, -- 41 Fast Buffs
         },
         -- 8 Flecha sin Sangre 1491473
-        [8] = { [12]={ id1="1502174", id2="0", id3="0", id4="0", status=true } },
+        [8] = {
+            [12]={ id1="1502174", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+        },
         -- 9 Detección 490463
-        [9] = { [12]={ id1="1502170", id2="0", id3="0", id4="0", status=true },
-            [3]={ max="500", min="50", status=true },
-            [41]={ enable=true, status=true }
+        [9] = {
+            [12]={ id1="1502170", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
+            [3]={ max="500", min="50", status=true }, -- 3 foco
+            [41]={ enable=true, status=true }, -- 41 Fast Buffs
          },
         -- 10 Ganaremos 1491220
         [10] = { [12]={ id1="1502169", id2="0", id3="0", id4="0", status=true }, -- 12 player not effect
-            [3]={ max="500", min="30", status=true },
-            [41]={ enable=true, status=true }
+            [3]={ max="500", min="30", status=true }, -- 3 foco
+            [41]={ enable=true, status=true }, -- 41 Fast Buffs
          },
         -- 11 Autoshoot 492589
-        [11] = {[44]={ enable=true, status=true }},
+        [11] = {
+            [44]={ enable=true, status=true }, -- 44 Auto Shoot
+        },
         -- 12 Tiro 1491470
         [12] = {},
         -- 13 Tiro de presicion 490450
-        [13] = { [11]={ id1="500939", id2="0", id3="0", id4="0", status=true } }, -- 11 player has effect
+        [13] = {
+            [11]={ id1="500939", id2="0", id3="0", id4="0", status=true }, -- 11 player has effect
+        },
         -- 14 Disparo combinado 490424
-        [14] = {},
+        [14] = {}, -- No conditions
         -- 15 Golpe a las articulaciones 490420
-        [15] = {[3]={ max="500", min="20", status=true }}, -- 3 foco
+        [15] = {
+            [3]={ max="500", min="20", status=true }, -- 3 foco
+        },
         -- 16 Flecha vampirica 491292
-        [16] = {[3]={ max="500", min="10", status=true },
+        [16] = {
+            [3]={ max="500", min="10", status=true }, -- 3 foco
             [41]={ enable=true, status=true },
             [33]={ id1="501690", id2="0", id3="0", id4="0", status=true}, --33 target not effect
         },
         -- 17 Flecha desgarradora 490400
-        [17] = { [45]={ enable=true, status=true }, -- 45 No Boss
+        [17] = {
+            [45]={ enable=true, status=true }, -- 45 No Boss
+            [3]={ max="500", min="10", status=true }, -- 3 foco
             [39]={ enable=true, status=true }, -- 39 AoE
         },
         -- 18 Disparo reflejado 1491472
-        [18] = { [45]={ enable=true, status=true }, -- 45 No Boss
+        [18] = {
+            [45]={ enable=true, status=true }, -- 45 No Boss
             [39]={ enable=true, status=true }, -- 39 AoE
         },
         -- 19 Disparo drena-mana 490441
-        [19] = {[29]={ enable=true, status=true}}, -- Is Boss
+        [19] = {
+            [29]={ enable=true, status=true }, -- 29 Is Boss
+        },
         -- 20 Flecha de viento 491128
-        [20] = {},
+        [20] = {}, -- No conditions
 	};
 
 
