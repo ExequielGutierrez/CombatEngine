@@ -214,11 +214,3 @@ function CE_RANGER_PSYRON_IMPORT()
 	
 	return CE_Import_MakeExport(Skills, iss, consumables, conditions)
 end
-
-
-
-
-
-
-
-

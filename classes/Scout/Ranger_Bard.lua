@@ -204,7 +204,6 @@ function CE_RANGER_BARD_IMPORT()
         -- 16 Flecha vampirica 491292
         [16] = {
             [3]={ max="500", min="10", status=true }, -- 3 foco
-            [41]={ enable=true, status=true },
             [33]={ id1="501690", id2="0", id3="0", id4="0", status=true}, --33 target not effect
         },
         -- 17 Flecha desgarradora 490400
