@@ -33,9 +33,6 @@ function CE_MAGE_SCOUT()
 	--Explosión eléctrica
 	local EXPL_ELEC_SKILL, EXPL_ELEC_ID_1, EXPL_ELEC_ID_2 = Match_CE(491170);
 	local EXPL_ELEC_CD = CE_CD(EXPL_ELEC_SKILL, EXPL_ELEC_ID_1, EXPL_ELEC_ID_2);
-	--Comprensión eléctrica
-	local COMPR_SKILL, COMPR_ID_1, COMPR_ID_2 = Match_CE(491171);
-	local COMPR_CD = CE_CD(COMPR_SKILL, COMPR_ID_1, COMPR_ID_2);
 	--Descarga eléctrica
 	local DESCARGA_SKILL, DESCARGA_ID_1, DESCARGA_ID_2 = Match_CE(491168);
 	local DESCARGA_CD = CE_CD(DESCARGA_SKILL, DESCARGA_ID_1, DESCARGA_ID_2);
@@ -134,12 +131,10 @@ function CE_MAGE_SCOUT()
 		UseSkill(EXPL_ELEC_ID_1, EXPL_ELEC_ID_2); --explosión electrica
 	elseif not CE_BuffIdPlayer(502270) and DESCARGA_CD <= 0.25 and not CE_isMoving() then
 		UseSkill(DESCARGA_ID_1, DESCARGA_ID_2); -- descarga electrica
-	elseif C_EngineSettings.AOE and CE_BuffIdPlayer(502270) and CE_BuffIdPlayer(501554) == false and COMPR_CD <= 0.25 then
-		UseSkill(COMPR_ID_1, COMPR_ID_2);	-- comprensión electrica
 	end
 end
 function CE_MAGE_SCOUT_IMPORT()
-	local Skills = {1244059,1244063,200192,203503,499597,491577,491573,490248,490218,491156,497977,493028,491343,499598,490244,491170,491168,491171,491172}
+	local Skills = {1244059,1244063,200192,203503,499597,491577,491573,490248,490218,491156,497977,493028,491343,499598,490244,491170,491168,491172}
 	local conditions ={
 		-- 1 Usar papas de col rizada 1244059
 		{
@@ -187,11 +182,6 @@ function CE_MAGE_SCOUT_IMPORT()
 		{[11]={id1="502270",id2="0",id3="0",id4="0",status=true}},
 		-- 17 Descarga electrica 491168
 		{},
-		-- 18 Comprensión electrica 491171
-		{
-			[11]={id1="502270",id2="0",id3="0",id4="0",status=true},
-			[12]={id1="620209",id2="0",id3="0",id4="0",status=true}
-		},
 		-- 19 Campo estático 491172
 		{}
 	}

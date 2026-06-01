@@ -6,6 +6,12 @@ function CE_MAGE_WARDEN()
 	local speed_a, speed_b = GetPlayerAbility('MAGIC_CASTSPEED')
 	local speed = speed_a + speed_b
 
+	--Seguidor de la Llama
+	local SEG_LLA_SKILL, SEG_LLA_ID_1, SEG_LLA_ID_2 = Match_CE(494051)
+	local SEG_LLA_CD = CE_CD(SEG_LLA_SKILL, SEG_LLA_ID_1, SEG_LLA_ID_2)
+	--Tierra de Seguidor
+	local TIE_SEG_SKILL, TIE_SEG_ID_1, TIE_SEG_ID_2 = Match_CE(499617)
+	local TIE_SEG_CD = CE_CD(TIE_SEG_SKILL, TIE_SEG_ID_1, TIE_SEG_ID_2)
 	--Debilidad elemental
 	local DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2 = Match_CE(497977)
 	local DEB_ELE_CD = CE_CD(DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2)
@@ -28,8 +34,6 @@ function CE_MAGE_WARDEN()
 	local MAN_IGN_SKILL, MAN_IGN_ID_1, MAN_IGN_ID_2 = Match_CE(490248)
 	--Canalización de energía
 	local CAN_ENE_SKILL, CAN_ENE_ID_1, CAN_ENE_ID_2 = Match_CE(490218)
-	--Escudo de zarzas
-	local ESC_ZAR_SKILL, ESC_ZAR_ID_1, ESC_ZAR_ID_2 = Match_CE(493642)
 	--Carga electrostática
 	local CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2 = Match_CE(491156)
 	local CAR_ELE_CD = CE_CD(CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2)
@@ -39,9 +43,6 @@ function CE_MAGE_WARDEN()
 	--Marcas de la tierra
 	local MARCAS_SKILL, MARCAS_ID_1, MARCAS_ID_2 = Match_CE(494926)
 	local MARCAS_CD = CE_CD(MARCAS_SKILL, MARCAS_ID_1, MARCAS_ID_2)
-	--Comprensión electrica
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171)
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2)
 
 	----------------COMIDAS------------------
 	if C_EngineSettings.Consumables then
@@ -64,9 +65,6 @@ function CE_MAGE_WARDEN()
 	--Canalización de energía
 	elseif CAN_ENE_SKILL and CE_BuffIdPlayer(500296) == false then
 		UseSkill(CAN_ENE_ID_1, CAN_ENE_ID_2)
-	--Escudo de zarzas
-	elseif ESC_ZAR_SKILL and (CE_BuffIdPlayer(503958) == false) then
-		UseSkill(ESC_ZAR_ID_1, ESC_ZAR_ID_2)
 	end
 
 	---------------FAST BUFFS------------
@@ -81,8 +79,14 @@ function CE_MAGE_WARDEN()
 	end
 
 	--Rotación de Ataque
+	--Seguidor de la Llama
+	if SEG_LLA_SKILL and SEG_LLA_CD <= 0.25 then
+		UseSkill(SEG_LLA_ID_1, SEG_LLA_ID_2)
+	--Tierra de Seguidor
+	elseif TIE_SEG_SKILL and TIE_SEG_CD <= 0.25 and CE_BuffIdPlayer(1506004) and C_EngineSettings.AOE == true then
+		UseSkill(TIE_SEG_ID_1, TIE_SEG_ID_2)
 	-- 11 Carga electrostática 491156
-	if CAR_ELE_SKILL and CAR_ELE_CD <= 0.1 and not CE_BuffIdPlayer(502270) then
+	elseif CAR_ELE_SKILL and CAR_ELE_CD <= 0.1 and not CE_BuffIdPlayer(502270) then
 		UseSkill(CAR_ELE_ID_1, CAR_ELE_ID_2)
 	-- 12 Debilidad elemental 497977
 	elseif DEB_ELE_SKILL and DEB_ELE_CD <= 0.1 and not CE_DebuffIdTarget(620189) then
@@ -100,9 +104,6 @@ function CE_MAGE_WARDEN()
 	-- 16 Campo estático 491172
 	elseif CAM_EST_SKILL and CAM_EST_CD <= 0.25 and CE_BuffIdPlayer(501554) then
 		UseSkill(CAM_EST_ID_1, CAM_EST_ID_2)
-	-- 17 Comprensión electrica 491171
-	elseif COM_ELE_SKILL and COM_ELE_CD <= 0.25 and CE_BuffIdPlayer(502270) and not CE_DebuffIdTarget(501554) then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2)
 	-- 18 Oleada Terrestre 494049
 	elseif OLE_TERR_SKILL and OLE_TERR_CD <= 0.25 then
 		UseSkill(OLE_TERR_ID_1, OLE_TERR_ID_2)
@@ -110,8 +111,15 @@ function CE_MAGE_WARDEN()
 end
 
 function CE_MAGE_WARDEN_IMPORT()
-	local Skills = { 1244059, 1244063, 200192, 203503, 490248, 499618, 490218, 493642, 491168, 1490308, 494926, 497977, 490244, 494075, 494330, 491172, 491171, 494049 }
+	local Skills = { 494051, 499617, 1244059, 1244063, 200192, 203503, 490248, 490218, 491168, 1490308, 494926, 497977, 490244, 494075, 494330, 491172, 494049 }
 	local conditions = {
+		-- 1 Seguidor de la Llama 494051
+		{ },
+		-- 2 Tierra de Seguidor 499617
+		{ [43]={ enable=true, status=true },
+		  [39]={ enable=true, status=true },
+		  [11]={ id1="1506004", id2="0", id3="0", id4="0", status=true }
+		},
 		-- 1 Usar papas de col rizada 1244059
 		{
 			[12]={ id1="1500234", id2="0", id3="0", id4="0", status=true },
@@ -131,12 +139,8 @@ function CE_MAGE_WARDEN_IMPORT()
 		{ [2]={ max="10", min="0", status=true } },
 		-- 5 Manto ignifugo 490248
 		{ [12]={ id1="500366", id2="0", id3="0", id4="0", status=true } },
-		-- 6 Cetro de tierra 499618
-		{ [12]={ id1="623216", id2="0", id3="0", id4="0", status=true } },
 		-- 7 Canalización de energía 490218
 		{ [12]={ id1="500296", id2="0", id3="0", id4="0", status=true } },
-		-- 8 Escudo de zarzas 493642
-		{ [12]={ id1="503958", id2="0", id3="0", id4="0", status=true } },
 		-- 9 Descarga electrica 491168
 		{ [12]={ id1="502270", id2="0", id3="0", id4="0", status=true } },
 		-- 10 Poder feroz 1490308
@@ -161,11 +165,6 @@ function CE_MAGE_WARDEN_IMPORT()
 		{
 			[11]={ id1="501554", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true }
-		},
-		-- 17 Comprensión electrica 491171
-		{
-			[11]={ id1="502270", id2="0", id3="0", id4="0", status=true },
-			[12]={ id1="501554", id2="0", id3="0", id4="0", status=true }
 		},
 		-- 18 Oleada Terrestre 494049
 		{}

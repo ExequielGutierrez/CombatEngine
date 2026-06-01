@@ -31,9 +31,6 @@ function CE_MAGE_KNIGHT()
 	--Tormenta
 	local TORM_SKILL, TORM_ID_1, TORM_ID_2 = Match_CE(490244)
 	local TORM_CD = CE_CD(TORM_SKILL, TORM_ID_1, TORM_ID_2)
-	--Comprensión eléctrica
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171)
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2)
 	--Explosión eléctrica
 	local EXP_ELE_SKILL, EXP_ELE_ID_1, EXP_ELE_ID_2 = Match_CE(491170)
 	local EXP_ELE_CD = CE_CD(EXP_ELE_SKILL, EXP_ELE_ID_1, EXP_ELE_ID_2)
@@ -49,8 +46,6 @@ function CE_MAGE_KNIGHT()
 	--Debilidad elemental
 	local DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2 = Match_CE(497977)
 	local DEB_ELE_CD = CE_CD(DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2)
-	--Armadura reforzada
-	local ARM_REF_SKILL, ARM_REF_ID_1, ARM_REF_ID_2 = Match_CE(490152)
 	--Manto ignífugo
 	local MAN_IGN_SKILL, MAN_IGN_ID_1, MAN_IGN_ID_2 = Match_CE(490248)
 	--Canalización de energía
@@ -72,11 +67,8 @@ function CE_MAGE_KNIGHT()
 		CE_HEALING_ITEM()
 	end
 
-	--Armadura reforzada
-	if ARM_REF_SKILL and not CE_BuffIdPlayer(500141) then
-		UseSkill(ARM_REF_ID_1, ARM_REF_ID_2)
 	--Manto ignífugo
-	elseif MAN_IGN_SKILL and not CE_BuffIdPlayer(500366) then
+	if MAN_IGN_SKILL and not CE_BuffIdPlayer(500366) then
 		UseSkill(MAN_IGN_ID_1, MAN_IGN_ID_2)
 	--Canalización de energía
 	elseif CAN_ENE_SKILL and not CE_BuffIdPlayer(503541) then
@@ -84,9 +76,6 @@ function CE_MAGE_KNIGHT()
 	--Mensajero de la luz
 	elseif MEN_LUZ_SKILL and not CE_BuffIdPlayer(506424) then
 		UseSkill(MEN_LUZ_ID_1, MEN_LUZ_ID_2)
-	--Comprensión eléctrica
-	elseif COM_ELE_SKILL and COM_ELE_CD <= COMBATENGINE_GLOBAL_CD and CE_BuffIdPlayer(502270) and not CE_BuffIdPlayer(501554) then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2)
 	-- 10 Golpe de luz sagrada 493331
 	elseif GOL_LUZ_SKILL and GOL_LUZ_CD <= COMBATENGINE_GLOBAL_CD and (not CE_BuffIdPlayer( 620182 ) and CE_AFE_2( 620182, 10 ) and not IsCasting) and CE_isMoving() == false and juicio and not TimerQueue[flag_juicio] then
 		UseSkill(GOL_LUZ_ID_1, GOL_LUZ_ID_2)
@@ -125,7 +114,7 @@ function CE_MAGE_KNIGHT()
 end
 
 function CE_MAGE_KNIGHT_IMPORT()
-	local Skills = { 1244059, 1244063, 200192, 203503, 490152, 490248, 493323, 491599, 491171, 493331, 493036, 499613, 490243, 491170, 1492480, 1490295, 490244, 499613, 491150 }
+	local Skills = { 1244059, 1244063, 200192, 203503, 490248, 493323, 491599, 493331, 493036, 499613, 490243, 491170, 1492480, 1490295, 490244, 499613, 491150 }
 	local conditions = {
 		{ -- 1 Usar papas de col rizada 1244059
 			[12]={ id1="1500234", id2="0", id3="0", id4="0", status=true },
@@ -142,9 +131,6 @@ function CE_MAGE_KNIGHT_IMPORT()
 		{ -- 4 Usar Phirius tipo E 203503
 			[2]={ max="10", min="0", status=true }
 		},
-		{ -- 5 Armadura reforzada 490152
-			[12]={ id1="500141", id2="0", id3="0", id4="0", status=true }
-		},
 		{ -- 6 Manto ignífugo 490248
 			[12]={ id1="500366", id2="0", id3="0", id4="0", status=true }
 		},
@@ -154,10 +140,6 @@ function CE_MAGE_KNIGHT_IMPORT()
 		{ -- 8 Mensajero de la luz 491599
 			[12]={ id1="506424", id2="0", id3="0", id4="0", status=true },
 			[43]={ enable=true, status=true } 
-		},
-		{ -- 9 Comprensión eléctrica 491171
-			[11]={ id1="502270", id2="0", id3="0", id4="0", status=true },
-			[12]={ id1="501554", id2="0", id3="0", id4="0", status=true } 
 		},
 		{ -- 10 Golpe de luz sagrada 493331
 			[12]={ id1="620182", id2="0", id3="0", id4="0", status=true },

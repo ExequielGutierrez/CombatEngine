@@ -1269,7 +1269,8 @@ function CE_COND44(skill)
 		["RANGERHARPSYN"] = 1490789,
 		["RANGERBARD"] = 492589,
 		["RANGERPSYRON"] = 1490917,
-		["BARDPSYRON"] = 1491206,	
+		["BARDPSYRON"] = 1491206,
+		["MAGEAUGUR"] = 491587,
 	}
 	local id = autoShootId[COMBAT_ENG_SERIAL]
 	if skill.conditions[44].status == false then

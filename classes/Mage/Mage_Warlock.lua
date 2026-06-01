@@ -92,10 +92,6 @@ function CE_MAGE_WARLOCK()
 	--Carga combada
 	if not CE_BuffIdPlayer(501575) and CARGA_COM_CD <= COMBATENGINE_GLOBAL_CD then
 		UseSkill(CARGA_COM_ID_1, CARGA_COM_ID_2);
-	--Lluvia de meteoritos
-	elseif CE_DebuffIdTarget(500557) and pm > MaxPm/5 and C_EngineSettings.AOE and not CE_TARGET_IS_BOSS() and not COMBATENGINE_CASTING then
-		SpellTargetUnit("mouseover");
-		UseSkill(LLUVIA_ID_1, LLUVIA_ID_2);
 	--Bola de fuego
 	elseif BOLA_FUE_CD <= COMBATENGINE_GLOBAL_CD then
 		UseSkill(BOLA_FUE_ID_1, BOLA_FUE_ID_2);
@@ -112,10 +108,15 @@ function CE_MAGE_WARLOCK()
 	--Estallido de sombra
 	elseif CE_BuffIdPlayer(621505) and CE_BuffIdPlayer(621505) and not COMBATENGINE_CASTING and foco >= 10 then
 		UseSkill(EXP_REMP_ID_1, EXP_REMP_ID_2);
+		--Lluvia de meteoritos
+	elseif CE_DebuffIdTarget(500557) and pm > MaxPm/5 and C_EngineSettings.AOE and not CE_TARGET_IS_BOSS() and not COMBATENGINE_CASTING then
+		SpellTargetUnit("mouseover");
+		UseSkill(LLUVIA_ID_1, LLUVIA_ID_2);
 	end
 end
+
 function CE_MAGE_WARLOCK_IMPORT()
-	local Skills = {1244059,1244063,200192,203503,623434,500296,500366,1502832,490251,491156,497976,497958,1491817,1493654,491168,1493655,497977,498759}
+	local Skills = {1244059,1244063,200192,203503,623434,500296,500366,1502832,490251,491156,497976,497958,1493654,491168,1493655,497977,498759, 1491817}
 	local conditions = {
 		{-- 1 Usar papas de col rizada 1244059
 			[12]={id1="1500234",id2="0",id3="0",id4="0",status=true},
@@ -158,11 +159,6 @@ function CE_MAGE_WARLOCK_IMPORT()
 			[12]={id1="501575",id2="0",id3="0",id4="0",status=true},
 			[41]={enable=true,status=true}
 		},
-		{-- 13 Lluvia de meteoritos 1491817
-			[2]={max="100",min="5",status=true},
-			[39]={enable=true,status=true},
-			[45]={enable=true,status=true}
-		},
 		{-- 14 Bola de fuego 1493654
 		},
 		{-- 15 Descarga eléctrica 491168
@@ -176,7 +172,12 @@ function CE_MAGE_WARLOCK_IMPORT()
 		},
 		{-- 18 Estallido de sombra 498759
 			[3]={max="100",min="15",status=true},[19]={enable=true,status=true}
-		}
+		},
+			{-- 13 Lluvia de meteoritos 1491817
+			[2]={max="100",min="5",status=true},
+			[39]={enable=true,status=true},
+			[45]={enable=true,status=true}
+		},
 	}
 	local iss = {
 		[495482]=true,

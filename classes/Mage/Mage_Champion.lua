@@ -27,9 +27,6 @@ function CE_MAGE_CHAMPION()
 	--Canalización de energía
 	local CAN_ENE_SKILL, CAN_ENE_ID_1, CAN_ENE_ID_2 = Match_CE(490218)
 	-----BUFFOS RAPIDOS----
-	--Poder de electrólisis
-	local ELECTROLISIS_SKILL, ELECTROLISIS_ID_1, ELECTROLISIS_ID_2 = Match_CE(498869)
-	local ELECTROLISIS_CD = CE_CD(ELECTROLISIS_SKILL, ELECTROLISIS_ID_1, ELECTROLISIS_ID_2)
 	--Carga electrostática
 	local CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2 = Match_CE(491156)
 	local CAR_ELE_CD = CE_CD(CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2)
@@ -68,11 +65,8 @@ function CE_MAGE_CHAMPION()
 	end
 	---------------FAST BUFFS------------
 	if C_EngineSettings.FastBuffs then
-		--Poder de electrólisis
-		if ira <= 10 and ELECTROLISIS_CD <= 0.25 and pm > MaxPm/4 then
-			UseSkill(ELECTROLISIS_ID_1, ELECTROLISIS_ID_2)
 		--Carga electrostática
-		elseif CAR_ELE_CD <= 0.25 then
+		if CAR_ELE_CD <= 0.25 then
 			UseSkill(CAR_ELE_ID_1, CAR_ELE_ID_2)
 		--Descarga cerebral
 		elseif CEREBRAL_CD <= 0.25 and ira >= 15 then
@@ -113,7 +107,7 @@ function CE_MAGE_CHAMPION()
 end
 
 function CE_MAGE_CHAMPION_IMPORT()
-	local Skills = {1244059,1244063,200192,203503,490248,490218,498869,491156,498825,498873,1490362,498824,498864,490252,490244,498868}
+	local Skills = {1244059,1244063,200192,203503,490248,490218,491156,498825,498873,1490362,498824,498864,490252,490244,498868}
 	local conditions = {
 		-- 1 Usar papas de col rizada 1244059
 		{
@@ -136,8 +130,6 @@ function CE_MAGE_CHAMPION_IMPORT()
 		{[12]={id1="500366",id2="0",id3="0",id4="0",status=true}},
 		-- 6 Canalización de energía 490218
 		{[12]={id1="500296",id2="0",id3="0",id4="0",status=true}},
-		-- 7 Poder de electrólisis 498869
-		{},
 		-- 8 Carga electrostática 491156
 		{},
 		-- 9 Descarga cerebral 498825

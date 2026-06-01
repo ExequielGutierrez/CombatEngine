@@ -5,14 +5,17 @@ function CE_MAGE_ROGUE()
 	local mana = UnitMana("player")
 	local energia = UnitSkill("player")
 	----------------SKILLS------------------
+	--Regalo del Barón
+	local REG_BAR_SKILL, REG_BAR_ID_1, REG_BAR_ID_2 = Match_CE(493264)
+	--Invocar Sombra
+	local INV_SOM_SKILL, INV_SOM_ID_1, INV_SOM_ID_2 = Match_CE(492632)
+	local INV_SOM_CD = CE_CD(INV_SOM_SKILL, INV_SOM_ID_1, INV_SOM_ID_2)
 	--Manto ignifugo
 	local MAN_IGN_SKILL, MAN_IGN_ID_1, MAN_IGN_ID_2 = Match_CE(490248)
 	--Mortaja légubre
 	local MOR_LUG_SKILL, MOR_LUG_ID_1, MOR_LUG_ID_2 = Match_CE(492927)
 	--Sombra del varón
 	local SOM_VAR_SKILL, SOM_VAR_ID_1, SOM_VAR_ID_2 = Match_CE(499604)
-	--Protección de las sombras
-	local PRO_SOM_SKILL, PRO_SOM_ID_1, PRO_SOM_ID_2 = Match_CE(493030)
 	--Ritual del Colmillo
 	local RIT_COL_SKILL, RIT_COL_ID_1, RIT_COL_ID_2 = Match_CE(491581)
 	--Canalización de energía
@@ -20,9 +23,6 @@ function CE_MAGE_ROGUE()
 	--Descarga eléctrica
 	local DES_ELE_SKILL, DES_ELE_ID_1, DES_ELE_ID_2 = Match_CE(491168)
 	local DES_ELE_CD = CE_CD(DES_ELE_SKILL, DES_ELE_ID_1, DES_ELE_ID_2)
-	--Comprensión eléctrica
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171)
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2)
 	--Carga electrostática
 	local CAR_ELEC_SKILL, CAR_ELEC_ID_1, CAR_ELEC_ID_2 = Match_CE(491156)
 	local CAR_ELEC_CD = CE_CD(CAR_ELEC_SKILL, CAR_ELEC_ID_1, CAR_ELEC_ID_2)
@@ -52,8 +52,14 @@ function CE_MAGE_ROGUE()
 		CE_HEALING_ITEM()
 	end
 	----------------ROTACION------------------
+	--Regalo del Barón
+	if CE_BuffIdPlayer(1500629) == false then
+		UseSkill(REG_BAR_ID_1, REG_BAR_ID_2)
+	--Invocar Sombra
+	elseif INV_SOM_SKILL and INV_SOM_CD <= 0.25 then
+		UseSkill(INV_SOM_ID_1, INV_SOM_ID_2)
 	--Manto ignifugo
-	if MAN_IGN_SKILL and CE_BuffIdPlayer(500366) == false then
+	elseif MAN_IGN_SKILL and CE_BuffIdPlayer(500366) == false then
 		UseSkill(MAN_IGN_ID_1, MAN_IGN_ID_2)
 	--Mortaja légubre
 	elseif MOR_LUG_SKILL and CE_BuffIdPlayer(1500626) == false then
@@ -61,9 +67,6 @@ function CE_MAGE_ROGUE()
 	--Sombra del varón
 	elseif SOM_VAR_SKILL and CE_BuffIdPlayer(1500640) == false then
 		UseSkill(SOM_VAR_ID_1, SOM_VAR_ID_2)
-	--Protección de las sombras
-	elseif PRO_SOM_SKILL and CE_BuffIdPlayer(503274) == false then
-		UseSkill(PRO_SOM_ID_1, PRO_SOM_ID_2)
 	--Ritual del Colmillo
 	elseif RIT_COL_SKILL and CE_BuffIdPlayer(502036) == false then
 		UseSkill(RIT_COL_ID_1, RIT_COL_ID_2)
@@ -73,9 +76,6 @@ function CE_MAGE_ROGUE()
 	--Descarga eléctrica
 	elseif DES_ELE_SKILL and DES_ELE_CD <= 0.25 and not CE_TARGET_IS_BOSS() and CE_BuffIdPlayer(1500605) == false then
 		UseSkill(DES_ELE_ID_1, DES_ELE_ID_2)
-	--Comprensión eléctrica
-	elseif COM_ELE_SKILL and COM_ELE_CD <= 0.25 and not CE_TARGET_IS_BOSS() and CE_BuffIdPlayer(501554) == false and CE_BuffIdPlayer(1500605) then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2)
 	--Carga electrostática
 	elseif CAR_ELEC_SKILL and CAR_ELEC_CD <= 0.25 and CE_TARGET_IS_BOSS() then
 		UseSkill(CAR_ELEC_ID_1, CAR_ELEC_ID_2)
@@ -94,8 +94,12 @@ function CE_MAGE_ROGUE()
 	end
 end
 function CE_MAGE_ROGUE_IMPORT()
-	local Skills = { 1244064, 1244059, 1244063, 200192, 490248, 492927, 499604, 493030, 491581, 490218, 491168, 491171, 491156, 491172, 491345, 491578, 490309 }
+	local Skills = { 493264, 492632, 1244064, 1244059, 1244063, 200192, 490248, 492927, 499604, 491581, 490218, 491168, 491156, 491172, 491345, 491578, 490309 }
 	local conditions = {
+	-- 1 Regalo del Barón 493264
+	{ [12]={ id1="1500629", id2="0", id3="0", id4="0", status=true } },
+	-- 2 Invocar Sombra 492632
+	{ },
 	-- 1 Poción del enano 1244064
 	{ [5]={ max="20", min="0", status=true }, [29]={ enable=true, status=true } },
 	-- 2 Papas de col rizada 1244059
@@ -125,8 +129,6 @@ function CE_MAGE_ROGUE_IMPORT()
 	  [5]={ max="200", min="50", status=true },
 	  [12]={ id1="1500640", id2="0", id3="0", id4="0", status=true } 
 	},
-	-- 8 Protección de las sombras 493030
-	{ [12]={ id1="503274", id2="0", id3="0", id4="0", status=true } },
 	-- 9 Ritual del Colmillo 491581
 	{ [12]={ id1="502036", id2="0", id3="0", id4="0", status=true } },
 	-- 10 Canalización de energía 490218
@@ -135,12 +137,6 @@ function CE_MAGE_ROGUE_IMPORT()
 	{
 	  [12]={ id1="1500605", id2="0", id3="0", id4="0", status=true },
 	  [45]={ enable=true, status=true } 
-	},
-	-- 12 Comprensión eléctrica 491171
-	{
-	[11]={ id1="1500605", id2="0", id3="0", id4="0", status=true },
-	[12]={ id1="501554", id2="0", id3="0", id4="0", status=true },
-	[45]={ enable=true, status=true } 
 	},
 	-- 13 Carga electrostática 491156
 	{ [29]={ enable=true, status=true } },

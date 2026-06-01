@@ -11,8 +11,6 @@ function CE_MAGE_PRIEST()
 	----------------SKILLS------------------
 	--Manto ignifugo
 	local MAN_IGN_SKILL, MAN_IGN_ID_1, MAN_IGN_ID_2 = Match_CE(490248);
-	--Dominio de la marea
-	local DOM_MAR_SKILL, DOM_MAR_ID_1, DOM_MAR_ID_2 = Match_CE(499607);
 	--Gracia vital
 	local GRA_VIT_SKILL, GRA_VIT_ID_1, GRA_VIT_ID_2 = Match_CE(490290);
 	--Agua bendita de manantial
@@ -41,9 +39,6 @@ function CE_MAGE_PRIEST()
 	--Campo estático
 	local CAM_EST_SKILL, CAM_EST_ID_1, CAM_EST_ID_2 = Match_CE(491172);
 	local CAM_EST_CD = CE_CD(CAM_EST_SKILL, CAM_EST_ID_1, CAM_EST_ID_2);
-	--Comprensión electrica
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171);
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2);
 	--Ekectric Ourburst
 	local ELE_OUT_SKILL, ELE_OUT_ID_1, ELE_OUT_ID_2 = Match_CE(491589);
 	local ELE_OUT_CD = CE_CD(ELE_OUT_SKILL, ELE_OUT_ID_1, ELE_OUT_ID_2);
@@ -77,18 +72,16 @@ function CE_MAGE_PRIEST()
 		end
 	end
 	----------------ROTACION------------------
+
+	--Flecha Actual
+	CE_NewAutoShoot(491587)
+
 	--Manto ignifugo
 	if MAN_IGN_SKILL and CE_BuffIdPlayer(500366) == false then
 		UseSkill(MAN_IGN_ID_1, MAN_IGN_ID_2);
-	--Dominio de la marea
-	elseif DOM_MAR_SKILL and CE_BuffIdPlayer(1500714) == false then
-		UseSkill(DOM_MAR_ID_1, DOM_MAR_ID_2);
 	--Canalización de energia
 	elseif CAN_ENE_SKILL and CE_BuffIdPlayer(500296) == false then
 		UseSkill(CAN_ENE_ID_1, CAN_ENE_ID_2);
-	--Comprension electrica
-	elseif COM_ELE_SKILL and CE_BuffIdPlayer(502270) and CE_BuffIdPlayer(501554) == false then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2);
 	--Debilidad elemental
 	elseif DEB_ELE_SKILL and DEB_ELE_CD <= 0.1 and CE_DebuffIdTarget(620189) == false then
 		UseSkill(DEB_ELE_ID_1, DEB_ELE_ID_2);
@@ -117,8 +110,12 @@ function CE_MAGE_PRIEST()
 	end
 end
 function CE_MAGE_PRIEST_IMPORT()
-	local Skills = { 1244059, 1244063, 200192, 203503, 499609,493265,490248,499607,490218,491171,497977,499608,490244,490243,491172, 492928, 491589, 491590 }
+	local Skills = { 491587, 1244059, 1244063, 200192, 203503, 499609,493265,490248,490218,497977,499608,490244,490243,491172, 492928, 491589, 491590 }
 	local conditions = {
+		-- 5 Autoshoot 491587
+		{
+			[44]={ enable=true, status=true }, -- 44 Auto Shoot
+		},
 		-- 1 Usar papas de col rizada 1244059
 		{
 			[12]={ id1="1500234", id2="0", id3="0", id4="0", status=true },
@@ -146,15 +143,8 @@ function CE_MAGE_PRIEST_IMPORT()
 		{ [33]={ id1="503713", id2="0", id3="0", id4="0", status=true } },
 		-- 7 Manto ignifugo 490248
 		{ [12]={ id1="500366", id2="0", id3="0", id4="0", status=true } },
-		-- 8 Dominio de la marea 499607
-		{ [12]={ id1="1500714", id2="0", id3="0", id4="0", status=true } },
 		-- 9 Canalización de energia 490218
 		{ [12]={ id1="500296", id2="0", id3="0", id4="0", status=true } },
-		-- 10 Comprension electrica 491171
-		{
-			[11]={ id1="502270", id2="0", id3="0", id4="0", status=true },
-			[12]={ id1="501554", id2="0", id3="0", id4="0", status=true }
-		},
 		-- 11 Debilidad elemental 497977
 		{ [33]={ id1="620189", id2="0", id3="0", id4="0", status=true } },
 		-- 12 Marea Creciente 499608

@@ -20,9 +20,6 @@ function CE_MAGE_WARRIOR()
 	--Tormenta
 	local TORM_SKILL, TORM_ID_1, TORM_ID_2 = Match_CE(1490679)
 	local TORM_CD = CE_CD(TORM_SKILL, TORM_ID_1, TORM_ID_2)
-	--Comprensión electrica
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171)
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2)
 	--Explosión eléctrica
 	local EXP_ELE_SKILL, EXP_ELE_ID_1, EXP_ELE_ID_2 = Match_CE(491170)
 	local EXP_ELE_CD = CE_CD(EXP_ELE_SKILL, EXP_ELE_ID_1, EXP_ELE_ID_2)
@@ -51,9 +48,6 @@ function CE_MAGE_WARRIOR()
 	--Carga electrostática
 	local CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2 = Match_CE(491156)
 	local CAR_ELE_CD = CE_CD(CAR_ELE_SKILL, CAR_ELE_ID_1, CAR_ELE_ID_2)
-	--ira de mana
-	local IRA_MAN_SKILL, IRA_MAN_ID_1, IRA_MAN_ID_2 = Match_CE(491565)
-	local IRA_MAN_CD = CE_CD(IRA_MAN_SKILL, IRA_MAN_ID_1, IRA_MAN_ID_2)
 	----------------COMIDAS------------------
 	if C_EngineSettings.Consumables then
 		--Usar papas de col rizada
@@ -80,17 +74,11 @@ function CE_MAGE_WARRIOR()
 	--Sabiduría y valor
 	elseif SAB_VAL_SKILL and CE_BuffIdPlayer(623148) == false then
 		UseSkill(SAB_VAL_ID_1, SAB_VAL_ID_2)
-	--Comprensión electrica
-	elseif COM_ELE_SKILL and COM_ELE_CD <= 0.1 and CE_BuffIdPlayer(502270) and (CE_BuffIdPlayer(501554) == false) then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2)
 	end
 	---------------FAST BUFFS------------
 	if C_EngineSettings.FastBuffs then
-		--Ira de mana
-		if IRA_MAN_SKILL and IRA_MAN_CD <= 0.1 and ira >= 50 then
-			UseSkill(IRA_MAN_ID_1, IRA_MAN_ID_2)
 		--Fiera
-		elseif FIERA_SKILL and FIERA_CD <= 0.1 and ira >= 25 then
+		if FIERA_SKILL and FIERA_CD <= 0.1 and ira >= 25 then
 			UseSkill(FIERA_ID_1, FIERA_ID_2)
 		--Furioso
 		elseif FURIOSO_SKILL and FURIOSO_CD <= 0.1 and ira < 20 then
@@ -110,12 +98,6 @@ function CE_MAGE_WARRIOR()
 	--Bola de fuego
 	if BOL_FUE_SKILL and BOL_FUE_CD <= 0.15 and (CE_BuffIdPlayer(623146) == false) then
 		UseSkill(BOL_FUE_ID_1, BOL_FUE_ID_2)
-	--Llama
-	elseif LLAMA_SKILL and LLAMA_CD <= 0.15 and ira >= 5 and speed >= 160 and pm > 200 and (CE_isMoving() == false or CE_BuffIdPlayer(623146)) then
-		UseSkill(LLAMA_ID_1, LLAMA_ID_2)
-	--Explosión eléctrica
-	elseif EXP_ELE_SKILL and CE_BuffIdPlayer(502270) and (CE_isMoving() == false or CE_BuffIdPlayer(623146)) then
-		UseSkill(EXP_ELE_ID_1, EXP_ELE_ID_2)
 	--Descarga
 	elseif DES_SKILL and DES_CD <= 0.15 and (CE_BuffIdPlayer(502270) == false) and C_EngineSettings.AOE then
 		UseSkill(DES_ID_1, DES_ID_2)
@@ -123,13 +105,19 @@ function CE_MAGE_WARRIOR()
 	elseif TORM_SKILL and TORM_CD <= 0.25 and C_EngineSettings.AOE and (CE_isMoving() == false) then
 		SpellTargetUnit("mouseover")
 		UseSkill(TORM_ID_1, TORM_ID_2)
+	--Llama
+	elseif LLAMA_SKILL and LLAMA_CD <= 0.15 and ira >= 5 and speed >= 160 and pm > 200 and (CE_isMoving() == false or CE_BuffIdPlayer(623146)) then
+		UseSkill(LLAMA_ID_1, LLAMA_ID_2)
+	--Explosión eléctrica
+	elseif EXP_ELE_SKILL and CE_BuffIdPlayer(502270) and (CE_isMoving() == false or CE_BuffIdPlayer(623146)) then
+		UseSkill(EXP_ELE_ID_1, EXP_ELE_ID_2)
 	--Campo estático
 	elseif CAM_EST_SKILL and ira >= 10 and CAM_EST_CD <= 0.25 and pm > 140 and CE_BuffIdPlayer(501554) and C_EngineSettings.AOE then
 		UseSkill(CAM_EST_ID_1, CAM_EST_ID_2)
 	end
 end
 function CE_MAGE_WARRIOR_IMPORT()
-	local Skills = { 1244064, 1244059, 1244063, 200192, 203503, 491562, 490248, 490218, 499589, 491171, 491565, 492942, 1492482, 491156, 493317, 490204, 493316, 491170, 490242, 1490679, 1491031 }
+	local Skills = { 1244064, 1244059, 1244063, 200192, 203503, 491562, 490248, 490218, 499589, 492942, 1492482, 491156, 493317, 490204, 493316, 491170, 490242, 1490679, 1491031 }
 	local conditions = {
 		-- 1 Poción del enano 1244064
 		{ [6]={ max="20", min="0", status=true }, [29]={ enable=true, status=true } },
@@ -158,38 +146,31 @@ function CE_MAGE_WARRIOR_IMPORT()
 		{ [12]={ id1="500296", id2="0", id3="0", id4="0", status=true } },
 		-- 9 Sabiduría y valor 499589
 		{ [12]={ id1="623148", id2="0", id3="0", id4="0", status=true } },
-		-- 10 Comprensión electrica 491171
-		{
-			[11]={ id1="502270", id2="0", id3="0", id4="0", status=true },
-			[12]={ id1="501554", id2="0", id3="0", id4="0", status=true }
-		},
-		-- 11 Ira de mana 491565
-		{ [6]={ max="100", min="50", status=true }, [41]={ enable=true, status=true } },
-		-- 12 Fiera 492942
+		-- 10 Fiera 492942
 		{ [6]={ max="100", min="25", status=true }, [41]={ enable=true, status=true } },
-		-- 13 Furioso 1492482
+		-- 11 Furioso 1492482
 		{ [6]={ max="20", min="0", status=true }, [41]={ enable=true, status=true } },
-		-- 14 Carga electrostática 491156
+		-- 12 Carga electrostática 491156
 		{ },
-		-- 15 Descarga electrica 493317
+		-- 13 Descarga electrica 493317
 		{ },
-		-- 16 Bola de fuego 490204
+		-- 14 Bola de fuego 490204
 		{ [12]={ id1="623146", id2="0", id3="0", id4="0", status=true } },
-		-- 17 Llama 493316493316
+		-- 15 Llama 493316493316
 		{
 			[6]={ max="100", min="5", status=true },
 			[11]={ id1="623146", id2="0", id3="0", id4="0", status=true }
 		},
-		-- 18 Explosión eléctrica 491170
+		-- 16 Explosión eléctrica 491170
 		{ [11]={ id1="502270", id2="", id3="0", id4="0", status=true } },
-		-- 19 Descarga 490242
+		-- 17 Descarga 490242
 		{
 			[12]={ id1="502270", id2="0", id3="0", id4="0", status=true },
 			[39]={ enable=true, status=true }
 		},
-		-- 20 Tormenta 1490679
+		-- 18 Tormenta 1490679
 		{ [39]={ enable=true, status=true }, [43]={ enable=true, status=true } },
-		-- 21 Campo estático 1491031
+		-- 19 Campo estático 1491031
 		{
 			[6]={ max="100", min="10", status=true },
 			[11]={ id1="501554", id2="0", id3="0", id4="0", status=true },

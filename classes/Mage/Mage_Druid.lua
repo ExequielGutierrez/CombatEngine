@@ -21,9 +21,6 @@ function CE_MAGE_DRUID()
 	-- Debilidad elemental 497977
 	local DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2 = Match_CE(497977)
 	local DEB_ELE_CD = CE_CD(DEB_ELE_SKILL, DEB_ELE_ID_1, DEB_ELE_ID_2)
-	-- Comprensión eléctrica 491171
-	local COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2 = Match_CE(491171)
-	local COM_ELE_CD = CE_CD(COM_ELE_SKILL, COM_ELE_ID_1, COM_ELE_ID_2)
 	-- Carga electrostática 491156
 	local ELE_CHARGE_SKILL, ELE_CHARGE_ID_1, ELE_CHARGE_ID_2 = Match_CE(491156)
 	local ELE_CHARGE_CD = CE_CD(ELE_CHARGE_SKILL, ELE_CHARGE_ID_1, ELE_CHARGE_ID_2)
@@ -91,9 +88,6 @@ function CE_MAGE_DRUID()
 	-- Carga electrostática
 	elseif ELE_CHARGE_SKILL and CE_BuffIdPlayer(620209) == false then
 		UseSkill(ELE_CHARGE_ID_1, ELE_CHARGE_ID_2)
-	-- Comprensión eléctrica
-	elseif COM_ELE_SKILL and CE_BuffIdPlayer(cargado) and CE_BuffIdPlayer(Comp_elect) == false and CE_isMoving() then
-		UseSkill(COM_ELE_ID_1, COM_ELE_ID_2)
 	-- Debilidad elemental
 	elseif DEB_ELE_SKILL and DEB_ELE_CD <= 0.25 and (CE_DebuffIdTarget(620189) == false) then
 		UseSkill(DEB_ELE_ID_1, DEB_ELE_ID_2)
@@ -121,7 +115,7 @@ function CE_MAGE_DRUID()
 end
 
 function CE_MAGE_DRUID_IMPORT()
-	local Skills = {1244059, 1244063, 200192, 203503, 494052, 494928, 494331, 493530, 493531, 493323, 491156, 491171, 497977, 499623, 490243, 1491830, 491172, 494564, 494053}
+	local Skills = {1244059, 1244063, 200192, 203503, 494052, 494928, 494331, 493530, 493531, 493323, 491156, 497977, 499623, 490243, 1491830, 491172, 494564, 494053}
 	local conditions = {
 		{ -- 1 Usar papas de col rizada 1244059
 		  [12]={ id1="1500234", id2="0", id3="0", id4="0", status=true },
@@ -158,10 +152,6 @@ function CE_MAGE_DRUID_IMPORT()
 		},
 		{ -- 11 Carga electrostática 491156
 			[12]={ id1="620209", id2="0", id3="0", id4="0", status=true }
-		},
-		{ -- 12 Comprensión eléctrica 491171
-		  [11]={ id1="502270", id2="0", id3="0", id4="0", status=true },
-		  [12]={ id1="501554", id2="0", id3="0", id4="0", status=true } 
 		},
 		{ -- 13 Debilidad elemental 497977
 			[33]={ id1="620189", id2="0", id3="0", id4="0", status=true }
