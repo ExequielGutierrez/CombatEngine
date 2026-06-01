@@ -4,6 +4,9 @@ Combat Engine por Neoraxer
 Macro:
 /run CombatEngine();
 
+v.75
+- Updated default Scout presets. 
+
 v.74
 - Updated default Rogue presets.
 - Added weapon conditions.

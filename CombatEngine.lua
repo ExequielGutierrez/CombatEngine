@@ -32,6 +32,24 @@ local CE_HEALING_THRESHOLDS = {
 }
 
 -- Common helpers
+function CE_MainButton_IsDocked()
+	if CE_BUTTON and CE_BUTTON.collectionButton then
+		return true
+	end
+
+	local saveVariables = MinimapButtonCollectionSaveVariables
+	local buttonCollection = saveVariables and saveVariables.buttonCollection
+	if buttonCollection then
+		for _, buttonName in pairs(buttonCollection) do
+			if buttonName == "CE_BUTTON" then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
 local function CE_safeLoadFile(path, errorPrefix)
 	local prefix = errorPrefix or "Error al cargar el archivo: "
 	local success, err = pcall(function()
@@ -613,11 +631,15 @@ function CE_MainButton_OnEnter(button)
 	GameTooltip:AddLine(_G.CE_LANG.Tooltip.ButtonShow);
 	GameTooltip:AddSeparator();
 	GameTooltip:AddLine(_G.CE_LANG.Tooltip.ButtonToggle);
+	if not CE_MainButton_IsDocked() then
+		GameTooltip:AddLine("|cff0099ffCtrl + Right-click:|r Dock");
+	end
 	GameTooltip:Show();
 end
 
 function CE_MainButton_OnLoad(button)
 	if not button then return end
+	MinimapButtonTemplate_OnLoad(button);
 	button:RegisterForClicks("LeftButton", "RightButton");
 end
 
@@ -646,15 +668,17 @@ function CE_MainButton_OnClick(button)
 	end
 end
 
-function CE_MainButton_OnMouseDown(button)
+function CE_MainButton_OnMouseDown(button, key)
 	if not button then return end
+	MinimapButtonTemplate_OnMouseDown(button, key);
 	if IsShiftKeyDown() then
 		button:StartMoving("TOPLEFT");
 	end
 end
 
-function CE_MainButton_OnMouseUp(button)
+function CE_MainButton_OnMouseUp(button, key)
 	if not button then return end
+	MinimapButtonTemplate_OnMouseUp(button, key);
 	button:StopMovingOrSizing();
 	CE_SAVE_BUTTON_POS();
 end
@@ -1163,6 +1187,10 @@ function CombatEngine( preset )
 end
 --Save button position
 function CE_SAVE_BUTTON_POS()
+	if CE_MainButton_IsDocked() then
+		return
+	end
+
 	local _, _, _, x, y = CE_BUTTON:GetAnchor()
 	CE_BUTTON_SETTINGS.point = "CENTER";
 	CE_BUTTON_SETTINGS.relativePoint = "CENTER";

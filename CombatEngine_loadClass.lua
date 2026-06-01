@@ -1,6 +1,14 @@
 ---------------------------------
 --------------Asignar------------
 ---------------------------------
+local CE_DEFAULT_BUTTON_SETTINGS = {
+	point = "CENTER",
+	relativePoint = "CENTER",
+	relativeTo = "MinimapViewFrame",
+	offsetX = -80,
+	offsetY = 90,
+}
+
 function CE_Assign()
 	local main, sec = UnitClassToken("player");
 	if(main == "THIEF") then
@@ -45,13 +53,16 @@ function CE_OnLoad_Event(event, arg1)
 		_G.CE_FASTBUFFS_ON = C_EngineSettings.FastBuffs or true;
 
 		CE_BUTTON_SETTINGS = CE_BUTTON_SETTINGS or {};
-		if not CE_BUTTON_SETTINGS.point then CE_BUTTON_SETTINGS.point = CE_DEFAULT_POS_BUTTON.point or "CENTER"; end
-		if not CE_BUTTON_SETTINGS.relativePoint then CE_BUTTON_SETTINGS.relativePoint = CE_DEFAULT_POS_BUTTON.relativePoint or "CENTER"; end
-		if not CE_BUTTON_SETTINGS.relativeTo then CE_BUTTON_SETTINGS.relativeTo = "MinimapViewFrame"; end
-		if not CE_BUTTON_SETTINGS.offsetX then CE_BUTTON_SETTINGS.offsetX = CE_DEFAULT_POS_BUTTON.offsetX or -80; end
-		if not CE_BUTTON_SETTINGS.offsetY then CE_BUTTON_SETTINGS.offsetY = CE_DEFAULT_POS_BUTTON.offsetY or 90; end
-		CE_BUTTON:ClearAllAnchors();
-		CE_BUTTON:SetAnchor(CE_BUTTON_SETTINGS.point, CE_BUTTON_SETTINGS.relativePoint, CE_BUTTON_SETTINGS.relativeTo, CE_BUTTON_SETTINGS.offsetX, CE_BUTTON_SETTINGS.offsetY);
+		local defaultButtonSettings = CE_DEFAULT_POS_BUTTON or CE_DEFAULT_BUTTON_SETTINGS;
+		if not CE_BUTTON_SETTINGS.point then CE_BUTTON_SETTINGS.point = defaultButtonSettings.point or "CENTER"; end
+		if not CE_BUTTON_SETTINGS.relativePoint then CE_BUTTON_SETTINGS.relativePoint = defaultButtonSettings.relativePoint or "CENTER"; end
+		if not CE_BUTTON_SETTINGS.relativeTo then CE_BUTTON_SETTINGS.relativeTo = defaultButtonSettings.relativeTo or "MinimapViewFrame"; end
+		if not CE_BUTTON_SETTINGS.offsetX then CE_BUTTON_SETTINGS.offsetX = defaultButtonSettings.offsetX or -80; end
+		if not CE_BUTTON_SETTINGS.offsetY then CE_BUTTON_SETTINGS.offsetY = defaultButtonSettings.offsetY or 90; end
+		if not CE_MainButton_IsDocked() then
+			CE_BUTTON:ClearAllAnchors();
+			CE_BUTTON:SetAnchor(CE_BUTTON_SETTINGS.point, CE_BUTTON_SETTINGS.relativePoint, CE_BUTTON_SETTINGS.relativeTo, CE_BUTTON_SETTINGS.offsetX, CE_BUTTON_SETTINGS.offsetY);
+		end
 	end
 
 	if COMBATENGINE_LOADED == true then
