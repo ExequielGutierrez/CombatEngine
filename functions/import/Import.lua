@@ -59,6 +59,9 @@ function CE_SET_IMPORT_SKILL(serial, preset)
 		["RANGERWARDEN"]   = type(CE_RANGER_WARDEN_IMPORT)   == "function" and serial == "RANGERWARDEN" and CE_RANGER_WARDEN_IMPORT()    or {},
 		["RANGERHARPSYN"]  = type(CE_RANGER_WARLOCK_IMPORT)  == "function" and serial == "RANGERHARPSYN" and CE_RANGER_WARLOCK_IMPORT()   or {},
 		["RANGERWARRIOR"]  = type(CE_RANGER_WARRIOR_IMPORT)  == "function" and serial == "RANGERWARRIOR" and CE_RANGER_WARRIOR_IMPORT()   or {},
+		-- Caballero (Knight)
+		["KNIGHTDRUID"]    = type(CE_KNIGHT_DRUID_IMPORT)    == "function" and serial == "KNIGHTDRUID" and CE_KNIGHT_DRUID_IMPORT()      or {},
+		["KNIGHTAUGUR"]    = type(CE_KNIGHT_AUGUR_IMPORT)    == "function" and serial == "KNIGHTAUGUR" and CE_KNIGHT_AUGUR_IMPORT()      or {},
 	}
 	CE_IMPORT_SKILLS = {}
 	CE_IMPORT_SKILLS = GetSkills[serial]

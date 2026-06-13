@@ -180,6 +180,8 @@ local CE_FASTBUFFS = {
 	KNIGHT = {
 		HARPSYN = {490192,1490508},
 		WARDEN  = {493406},
+		DRUID   = {490192,491321,490468,495724,490168},
+		AUGUR   = {490192,490081,490468,495724,490037,1494028},
 	},
 	MAGE = {
 		AUGUR   = {493265,499609,492633},
@@ -266,6 +268,8 @@ local CE_AOE_SKILLS = {
 	KNIGHT = {
 		HARPSYN = {1490843,1490842,490359,1490838,490241},
 		WARDEN = {493642,490241},
+		DRUID = {490175,1490817,1490515},
+		AUGUR = {1493719,490189},
 	},
 	THIEF = {
 		HARPSYN = {490345},
@@ -1050,6 +1054,7 @@ function CE_Art_OnClick()
 	GameTooltip:AddSeparator()
 	-- KNIGHT
 	GameTooltip:AddDoubleLine(caba .. " / " .. brujo, caba .. " / " .. alca);
+	GameTooltip:AddDoubleLine(caba .. " / " .. druida, caba .. " / " .. sacer);
 	GameTooltip:AddSeparator()
 	-- WARLOCK
 	GameTooltip:AddDoubleLine(brujo .. " / " .. pica, brujo .. " / " .. guerrero);

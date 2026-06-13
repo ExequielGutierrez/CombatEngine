@@ -749,10 +749,10 @@
 			COMBATENGINE_EDIT_LUA_OnShow( this );
 			CombatEngine_CONFIG_OnShow( this );
 			local main, sec =  UnitClassToken("player");
-			if main ~= "THIEF" and main ~= "HARPSYN" and main ~= "MAGE" and main ~= "RANGER" then
-				this.Import:Hide();
-			else
+			if main == "THIEF" or main == "HARPSYN" or main == "MAGE" or main == "RANGER" or (main == "KNIGHT" and sec == "DRUID") or (main == "KNIGHT" and sec == "AUGUR") then
 				this.Import:Show();
+			else
+				this.Import:Hide();
 			end
 		</OnShow>
 		<OnMouseDown>

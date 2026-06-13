@@ -123,6 +123,12 @@ function CE_OnLoad_Event(event, arg1)
 				elseif SEC_CLASS == "WARDEN" then
 					CE_IS_SUPPORTED(main, sec)
 					CE_LOAD_CLASS("Interface\\Addons\\CombatEngine\\classes\\Knight\\Knight_Warden.lua")
+				elseif SEC_CLASS == "DRUID" then
+					CE_IS_SUPPORTED(main, sec)
+					CE_LOAD_CLASS("Interface\\Addons\\CombatEngine\\classes\\Knight\\Knight_Druid.lua")
+				elseif SEC_CLASS == "AUGUR" then
+					CE_IS_SUPPORTED(main, sec)
+					CE_LOAD_CLASS("Interface\\Addons\\CombatEngine\\classes\\Knight\\Knight_Augur.lua")
 				else
 					CE_IS_UNSUPPORTED(main, sec)
 				end
@@ -376,6 +382,14 @@ function KNIGHT_engine(sec)
 	elseif (sec == "WARDEN") then
 		if _G.COMBAT_ENGINE_IS_READY then
 			CE_KNIGHT_WARDEN()
+		end
+	elseif (sec == "DRUID") then
+		if _G.COMBAT_ENGINE_IS_READY then
+			CE_KNIGHT_DRUID()
+		end
+	elseif (sec == "AUGUR") then
+		if _G.COMBAT_ENGINE_IS_READY then
+			CE_KNIGHT_AUGUR()
 		end
 	end
 end
