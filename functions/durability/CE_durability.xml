@@ -1,0 +1,63 @@
+<Ui xmlns="http://www.runewaker.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.runewaker.com/..\..\WorldXML\UI.xsd">
+	<Frame name="COMBATENGINE_durabilityTemplate" hidden="true" frameStrata="HIGH" movable="false" enableMouse="false" scale="1" dependencies="true" virtual="true">
+		<Size>
+			<AbsDimension x="24" y="13"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT" x="-10" y="-5"/>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBG" file="Interface\addons\CombatEngine\texture\Durability\bg.tga">
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+						<Anchor point="BOTTOMRIGHT"/>
+					</Anchors>
+					<Color a="0.65"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentValue" hidden="false" inherits="GameFontNormal" justifyH="CENTER" weight="BOLD" outline="NORMAL" text="110/110">
+					<Size><AbsDimension y="22"/></Size>
+					<Anchors><Anchor point="CENTER" y="0"/></Anchors>
+					<FontHeight><AbsValue val="11"/></FontHeight>
+					<Color hex="00FFFF"/>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnShow>
+				CE_durability_OnShow(this);
+			</OnShow>
+			<OnLoad>
+				CE_durability_OnLoad(this);
+			</OnLoad>
+			<OnEvent>
+				CE_durability_OnEvent(this, event);
+			</OnEvent>
+		</Scripts>
+	</Frame>
+
+	<Frame name="CE_DUR_01" parent="EquipMainHandSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_02" parent="EquipSecondaryHandSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_03" parent="EquipRangedSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_04" parent="EquipAmmoSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_05" parent="EquipHeadSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_06" parent="EquipChestSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_07" parent="EquipShoulderSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_08" parent="EquipFeetSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_09" parent="EquipWaistSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_010" parent="EquipLegsSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_011" parent="EquipHandsSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_012" parent="EquipBackSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_013" parent="EquipRing0Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_014" parent="EquipRing1Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_015" parent="EquipEarring0Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_016" parent="EquipEarring1Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_017" parent="EquipNecklaceSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_018" parent="EquipAdornmentSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_019" parent="EquipArtefact1Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_020" parent="EquipArtefact2Slot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+	<Frame name="CE_DUR_021" parent="EquipRobotSlot" inherits="COMBATENGINE_durabilityTemplate" hidden="false"/>
+</Ui>
+	

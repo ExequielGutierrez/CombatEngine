@@ -1,0 +1,538 @@
+<Ui xmlns="https://chroniclesofarcadia.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://chroniclesofarcadia.com/ https://chroniclesofarcadia.com/UI.xsd">
+<!--Background-->
+<Frame name="CE_FRAME_FAST_ROGUE_BACKGROUND" hidden="true" parent="UIParent" frameStrata="HIGH" movable="true" enableMouse="true">
+        <Size>
+            <AbsDimension x="215" y="58"/>
+        </Size>
+		<Backdrop bgFile="Interface\Tooltips\Tooltip-Background" edgeFile="Interface\Tooltips\Tooltip-border" tile="true">
+			<BackgroundInsets>
+				<AbsInset top="1" left="1" bottom="1" right="1"/>
+			</BackgroundInsets>
+			<EdgeSize>
+				<AbsValue val="8"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="8"/>
+			</TileSize>
+		</Backdrop>
+        <Anchors>
+         <Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="UIParent">
+                <Offset>
+                    <AbsDimension x="100" y="200"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+  	
+<!--CONTAINER-->
+<Frame name="CE_FRAME_FAST_ROGUE" hidden="false" parent="CE_FRAME_FAST_ROGUE_BACKGROUND" frameStrata="HIGH" movable="true" enableMouse="true">
+        <Size>
+            <AbsDimension x="207" y="50"/>
+        </Size>
+		<Backdrop bgFile="Interface\Tooltips\Tooltip-Background" edgeFile="Interface\Tooltips\Tooltip-border" tile="true">
+			<BackgroundInsets>
+				<AbsInset top="1" left="1" bottom="1" right="1"/>
+			</BackgroundInsets>
+			<EdgeSize>
+				<AbsValue val="6"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="6"/>
+			</TileSize>
+		</Backdrop>
+        <Anchors>
+         <Anchor point="CENTER" relativePoint="CENTER" relativeTo="CE_FRAME_FAST_ROGUE_BACKGROUND">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Scripts>
+            <OnLoad>
+				CE_OnLoad_QUICK_BAR(this);
+            </OnLoad>
+            <OnEvent>      
+				CE_OnLoad_Event_QUICK_BAR(event, arg1);
+            </OnEvent>
+          <OnLeave>
+          </OnLeave>
+        </Scripts>
+    </Frame>
+	
+<!--MOVE-->
+	<Button name="CE_ART_QUICK_MOVE" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="16" x="16"/>
+    </Size>
+    <Anchors>
+        <Anchor point="BOTTOMRIGHT" relativePoint="BOTTOMRIGHT" relativeTo="CE_FRAME_FAST_ROGUE">
+            <Offset>
+                <RelDimension x="-5" y="-5" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+    <Scripts>   
+		<OnMouseDown>
+		CE_FRAME_FAST_ROGUE_BACKGROUND:StartMoving("TOPLEFT");
+        </OnMouseDown>
+        <OnMouseUp>
+		CE_FRAME_FAST_ROGUE_BACKGROUND:StopMovingOrSizing();	
+		CE_SAVE_QUICK_BAR_POSITON();
+        </OnMouseUp>
+    </Scripts>
+    <NormalTexture file="Interface\addons\CombatEngine\texture\MOVE.tga"/>
+</Button> 
+
+<!--PERFECT SLIDE-->
+	<Button name="CE_ART_PERFECT_SLIDE_TOGGLE" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="40" x="40"/>
+    </Size>
+    <Anchors>
+        <Anchor point="LEFT" relativePoint="LEFT" relativeTo="CE_FRAME_FAST_ROGUE">
+            <Offset>
+                <RelDimension x="10" y="0" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+    <Scripts>   
+        <OnClick>
+            if _G.C_EngineSettings.Perfect_Slide == false or _G.C_EngineSettings.Perfect_Slide == nil then
+                --CE_SLIDE_ON_SYSTEM_TEXT()
+                _G.C_EngineSettings.Perfect_Slide = true
+                CE_ART_PERFECT_SLIDE_TOGGLE:LockPushed();
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(GetReplaceSystemKeyword("[1491731]") .. " |cff00ff00ON|r");
+				GameTooltip:Show();
+            elseif _G.C_EngineSettings.Perfect_Slide == true then
+                --CE_SLIDE_OFF_SYSTEM_TEXT()
+                _G.C_EngineSettings.Perfect_Slide = false
+                 CE_ART_PERFECT_SLIDE_TOGGLE:UnlockPushed();
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(GetReplaceSystemKeyword("[1491731]") .. " |cff808080OFF|r");
+				GameTooltip:Show();
+            end
+        </OnClick>     
+        <OnEnter>
+			if _G.C_EngineSettings.Perfect_Slide then
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(GetReplaceSystemKeyword("[1491731]") .. " |cff00ff00ON|r");
+				GameTooltip:Show();
+			else 
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(GetReplaceSystemKeyword("[1491731]") .. " |cff808080OFF|r");
+				GameTooltip:Show();
+			end
+        </OnEnter>
+        <OnLeave>
+			GameTooltip:Hide();    
+        </OnLeave>		
+    </Scripts>
+    <NormalTexture file="Interface\addons\CombatEngine\texture\SLIDE_OFF.tga"/>
+    <PushedTexture file="Interface\addons\CombatEngine\texture\SLIDE_ON.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\SLIDE_OFF.tga" alphaMode="ADD"/>
+</Button>  
+
+
+<!--AOE-->
+	<Button name="CE_ART_QUICK_AOE" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="40" x="40"/>
+    </Size>
+    <Anchors>
+        <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="CE_ART_PERFECT_SLIDE_TOGGLE">
+            <Offset>
+                <RelDimension x="3" y="0" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+    <Scripts>   
+        <OnClick>
+            if _G.C_EngineSettings.AOE == false then
+				--CE_AOE_ON_SYSTEM_TEXT();
+				_G.C_EngineSettings.AOE = true
+				_G.CE_AOE_ON = true
+                CE_ART_QUICK_AOE:LockPushed();
+				CE_BUTTON_AOE:SetChecked(true);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.AoeSkills .. ": ON", 1, 0.5, 0.3 );
+				GameTooltip:Show(); 
+            elseif _G.C_EngineSettings.AOE == true then
+                --CE_AOE_OFF_SYSTEM_TEXT();
+                _G.C_EngineSettings.AOE = false
+				_G.CE_AOE_ON = false
+                 CE_ART_QUICK_AOE:UnlockPushed();
+				CE_BUTTON_AOE:SetChecked(false);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.AoeSkills .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show(); 
+            end
+        </OnClick>       
+        <OnEnter>   
+			if _G.C_EngineSettings.AOE then
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.AoeSkills .. ": ON", 1, 0.5, 0.3 );
+				GameTooltip:Show(); 
+			else 
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.AoeSkills .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show(); 
+			end
+        </OnEnter>
+        <OnLeave>
+            GameTooltip:Hide();    
+        </OnLeave>	
+    </Scripts>
+    <NormalTexture file="Interface\addons\CombatEngine\texture\AOE_OFF.tga"/>
+    <PushedTexture file="Interface\addons\CombatEngine\texture\AOE_ON.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\AOE_OFF.tga" alphaMode="ADD"/>
+</Button>  
+
+<!--CONSUMABLES-->
+	<Button name="CE_ART_QUICK_CONSUMABLES" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="40" x="40"/>
+    </Size>
+    <Anchors>
+        <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="CE_ART_QUICK_AOE">
+            <Offset>
+                <RelDimension x="3" y="0" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+    <Scripts> 
+        <OnClick>
+            if _G.C_EngineSettings.Consumables == false then
+				--CE_CONSUMABLES_ON_SYSTEM_TEXT();
+				_G.C_EngineSettings.Consumables = true
+				_G.CE_CONSUMABLES_ON = true
+                CE_ART_QUICK_CONSUMABLES:LockPushed();
+				CE_BUTTON_CONSUMABLES:SetChecked(true);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.Consumables .. ": ON", 0.4, 0.8, 1 );
+				GameTooltip:Show(); 
+            elseif _G.C_EngineSettings.Consumables == true then
+                --CE_CONSUMABLES_OFF_SYSTEM_TEXT()
+                _G.C_EngineSettings.Consumables = false
+				_G.CE_CONSUMABLES_ON = false
+                 CE_ART_QUICK_CONSUMABLES:UnlockPushed();
+				CE_BUTTON_CONSUMABLES:SetChecked(false);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.Consumables .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show();  
+            end
+        </OnClick>
+        <OnEnter>
+			if _G.C_EngineSettings.Consumables then
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.Consumables .. ": ON", 0.4, 0.8, 1 );
+				GameTooltip:Show();  
+			else 
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.Consumables .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show();  
+			end
+        </OnEnter>
+        <OnLeave>
+            GameTooltip:Hide();    
+        </OnLeave>			
+    </Scripts>
+    <NormalTexture file="Interface\addons\CombatEngine\texture\CONSUMABLES_OFF.tga"/>
+    <PushedTexture file="Interface\addons\CombatEngine\texture\CONSUMABLES_ON.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\CONSUMABLES_OFF.tga" alphaMode="ADD"/>
+</Button>  
+	
+<!--FAST BUFFS-->
+	<Button name="CE_ART_QUICK_BUFFS" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="40" x="40"/>
+    </Size>
+    <Anchors>
+        <Anchor point="LEFT" relativePoint="RIGHT" relativeTo="CE_ART_QUICK_CONSUMABLES">
+            <Offset>
+                <RelDimension x="3" y="0" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+    <Scripts> 
+        <OnClick>
+            if _G.C_EngineSettings.FastBuffs == false then
+				--CE_FASTBUFFS_ON_SYSTEM_TEXT();
+				_G.C_EngineSettings.FastBuffs = true
+				_G.CE_FASTBUFFS_ON = true
+                CE_ART_QUICK_BUFFS:LockPushed();
+				CE_BUTTON_FAST_BUFFS:SetChecked(true);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.FastBuffs .. ": ON", 1, 0.7, 0.4 );
+				GameTooltip:Show();  
+            elseif _G.C_EngineSettings.FastBuffs == true then
+                --CE_FASTBUFFS_OFF_SYSTEM_TEXT()
+                _G.C_EngineSettings.FastBuffs = false
+				_G.CE_FASTBUFFS_ON = false
+                 CE_ART_QUICK_BUFFS:UnlockPushed();
+				CE_BUTTON_FAST_BUFFS:SetChecked(false);
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.FastBuffs .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show();  
+            end
+
+        </OnClick>
+		<OnEnter>
+			if _G.C_EngineSettings.FastBuffs then
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.FastBuffs .. ": ON", 1, 0.7, 0.4 );
+				GameTooltip:Show();    
+			else 
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				GameTooltip:SetText(_G.CE_LANG.Tooltip.FastBuffs .. ": OFF", 0.7, 0.7, 0.7 );
+				GameTooltip:Show();  
+			end
+        </OnEnter>
+        <OnLeave>
+            GameTooltip:Hide();    
+        </OnLeave>	
+    </Scripts>
+    <NormalTexture file="Interface\addons\CombatEngine\texture\BUFFS_OFF.tga"/>
+    <PushedTexture file="Interface\addons\CombatEngine\texture\BUFFS_ON.tga"/>
+	<HighlightTexture file="Interface\addons\CombatEngine\texture\BUFFS_OFF.tga" alphaMode="ADD"/>
+</Button>  
+
+<!--Expand-->
+	<CheckButton name="CE_ART_EXPAND" hidden="false" frameStrata="HIGH" parent="CE_FRAME_FAST_ROGUE" movable="false" enableMouse="true" alpha="1">
+    <Size>
+        <AbsDimension y="16" x="16"/>
+    </Size>
+    <Anchors>
+        <Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" relativeTo="CE_FRAME_FAST_ROGUE">
+            <Offset>
+                <RelDimension x="-5" y="5" />
+            </Offset>
+        </Anchor>
+    </Anchors>
+		<Scripts>
+			<OnEnter>
+				GameTooltip:SetOwner(this,"ANCHOR_BOTTOMRIGHT",0,0);
+				if( this:IsChecked() ) then
+					GameTooltip:SetText(_G.CE_LANG.Tooltip.CloseBuffs, 0.9, 0.4, 0 );
+				else
+					GameTooltip:SetText(_G.CE_LANG.Tooltip.OpenBuffs, 0.9, 0.4, 0 );
+				end
+				GameTooltip:Show();
+			</OnEnter>
+			<OnClick>
+				if( this:IsChecked() ) then
+					CE_FRAME_FAST_BUFFS:Show();
+					GameTooltip:SetText(_G.CE_LANG.Tooltip.CloseBuffs, 0.9, 0.4, 0 );
+				else
+					CE_FRAME_FAST_BUFFS:Hide();
+					GameTooltip:SetText(_G.CE_LANG.Tooltip.OpenBuffs, 0.9, 0.4, 0 );
+				end
+			</OnClick>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+		<NormalTexture file="Interface\addons\CombatEngine\texture\Arrow_Expand.tga"/>
+		<HighlightTexture file="Interface\addons\CombatEngine\texture\Arrow_Expand.tga" alphaMode="ADD"/>
+		<CheckedTexture file="Interface\addons\CombatEngine\texture\Arrow_Contract.tga"/>
+	</CheckButton>
+
+	<Frame name="CE_FRAME_FAST_BUFFS" hidden="true" parent="CE_FRAME_FAST_ROGUE_BACKGROUND" frameStrata="HIGH" movable="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="214" y="58"/>
+		</Size>
+		<Anchors>
+			<Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT" relativeTo="CE_FRAME_FAST_ROGUE_BACKGROUND">
+				<Offset>
+					<RelDimension x="0" y="0" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\Tooltips\Tooltip-Background" edgeFile="Interface\Tooltips\Tooltip-border" tile="true">
+			<BackgroundInsets>
+				<AbsInset top="1" left="1" bottom="1" right="1"/>
+			</BackgroundInsets>
+			<EdgeSize>
+				<AbsValue val="8"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="8"/>
+			</TileSize>
+		</Backdrop>
+		<Frames>
+			<Frame name="$parentContainer">
+				<Size>
+					<AbsDimension x="205" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER"></Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\Tooltips\Tooltip-Background" edgeFile="Interface\Tooltips\Tooltip-border" tile="true">
+					<BackgroundInsets>
+						<AbsInset top="1" left="1" bottom="1" right="1"/>
+					</BackgroundInsets>
+					<EdgeSize>
+						<AbsValue val="6"/>
+					</EdgeSize>
+					<TileSize>
+						<AbsValue val="6"/>
+					</TileSize>
+				</Backdrop>
+			</Frame>
+			<Button name="$parent_Buff1">
+				<Size>
+					<AbsDimension y="40" x="40"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="LEFT" relativeTo="$parentContainer">
+						<Offset>
+							<RelDimension x="10" y="2" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts> 
+					<OnClick>
+						CE_BUFFS( 1 );
+					</OnClick>
+					<OnMouseDown>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\physical_boost_pushed.tga");
+					</OnMouseDown>
+					<OnMouseUp>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\physical_boost_highlightl.tga");
+					</OnMouseUp>
+					<OnEnter>
+						TrackingCombatEngineBuff = 1;
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\physical_boost_highlightl.tga");
+						GameTooltip:SetOwner(this,"ANCHOR_TOPRIGHT",-20,-20);
+						CombatEngine_BuffsUpdate();
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						TrackingCombatEngineBuff = 0;
+						GameTooltip:Hide();
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\physical_boost_normal.tga");
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Buffs\physical_boost_normal.tga"/>
+			</Button>
+			<Button name="$parent_Buff2">
+				<Size>
+					<AbsDimension y="40" x="40"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_Buff1">
+						<Offset>
+							<RelDimension x="3" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts> 
+					<OnClick>
+						CE_BUFFS( 2 );
+					</OnClick>
+					<OnMouseDown>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\magicl_boost_pushed.tga");
+					</OnMouseDown>
+					<OnMouseUp>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\magicl_boost_highlight.tga");
+					</OnMouseUp>
+					<OnEnter>
+						TrackingCombatEngineBuff = 2;
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\magicl_boost_highlight.tga");
+						GameTooltip:SetOwner(this,"ANCHOR_TOPRIGHT",-20,-20);
+						CombatEngine_BuffsUpdate();
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						TrackingCombatEngineBuff = 0;
+						GameTooltip:Hide();
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\magicl_boost_normal.tga");
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Buffs\magicl_boost_normal.tga"/>
+			</Button>  
+			<Button name="$parent_Buff3">
+				<Size>
+					<AbsDimension y="40" x="40"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_Buff2">
+						<Offset>
+							<RelDimension x="3" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts> 
+					<OnClick>
+						CE_BUFFS( 3 );
+					</OnClick>
+					<OnMouseDown>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\heal_boost_pushed.tga");
+					</OnMouseDown>
+					<OnMouseUp>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\heal_boost_highlight.tga");
+					</OnMouseUp>
+					<OnEnter>
+						TrackingCombatEngineBuff = 3;
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\heal_boost_highlight.tga");
+						GameTooltip:SetOwner(this,"ANCHOR_TOPRIGHT",-20,-20);
+						CombatEngine_BuffsUpdate();
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						TrackingCombatEngineBuff = 0;
+						GameTooltip:Hide();
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\heal_boost_normal.tga");
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Buffs\heal_boost_normal.tga"/>
+			</Button>
+			<Button name="$parent_Buff4">
+				<Size>
+					<AbsDimension y="40" x="40"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$parent_Buff3">
+						<Offset>
+							<RelDimension x="3" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts> 
+					<OnClick>
+						CE_BUFFS( 4 );
+					</OnClick>
+					<OnMouseDown>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\tank_boost_pushed.tga");
+					</OnMouseDown>
+					<OnMouseUp>
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\tank_boost_highlight.tga");
+					</OnMouseUp>
+					<OnEnter>
+						TrackingCombatEngineBuff = 4;
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\tank_boost_highlight.tga");
+						GameTooltip:SetOwner(this,"ANCHOR_TOPRIGHT",-20,-20);
+						CombatEngine_BuffsUpdate();
+						GameTooltip:Show();
+					</OnEnter>
+					<OnLeave>
+						TrackingCombatEngineBuff = 0;
+						GameTooltip:Hide();
+						this:GetNormalTexture():SetFile("Interface\\addons\\CombatEngine\\texture\\Buffs\\tank_boost_normal.tga");
+					</OnLeave>
+				</Scripts>
+				<NormalTexture file="Interface\addons\CombatEngine\texture\Buffs\tank_boost_normal.tga"/>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				CombatEngine_BuffsUpdate();
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+  	
+
+
+</Ui>
+	
